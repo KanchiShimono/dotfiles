@@ -124,7 +124,7 @@ function link_dotfiles() {
 	ln -sfv ${DOTPATH}/_bashrc ~/.bashrc
 	ln -sfv ${DOTPATH}/_tmux.conf ~/.tmux.conf
 	ln -sfv ${DOTPATH}/_zshrc ~/.zshrc
-	ln -sfv ${DOTPATH}/_zsh ~/.zsh
+	ln -snfv ${DOTPATH}/_zsh ~/.zsh
 	ln -sfv ${DOTPATH}/_ctags ~/.ctags
 	ln -sfv ${DOTPATH}/_latexmkrc ~/.latexmkrc
 	ln -sfv ${DOTPATH}/_gitconfig ~/.gitconfig
