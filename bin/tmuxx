@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [ -z $TMUX ]; then
+	tmux has-session >/dev/null 2>&1
+	if [ $? = "0" ]; then
+		ID="`tmux list-sessions`"
+		if [ -z "$ID" ]; then
+			tmux new-session
+		fi
+		create_new_session="New Session"
+		ID="${create_new_session}:\n$ID"
+		ID="`echo -e "$ID" | fzf | cut -d : -f 1`"
+		if [ "$ID" = "$create_new_session" ]; then
+			tmux new-session
+		elif [ -n "$ID" ]; then
+			tmux attach-session -t "$ID"
+		else
+			:
+		fi
+	else
+		tmux new-session
+	fi
+fi
+
+# if [ -z $TMUX ]; then
+#   tmux has-session >/dev/null 2>&1
+#   if [ $? = "0" ]; then
+#     tmux list-session
+#     echo "Tmux: attach? (y/N/num)"
+#     read
+#     if expr "$REPLY" : '[0-9]*' > /dev/null ; then
+#       tmux attach -t "$REPLY"
+#     else
+#       case $REPLY in
+#         'y'|'Y'|'')
+#           tmux attach
+#           ;;
+#         *)
+#           tmux
+#           ;;
+#       esac
+#     fi
+#   else
+#     tmux
+#   fi
+# fi
