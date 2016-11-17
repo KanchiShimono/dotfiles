@@ -36,10 +36,12 @@ function install_packages() {
 	pip2 install jupyter
 	# python 3
 	brew install python3
-	# Go
-	brew install go
+	# ruby
+	brew install ruby
 	# perl
 	brew install perl
+	# Go
+	brew install go
 	# D
 	brew install dmd
 	# lua
@@ -63,7 +65,6 @@ function install_packages() {
 	brew install fzf
 	brew install ctags
 	brew install pandoc
-	brew install ag
 	brew install reattach-to-user-namespace
 	brew install nkf
 	brew install ffmpeg
