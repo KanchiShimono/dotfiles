@@ -2,7 +2,8 @@
 
 # Check arguments
 if [[ -z $1 ]]; then
-    echo "too few argument" 1>&2; exit 1
+    echo "too few argument" 1>&2
+	exit 1
 elif [[ ! $1 =~ ^(((https?|git)://)?github\.com/)?([A-Za-z0-9_-]+/)?[A-Za-z0-9_.-]+(\.git)?$ ]]; then
     echo "$1: invalid github.com URL" 1>&2
     exit 1
@@ -21,14 +22,22 @@ reponame="${uri#*/}"
 
 # Destination
 dest="${2:-$HOME/dev/src/github.com/${username:?not set}}"
-if [ -d "$dest" ]; then dest="$dest/$reponame";
-else
+if [ ! -d "$dest" ]; then
 	mkdir -v "$dest" 2>/dev/null
-	dest="$dest/$reponame"
 fi
+dest="$dest/$reponame"
 
 if [ -d "$dest" ]; then
-    echo "${dest/$HOME/~}: already exists" 1>&2; exit 1
+    echo "${dest/$HOME/~}: already exists" 1>&2;
+	echo "Overwrite repository $dest? (Y/N)"
+	read ans
+	case "$ans" in
+		[yY] | [yY]es | YES ) echo "Overwrite repository $dest"
+							  rm -rf "$dest"
+							  ;;
+		[nN] | [nN]o | NO ) exit 1 ;;
+	esac
 fi
+
 mkdir -p "$dest" 2>/dev/null
 git clone "https://github.com/${uri}.git" "$dest"

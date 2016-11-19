@@ -36,10 +36,12 @@ function install_packages() {
 	pip2 install jupyter
 	# python 3
 	brew install python3
-	# Go
-	brew install go
+	# ruby
+	brew install ruby
 	# perl
 	brew install perl
+	# Go
+	brew install go
 	# D
 	brew install dmd
 	# lua
@@ -63,7 +65,6 @@ function install_packages() {
 	brew install fzf
 	brew install ctags
 	brew install pandoc
-	brew install ag
 	brew install reattach-to-user-namespace
 	brew install nkf
 	brew install ffmpeg
@@ -124,7 +125,7 @@ function link_dotfiles() {
 	ln -sfv ${DOTPATH}/_bashrc ~/.bashrc
 	ln -sfv ${DOTPATH}/_tmux.conf ~/.tmux.conf
 	ln -sfv ${DOTPATH}/_zshrc ~/.zshrc
-	ln -sfv ${DOTPATH}/_zsh ~/.zsh
+	ln -snfv ${DOTPATH}/_zsh ~/.zsh
 	ln -sfv ${DOTPATH}/_ctags ~/.ctags
 	ln -sfv ${DOTPATH}/_latexmkrc ~/.latexmkrc
 	ln -sfv ${DOTPATH}/_gitconfig ~/.gitconfig
