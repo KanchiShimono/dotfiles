@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SRCROOT=~/dev/src
+
+#Check source root directory
+if [[ ! -d "$SRCROOT" ]]; then
+	echo "Not exist src root directory $SRCROOT"
+	exit 1
+fi
+
+find "$SRCROOT" -name ".git" -type d | sed -e "s/\/\.git//g"
