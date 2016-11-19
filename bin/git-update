@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SRCROOT=~/dev/src/github.com
+
+#Check source root directory
+if [[ ! -d "$SRCROOT" ]]; then
+	echo "Not exist src root directory $SRCROOT"
+	exit 1
+fi
+
+for dir in `find "$SRCROOT" -type d -maxdepth 1 -mindepth 1`; do
+	username="$(basename "$dir")"
+	for repo in `find "$SRCROOT/$username" -type d -maxdepth 1 -mindepth 1`; do
+		reponame="$(basename "$repo")"
+		uri="$username/$reponame"
+		dest="$SRCROOT/$uri"
+		cd "$dest"
+		pwd
+	done
+done
