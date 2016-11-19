@@ -149,7 +149,7 @@ Plug 'joshdick/onedark.vim'				" onedark
 Plug 'KeitaNakamura/neodark.vim'		" neodark
 
 "< Julia-vim >
-Plug 'JuliaLang/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 
 " < Lint for juila >
 Plug 'zyedidia/julialint.vim'
@@ -165,6 +165,9 @@ Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
 " Instoll to custom directory '~/.vim/custom/apple-swift' for syntax highlight
 "Plug 'apple-swift', { 'dir': '~/.vim/custom/apple-swift', 'for': 'swift', 'frozen': 1}
 Plug 'kballard/vim-swift', { 'for': 'swift' }
+
+"< vim-go >
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 "< Tmux Navigator >
 " Plug 'christoomey/vim-tmux-navigator'
@@ -683,6 +686,14 @@ augroup PrevimSetting
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+" }}}
+" vim-go {{{2
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 " }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
