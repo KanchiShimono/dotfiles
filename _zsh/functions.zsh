@@ -1,6 +1,5 @@
-# fzf
-
 export FZF_DEFAULT_COMMAND='ag -ag ""'
+
 # search directory and cd
 fd() {
 	local dir
@@ -45,8 +44,9 @@ nvf() {
     file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir" && nvim "$OLDPWD/$file"
 }
 
-function fzf-src () {
-    local selected_dir=$(ghq list --full-path | fzf +m -q "$LBUFFER")
+# search ~/dev/src directory and cd
+function cdsrc () {
+    local selected_dir=$(src-list | fzf +m -q "$LBUFFER")
     if [ -n "$selected_dir" ]; then
 		cd "$selected_dir"
     fi
