@@ -142,12 +142,14 @@ function link_dotfiles() {
 	ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
 }
 
-function install_ghq() {
-	go get github.com/motemen/ghq
+function initialize_srcdir() {
+	# Create ~/dev/src directory by go get
+	#---------------------------------------------------------------------------
+	go get github.com/KanchiShimono/srcmgr
 }
 
 install_homebrew
 install_packages
 install_applications
 link_dotfiles
-install_ghq
+initialize_srcdir
