@@ -8,4 +8,29 @@ if [[ ! -d "$SRCROOT" ]]; then
 	exit 1
 fi
 
-find "$SRCROOT" -name ".git" -type d | sed -e "s/\/\.git//g"
+# find "$SRCROOT" -name ".git" -type d | sed -e "s/\/\.git//g"
+
+walk() {
+	root="$1"
+	for dirpath in `find "$root" -type d -mindepth 1 -maxdepth 1`
+	do
+		if [[ `walkfunc "$dirpath"` = "exist" ]]; then
+			echo "$dirpath"
+		else
+			walk "$dirpath"
+		fi
+	done
+}
+
+walkfunc() {
+	for dir in `find "$1" -name ".git" -type d -mindepth 1 -maxdepth 1`
+	do
+		if [ -d "$dir" ]; then
+			echo "exist"
+		else
+			echo "not exist"
+		fi
+	done
+}
+
+walk "$SRCROOT"
