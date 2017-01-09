@@ -17,9 +17,13 @@ if has('vim_starting')
   end
 endif
 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-plug',
-        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+if has('nvim')
+	call plug#begin('~/.config/nvim/plugged')
+else
+	call plug#begin('~/.vim/plugged')
+endif
+" Plug 'junegunn/vim-plug',
+"         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " Add plugin from here {{{
 
@@ -57,6 +61,7 @@ if has('nvim')
 	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+	Plug 'zchee/deoplete-go', { 'do': 'make' }
 else
 	Plug 'Shougo/neocomplete'
 endif
@@ -118,7 +123,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rking/ag.vim'
 
 "< Latex >
-Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
+Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
 
 "< tex conceal >
 " Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
@@ -127,7 +133,7 @@ Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
 Plug 'aperezdc/vim-template'
 
 "< Previm >
-" Plug 'kannokanno/previm'
+Plug 'kannokanno/previm'
 
 "< Color scheme (:Unite colorscheme -auto-preview) >
 " Plug 'altercation/vim-colors-solarized' " solarized
@@ -243,7 +249,7 @@ let g:tex_flavor = 'latex'
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = '~/.vim/template'
 let tlist_tex_settings='latex;l:labels;c:chapter;s:sections;t:subsections;u:subsubsections'
-set iskeyword=@,48-57,_,-,:,192-255
+" set iskeyword=@,48-57,_,-,:,192-255
 noremap <expr> <F7> LaTeXtoUnicode#Toggle()
 inoremap <expr> <F7> LaTeXtoUnicode#Toggle()
 
@@ -382,13 +388,39 @@ let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+if has('nvim')
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function() abort
+		return pumvisible() ? deoplete#close_popup() : "\<CR>"
+	endfunction
+endif
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = '\\(?:'
+	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+	\ . '|hyperref\s*\[[^]]*'
+	\ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+	\ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ .')'
+autocmd CompleteDone * pclose!
+"}}}
 
 " deoplete-clang {{{2
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.8.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.8.1/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.9.1/lib/clang'
 " }}}
 " deoplete-jedi {{{2
 let deoplete#sources#jedi#enable_cache=1
+" }}}
+" deoplete-go {{{2
+let g:deoplete#source#go#go_codebinary = '~/dev/bin/gocode'
+let g:deoplete#source#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#source#go#pointer = 1
 " }}}
 " neocomplete {{{2
 let g:acp_enableAtStartup = 0
@@ -426,14 +458,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
-" deoplete {{{2
-if has('nvim')
-	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-	function! s:my_cr_function() abort
-		return pumvisible() ? deoplete#close_popup() : "\<CR>"
-	endfunction
-endif
-" }}}
 " Syntastic {{{2
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_enable_signs=1
@@ -633,23 +657,6 @@ let g:ycm_semantic_triggers.tex = [
             \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
             \ ]
 
-" for deoplete {{{3
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = '\\(?:'
-	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-	\ . '|hyperref\s*\[[^]]*'
-	\ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|(?:include(?:only)?|input)\s*\{[^}]*'
-	\ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ .')'
-autocmd CompleteDone * pclose!
-" }}}
-
 " tex-conceal {{{2
 " let g:tex_conceal="agmb"
 " autocmd VimEnter,Colorscheme * :hi Conceal guibg=green ctermfg=white ctermbg=234
@@ -678,7 +685,7 @@ let g:vimtex_indent_enabled = 1
 " }}}
 " Previm {{{2
 
-let g:previm_open_cmd = 'open -a Safari'
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 let g:previm_show_header = 0
 " let g:previm_enable_realtime = 1
 augroup PrevimSetting
