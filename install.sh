@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTPATH=`echo $(cd $(dirname $0) && pwd)`
+export GOPATH=$HOME/dev
 
 function install_homebrew() {
 	# Install Xcode Command Line Tools
