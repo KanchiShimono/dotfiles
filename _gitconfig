@@ -10,7 +10,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = KanchiShimono
+	name = Kanchi Shimono
 	email = shimono-kanchi-yc@ynu.jp
 [ghq]
 	root = ~/dev/src
