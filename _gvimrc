@@ -10,7 +10,13 @@ syntax on
 set background=dark
 " let g:neodark#background = 'gray'
 colorscheme neodark
-set guifont=Monaco:h18
+if has('nvim')
+	" For neovim-qt
+	Guifont Monaco:h14
+else
+	" For gvim
+	set guifont=Monaco:h14
+endif
 " set transparency=20
 " hi clear cursorLine
 "****************************************************************************************************
