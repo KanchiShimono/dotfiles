@@ -31,12 +31,15 @@ function install_packages() {
 	brew install eigen
 	# python 2
 	brew install python
-	pip2 install matplotlib
-	pip2 install numpy
-	pip2 install pandas
-	pip2 install jupyter
+	brew linkapps python
 	# python 3
 	brew install python3
+	brew linkapps python3
+	# packages for python
+	pip3 install numpy pandas matplotlib tqdm Sphinx juyter
+	pip2 install numpy pandas matplotlib tqdm Sphinx
+	python2 -m pip install ipykernel
+	python2 -m ipykernel install --user
 	# ruby
 	brew install ruby
 	# perl
@@ -55,7 +58,7 @@ function install_packages() {
 	brew install julia
 	julia -e 'for x in ARGS; Pkg.add($x); using end' \
 		PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
-		BenchmarkTools
+		BenchmarkTools DocOpt
 
 	# Shell Utilities
 	#---------------------------------------------------------------------------
@@ -69,6 +72,7 @@ function install_packages() {
 	brew install reattach-to-user-namespace
 	brew install nkf
 	brew install ffmpeg
+	brew install ninja
 	brew install sl
 	npm install --global pure-prompt
 
@@ -77,7 +81,10 @@ function install_packages() {
 	brew install vim --with-lua --with-luajit
 	brew install macvim --with-lua --with-luajit
 	brew linkapps macvim
-	brew install neovim/neovim/neovim
+	brew tap neovim/neovim
+	brew install neovim
+	pip3 install neovim
+	pip2 install neovim
 
 	# Xcode
 	#---------------------------------------------------------------------------
