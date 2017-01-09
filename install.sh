@@ -139,6 +139,7 @@ function link_dotfiles() {
 	ln -sfv ${DOTPATH}/_gitconfig ~/.gitconfig
 	ln -sfv ~/.vim ~/.config/nvim
 	ln -sfv ~/.vimrc ~/.config/nvim/init.vim
+	ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
 }
 
 function install_ghq() {
