@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SRCROOT=~/dev/src
+SRCROOT=$HOME/dev/src
 
 #Check source root directory
 if [[ ! -d "$SRCROOT" ]]; then
