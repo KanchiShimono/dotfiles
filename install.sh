@@ -132,8 +132,7 @@ function install_applications() {
 function link_dotfiles() {
 	ln -sfv ${DOTPATH}/_vimrc ~/.vimrc
 	ln -sfv ${DOTPATH}/_gvimrc ~/.gvimrc
-	mkdir -p ~/.matplotlib
-	ln -sfv ${DOTPATH}/matplotlibrc ~/.matplotlib/matplotlibrc
+	ln -snfv ${DOTPATH}/_matplotlib ~/.matplotlib
 	ln -sfv ${DOTPATH}/_bashrc ~/.bashrc
 	ln -sfv ${DOTPATH}/_tmux.conf ~/.tmux.conf
 	ln -sfv ${DOTPATH}/_zshrc ~/.zshrc
