@@ -42,11 +42,16 @@ Plug 'kien/ctrlp.vim'
 "< fugitive >
 Plug 'tpope/vim-fugitive'
 
+"< vim-surround >
+Plug 'tpope/vim-surround'
+
 "< Auto close brackets >
 Plug 'jiangmiao/auto-pairs'
 
 "< Jedi >
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+if !has('nvim')
+	Plug 'davidhalter/jedi-vim', {'for': 'python'}
+endif
 
 "< Auto complete >
 " Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
@@ -61,17 +66,17 @@ if has('nvim')
 	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
-	Plug 'zchee/deoplete-go', { 'do': 'make' }
+	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 else
 	Plug 'Shougo/neocomplete'
 endif
 
+"< Syntax check >
 "< neomake >
 if has('nvim')
 	Plug 'neomake/neomake'
-
 "< Syntastic >
-elseif has('vim')
+else
 	Plug 'scrooloose/syntastic'
 endif
 
@@ -124,7 +129,6 @@ Plug 'rking/ag.vim'
 
 "< Latex >
 Plug 'lervag/vimtex'
-" Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
 
 "< tex conceal >
 " Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
@@ -158,7 +162,7 @@ Plug 'KeitaNakamura/neodark.vim'		" neodark
 Plug 'JuliaEditorSupport/julia-vim'
 
 " < Lint for juila >
-Plug 'zyedidia/julialint.vim'
+Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
 
 "< Syntax-cpp >
 Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
@@ -417,6 +421,7 @@ let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.9.1/lib/cl
 " }}}
 " deoplete-jedi {{{2
 let deoplete#sources#jedi#enable_cache=1
+let deoplete#sources#jedi#show_docstring=1
 " }}}
 " deoplete-go {{{2
 let g:deoplete#source#go#go_codebinary = '~/dev/bin/gocode'
@@ -443,7 +448,7 @@ let g:neocomplete#auto_completin_start_length = 2
 " inoremap <expr><C-y>  neocomplete#close_popup()
 " inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :"\<Space>"
-if has('vim')
+if !has('nvim')
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
 		" return neocomplete#close_popup() . "\<CR>"
@@ -625,7 +630,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-if has('vim')
+if !has('nvim')
 	augroup AutoSyntastic
 		autocmd!
 		autocmd BufWritePost *.c,*.cpp call s:syntastic()
@@ -693,6 +698,11 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+augroup VimGo
+	autocmd!
+	autocmd FileType go :highlight goErr ctermfg=214
+	autocmd FileType go :match goErr /\<err\>/
+augroup END
 " }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
