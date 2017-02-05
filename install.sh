@@ -15,7 +15,6 @@ function install_packages() {
 	# zsh
 	#---------------------------------------------------------------------------
 	brew install zsh
-	ZSH_PATH="/usr/local/bin/zsh"
 	sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
 	chsh -s /usr/local/bin/zsh
 	brew install zsh-autosuggestions
@@ -73,7 +72,10 @@ function install_packages() {
 	brew install nkf
 	brew install ffmpeg
 	brew install ninja
+	brew install rename
 	brew install sl
+	brew install ghostscript
+	brew install imagemagick --with-ghostscript
 	npm install --global pure-prompt
 
 	# Vim
@@ -111,6 +113,7 @@ function install_applications() {
 	brew cask install karabiner
 	brew cask install insomniax
 	brew cask install the-unarchiver
+	brew cask install middleclick
 
 	# Developer Tools
 	#---------------------------------------------------------------------------
@@ -123,6 +126,7 @@ function install_applications() {
 	# Tools
 	#---------------------------------------------------------------------------
 	brew cask install skim
+	brew cask install mactex
 }
 
 function link_dotfiles() {
@@ -137,6 +141,7 @@ function link_dotfiles() {
 	ln -sfv ${DOTPATH}/_ctags ~/.ctags
 	ln -sfv ${DOTPATH}/_latexmkrc ~/.latexmkrc
 	ln -sfv ${DOTPATH}/_gitconfig ~/.gitconfig
+	ln -sfv ${DOTPATH}/_gitignore_global ~/.gitignore_global
 	ln -sfv ~/.vim ~/.config/nvim
 	ln -sfv ~/.vimrc ~/.config/nvim/init.vim
 	ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
@@ -148,8 +153,8 @@ function initialize_srcdir() {
 	go get github.com/KanchiShimono/srcmgr
 }
 
-install_homebrew
-install_packages
-install_applications
-link_dotfiles
-initialize_srcdir
+# install_homebrew
+# install_packages
+# install_applications
+# link_dotfiles
+# initialize_srcdir
