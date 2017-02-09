@@ -1,0 +1,114 @@
+#                  _         _       _   _ _ _              
+#  _ __ ___   __ _| |_ _ __ | | ___ | |_| (_) |__  _ __ ___ 
+# | '_ ` _ \ / _` | __| '_ \| |/ _ \| __| | | '_ \| '__/ __|
+# | | | | | | (_| | |_| |_) | | (_) | |_| | | |_) | | | (__ 
+# |_| |_| |_|\__,_|\__| .__/|_|\___/ \__|_|_|_.__/|_|  \___|
+#                     |_|                                   
+# 
+#
+
+# Default matplotlibrc with Homebrew:
+# /usr/local/lib/python2.7/site-packages/matplotlib/mpl-data/matplotlibrc
+
+# To display where the currently active matplotlibrc
+# file was loaded from, one can do the following:
+# ```
+# >>> import matplotlib
+# >>> matplotlib.matplotlib_fname() 
+# ```
+
+backend      : macosx
+
+
+### FONT
+#
+# note that font.size controls default text sizes.  To configure
+# special text sizes tick labels, axes, labels, title, etc, see the rc
+# settings for axes and ticks. Special text sizes can be defined
+# relative to font.size, using the following values: xx-small, x-small,
+# small, medium, large, x-large, xx-large, larger, or smaller
+#
+font.family          : serif
+font.size            : 18.0
+font.serif           : Times New Roman
+
+### LINES
+lines.linewidth       : 0.5     # line width in points
+lines.markeredgewidth : 0.5     # the line width around the marker symbol
+lines.markersize      : 5       # markersize, in points
+
+### TEXT
+# text properties used by text.Text.  See
+# http://matplotlib.org/api/artist_api.html#module-matplotlib.text for more
+# information on text properties
+
+# The following settings allow you to select the fonts in math mode.
+# They map from a TeX font name to a fontconfig font pattern.
+# These settings are only used if mathtext.fontset is 'custom'.
+# Note that this "custom" mode is unsupported and may go away in the
+# future.
+#mathtext.cal : cursive
+mathtext.rm  : serif
+#mathtext.tt  : monospace
+#mathtext.it  : serif:italic
+#mathtext.bf  : serif:bold
+#mathtext.sf  : sans
+mathtext.fontset : cm # Should be 'dejavusans' (default),
+                               # 'dejavuserif', 'cm' (Computer Modern), 'stix',
+                               # 'stixsans' or 'custom'
+#mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Modern
+                                 # fonts when a symbol can not be found in one of
+                                 # the custom math fonts.
+
+#mathtext.default : it # The default font to use for math.
+                       # Can be any of the LaTeX font names, including
+                       # the special name "regular" for the same font
+                       # used in regular text.
+
+### AXES
+axes.linewidth      : 0.2     # edge linewidth
+axes.titlesize      : large   # fontsize of the axes title
+axes.labelsize      : medium  # fontsize of the x any y labels
+axes.autolimit_mode : data # How to scale axes limits to the data.
+                            # Use "data" to use data limits, plus some margin
+                            # Use "round_number" move to the nearest "round" number
+axes.xmargin        : 0  # x margin.  See `axes.Axes.margins`
+axes.ymargin        : 0  # y margin See `axes.Axes.margins`
+
+### PATCHES
+patch.linewidth : 0.4
+
+### TICKS
+xtick.top            : False   # draw ticks on the top side
+xtick.bottom         : True   # draw ticks on the bottom side
+xtick.major.width    : 0.2    # major tick width in points
+xtick.minor.width    : 0.2    # minor tick width in points
+xtick.labelsize      : small   # fontsize of the tick labels
+xtick.direction      : in    # direction: in, out, or inout
+ytick.left           : True   # draw ticks on the left side
+ytick.right          : False  # draw ticks on the right side
+ytick.major.width    : 0.2    # major tick width in points
+ytick.minor.width    : 0.2    # minor tick width in points
+ytick.labelsize      : small   # fontsize of the tick labels
+ytick.direction      : in    # direction: in, out, or inout
+
+### GRIDS
+grid.linewidth       : 0.1    # in points
+
+### Legend
+legend.fancybox      : False   # if True, use a rounded box for the
+                               # legend, else a rectangle
+legend.numpoints     : 1       # the number of points in the legend line
+legend.fontsize      : small
+# legend.framealpha    : None    # opacity of of legend frame (e.g., 0.5)
+legend.scatterpoints : 1       # number of scatter points
+
+### FIGURE
+figure.dpi       : 200      # figure dots per inch
+
+### SAVING FIGURES
+savefig.dpi          : 400     # figure dots per inch
+savefig.bbox         : tight   # 'tight' or 'standard'.
+savefig.pad_inches   : 0.02    # Padding to be used when bbox is set to 'tight'
+savefig.transparent  : True    # setting that controls whether figures are saved with a
+                               # transparent background by default

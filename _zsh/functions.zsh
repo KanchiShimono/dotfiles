@@ -46,7 +46,14 @@ nvf() {
 
 # search ~/dev/src directory and cd
 function cdsrc () {
-    local selected_dir=$(src-list | fzf +m -q "$LBUFFER")
+	# if type srcmgr >/dev/null 2>&1; then
+	# 	local selected_dir=$(srcmgr list | fzf +m -q "$LBUFFER")
+	# elif type ghq >/dev/null 2>&1; then
+ #    	local selected_dir=$(ghq list --full-path | fzf +m -q "$LBUFFER")
+	# else
+ #    	local selected_dir=$(src-list | fzf +m -q "$LBUFFER")
+	# fi
+	local selected_dir=$(srcmgr list | fzf +m -q "$LBUFFER")
     if [ -n "$selected_dir" ]; then
 		cd "$selected_dir"
     fi

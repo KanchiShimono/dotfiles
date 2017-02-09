@@ -5,14 +5,14 @@
 # /___|___/_| |_|_|  \___|
 #
 
-typeset -U path PATH fpath
+# typeset -U path PATH fpath
+#
+# export PATH="$PATH:$HOME/dev/src/github.com/KanchiShimono/dotfiles/bin"
+# export PATH="$PATH:$HOME/.vim/syntax_checker"
+# export GOPATH="$HOME/dev"
+# export PATH="$PATH:$GOPATH/bin"
 
-export PATH="$PATH:$HOME/dev/src/github.com/KanchiShimono/dotfiles/bin"
-export PATH="$PATH:$HOME/.vim/syntax_checker"
-export GOPATH="$HOME/dev"
-export PATH="$PATH:$GOPATH/bin"
-
-for file in ~/.zsh/{alias,functions,completion,prompt}.zsh; do
+for file in ~/.zsh/{paths,alias,functions,completion,prompt}.zsh; do
 	[ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -49,7 +49,7 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export PURE_GIT_UNTRACKED_DIRTY=0
 # prompt pure
 
-# zsh-syntax-highlighting must be sourced the very last of .zshrc
+# zsh-syntax-highlighting must be put the end of .zshrc
 # Refer to following FAQ
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # https://github.com/sindresorhus/pure (About Ctrl+L)

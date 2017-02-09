@@ -17,11 +17,15 @@ if has('vim_starting')
   end
 endif
 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-plug',
-        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+if has('nvim')
+	call plug#begin('~/.config/nvim/plugged')
+else
+	call plug#begin('~/.vim/plugged')
+endif
+" Plug 'junegunn/vim-plug',
+"         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-" Add plugin from here {{{
+" Add plugin from here {{{2
 
 "< Help in Japanese >
 Plug 'vim-jp/vimdoc-ja'
@@ -38,11 +42,16 @@ Plug 'kien/ctrlp.vim'
 "< fugitive >
 Plug 'tpope/vim-fugitive'
 
+"< vim-surround >
+Plug 'tpope/vim-surround'
+
 "< Auto close brackets >
 Plug 'jiangmiao/auto-pairs'
 
 "< Jedi >
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+if !has('nvim')
+	Plug 'davidhalter/jedi-vim', {'for': 'python'}
+endif
 
 "< Auto complete >
 " Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
@@ -57,16 +66,17 @@ if has('nvim')
 	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 else
 	Plug 'Shougo/neocomplete'
 endif
 
+"< Syntax check >
 "< neomake >
 if has('nvim')
 	Plug 'neomake/neomake'
-
 "< Syntastic >
-elseif has('vim')
+else
 	Plug 'scrooloose/syntastic'
 endif
 
@@ -118,7 +128,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rking/ag.vim'
 
 "< Latex >
-Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
+Plug 'lervag/vimtex'
 
 "< tex conceal >
 " Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
@@ -127,7 +137,7 @@ Plug 'lervag/vimtex', {'for': 'tex', 'commit': '5506728'}
 Plug 'aperezdc/vim-template'
 
 "< Previm >
-" Plug 'kannokanno/previm'
+Plug 'kannokanno/previm'
 
 "< Color scheme (:Unite colorscheme -auto-preview) >
 " Plug 'altercation/vim-colors-solarized' " solarized
@@ -152,7 +162,7 @@ Plug 'KeitaNakamura/neodark.vim'		" neodark
 Plug 'JuliaEditorSupport/julia-vim'
 
 " < Lint for juila >
-Plug 'zyedidia/julialint.vim'
+Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
 
 "< Syntax-cpp >
 Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
@@ -180,6 +190,7 @@ Plug 'easymotion/vim-easymotion'
 
 " }}}
 call plug#end()
+" }}}
 
 "  GLOBAL SETTING {{{1
 "
@@ -243,7 +254,7 @@ let g:tex_flavor = 'latex'
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = '~/.vim/template'
 let tlist_tex_settings='latex;l:labels;c:chapter;s:sections;t:subsections;u:subsubsections'
-set iskeyword=@,48-57,_,-,:,192-255
+" set iskeyword=@,48-57,_,-,:,192-255
 noremap <expr> <F7> LaTeXtoUnicode#Toggle()
 inoremap <expr> <F7> LaTeXtoUnicode#Toggle()
 
@@ -259,11 +270,10 @@ endif
 
 inoremap <special> <Esc> <Esc>hl
 " set guicursor+=i:blinkwait0
-
 set clipboard+=unnamed
-"
-" LOCAL SETTING {{{1
+" }}}
 
+" LOCAL SETTING {{{1
 " c++ {{{2
 function! s:cpp()
 	setlocal path+=./include,../include,/usr/local/include
@@ -282,7 +292,7 @@ augroup vimrc-cpp
     autocmd!
     autocmd FileType cpp call s:cpp()
 augroup END
-
+"}}}
 " tex {{{2
 function! s:tex()
     setlocal expandtab
@@ -299,7 +309,7 @@ augroup vimrc-tex
     autocmd!
     autocmd FileType tex call s:tex()
 augroup END
-
+"}}}
 " python {{{2
 function! s:python()
     setlocal autoindent
@@ -311,7 +321,7 @@ augroup vimrc-phthon
     autocmd!
     autocmd FileType python call s:python()
 augroup END
-
+"}}}
 " julia {{{2
 function! s:julia()
     setlocal expandtab
@@ -322,9 +332,10 @@ augroup vimrc-julia
     autocmd!
     autocmd FileType julia call s:julia()
 augroup END
+"}}}
+"}}}
 
 " SETTING FOR PLUGINS {{{1
-
 " CtrlP {{{2
 if executable('ag')
   let g:ctrlp_use_caching = 0
@@ -345,7 +356,7 @@ let g:ctrlp_root_markers = ['makefile']
 " nnoremap ft :<C-u>CtrlPTag<CR>
 " let g:ctrlp_map = '<Nop>'
 " let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
-
+" }}}
 " NERD tree {{{2
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 let NERDTreeMapChangeRoot='l'
@@ -355,18 +366,18 @@ let NERDTreeCascadeOpenSingleChildDir=0
 let NERDTreeChDirMode=2
 let NERDTreeDirArrowExpandable='+'
 let NERDTreeDirArrowCollapsible='-'
-
+" }}}
 " vimfiler {{{2
 " noremap <C-e> :VimFilerBufferDir -split -simple -toggle <ENTER>
 " noremap <C-e> :VimFilerBufferDir -simple -toggle <ENTER>
 " noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit -toggle <ENTER>
 " noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<ENTER>
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
-
+" }}}
 " Jedi {{{2
 let g:jedi#show_call_signatures = 2
 " let g:jedi#completions_enabled = 0
-
+" }}}
 " YouCompleteMe {{{2
 " set completeopt=menuone
 " let g:ycm_autoclose_preview_window_after_completion = 1
@@ -377,18 +388,45 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
 " let g:ycm_show_diagnostics_ui = 0
+" }}]
 
 " deoplete {{{2
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
+if has('nvim')
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function() abort
+		return pumvisible() ? deoplete#close_popup() : "\<CR>"
+	endfunction
+endif
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = '\\(?:'
+	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+	\ . '|hyperref\s*\[[^]]*'
+	\ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+	\ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ .')'
+autocmd CompleteDone * pclose!
+"}}}
 " deoplete-clang {{{2
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.8.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.8.1/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.9.1/lib/clang'
 " }}}
 " deoplete-jedi {{{2
 let deoplete#sources#jedi#enable_cache=1
+let deoplete#sources#jedi#show_docstring=1
+" }}}
+" deoplete-go {{{2
+let g:deoplete#source#go#go_codebinary = '~/dev/bin/gocode'
+let g:deoplete#source#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#source#go#pointer = 1
 " }}}
 " neocomplete {{{2
 let g:acp_enableAtStartup = 0
@@ -410,7 +448,7 @@ let g:neocomplete#auto_completin_start_length = 2
 " inoremap <expr><C-y>  neocomplete#close_popup()
 " inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :"\<Space>"
-if has('vim')
+if !has('nvim')
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
 		" return neocomplete#close_popup() . "\<CR>"
@@ -425,14 +463,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-
-" deoplete {{{2
-if has('nvim')
-	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-	function! s:my_cr_function() abort
-		return pumvisible() ? deoplete#close_popup() : "\<CR>"
-	endfunction
-endif
 " }}}
 " Syntastic {{{2
 let g:syntastic_python_checkers = ['flake8']
@@ -450,7 +480,7 @@ let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options='-std=c++1y -stdlib=libc++'
 " let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy', 'gcc', 'cppcheck']
 let g:syntastic_cpp_checkers = ['gcc']
-
+" }}}
 " Neomake {{{2
 if has('nvim')
 	autocmd! BufWritePost * Neomake
@@ -459,17 +489,16 @@ endif
 " caw (comment out plugin) {{{2
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
-
+" }}}
 " highlighter {{{2
 let g:highlighter#auto_update = 2
 let g:highlighter#project_root_signs = ['.git']
 " }}}
-
 " indentLine {{{2
 let g:indentLine_color_term = 239
 let g:indentLine_setConceal=0
 let g:indentLine_setColors=0
-
+" }}}
 " indent guides {{{2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -480,7 +509,7 @@ let g:indent_guides_auto_colors = 0
 " }}}
 " Tagbar {{{2
 nmap <F8> :TagbarToggle<CR>
-
+" }}}
 " Lightline {{{2
 " let g:lightline = {
 " \	'colorscheme': 'hybrid',
@@ -601,7 +630,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-if has('vim')
+if !has('nvim')
 	augroup AutoSyntastic
 		autocmd!
 		autocmd BufWritePost *.c,*.cpp call s:syntastic()
@@ -615,7 +644,7 @@ endif
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
+" }}}
 " vimtex {{{2
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1 " improve performance
@@ -632,24 +661,7 @@ endif
 let g:ycm_semantic_triggers.tex = [
             \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
             \ ]
-
-" for deoplete {{{3
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = '\\(?:'
-	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-	\ . '|hyperref\s*\[[^]]*'
-	\ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|(?:include(?:only)?|input)\s*\{[^}]*'
-	\ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ .')'
-autocmd CompleteDone * pclose!
 " }}}
-
 " tex-conceal {{{2
 " let g:tex_conceal="agmb"
 " autocmd VimEnter,Colorscheme * :hi Conceal guibg=green ctermfg=white ctermbg=234
@@ -659,33 +671,25 @@ autocmd CompleteDone * pclose!
 " let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
 " let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
 " let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly 
-
+" }}}
 " vim-template {{{2
-
 let g:vimtex_indent_enabled = 1
-
 " }}}
 " UltiSnips {{{2
-
 " let g:UltiSnipsExpandTrigger="<s-cr>"
 " let g:UltiSnipsListSnippets="<c-s-tab>"
-
 " }}}
 " Supertab {{{2
-
 " let g:SuperTabDefaultCompletionType = ‘<C-Tab>’
-
 " }}}
 " Previm {{{2
-
-let g:previm_open_cmd = 'open -a Safari'
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 let g:previm_show_header = 0
 " let g:previm_enable_realtime = 1
 augroup PrevimSetting
 	autocmd!
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-
 " }}}
 " vim-go {{{2
 let g:go_highlight_functions = 1
@@ -694,6 +698,11 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+augroup VimGo
+	autocmd!
+	autocmd FileType go :highlight goErr ctermfg=214
+	autocmd FileType go :match goErr /\<err\>/
+augroup END
 " }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
