@@ -10,11 +10,18 @@
 " Installed Plugins by vim-plug {{{1
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
+  if has('nvim')
+	  if !filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
+		  echo 'install vim-plug for Neovim...'
+		  call system('curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+	  end
+  else
+	  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		  echo 'install vim-plug...'
+		  call system('mkdir -p ~/.vim/plugged/vim-plug')
+		  call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+	  end
+  endif
 endif
 
 if has('nvim')
