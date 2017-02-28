@@ -10,11 +10,18 @@
 " Installed Plugins by vim-plug {{{1
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
+  if has('nvim')
+	  if !filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
+		  echo 'install vim-plug for Neovim...'
+		  call system('curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+	  end
+  else
+	  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+		  echo 'install vim-plug...'
+		  call system('mkdir -p ~/.vim/plugged/vim-plug')
+		  call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+	  end
+  endif
 endif
 
 if has('nvim')
@@ -29,6 +36,77 @@ endif
 
 "< Help in Japanese >
 Plug 'vim-jp/vimdoc-ja'
+
+"< Color scheme (:Unite colorscheme -auto-preview) > {{{3
+" Plug 'altercation/vim-colors-solarized' " solarized
+Plug 'jwhitley/vim-colors-solarized'    " solarized for syntastic
+Plug 'croaker/mustang-vim'              " mustang
+Plug 'jeffreyiacono/vim-colors-wombat'  " wombat
+Plug 'nanotech/jellybeans.vim'          " jellybeans
+Plug 'vim-scripts/Lucius'               " lucius
+Plug 'vim-scripts/Zenburn'              " zenburn
+Plug 'mrkn/mrkn256.vim'                 " mrkn256
+" Plug 'jpo/vim-railscasts-theme'         " railscasts
+Plug 'therubymug/vim-pyte'              " pyte
+Plug 'tomasr/molokai'                   " molokai
+Plug 'chriskempson/vim-tomorrow-theme'  " tomorrow night
+Plug 'vim-scripts/twilight'             " twilight
+Plug 'w0ng/vim-hybrid'                  " hybrid
+Plug 'KeitaNakamura/railscasts.vim'		" railscasts
+Plug 'joshdick/onedark.vim'				" onedark
+Plug 'KeitaNakamura/neodark.vim'		" neodark
+" }}}
+
+"< Auto complete > {{{3
+if has('nvim') "For Neovim
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+	Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
+	Plug 'landaire/deoplete-d', { 'for': 'd' }
+	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+else "For Vim
+	Plug 'Shougo/neocomplete'
+	Plug 'davidhalter/jedi-vim', {'for': 'python'}
+	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+	" You need to compile YCM with semantic support for C-family languages:
+	" cd ~/.vim/bundle/YouCompleteMe
+	" ./install.sh --clang-completer
+	Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
+endif
+" }}}
+
+"< Syntax > {{{3
+"< Syntax check >
+if has('nvim')
+	Plug 'neomake/neomake'
+else
+	Plug 'scrooloose/syntastic'
+endif
+
+"< Syntax each language >
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
+Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
+Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
+" If you wrote Plug 'apple-swift' before vim-swift, apple-swift's syntax highlight is used
+" Instoll to custom directory '~/.vim/custom/apple-swift' for syntax highlight
+"Plug 'apple-swift', { 'dir': '~/.vim/custom/apple-swift', 'for': 'swift', 'frozen': 1}
+Plug 'kballard/vim-swift', { 'for': 'swift' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'lervag/vimtex'
+
+"< Highlight >
+Plug 'skroll/vim-taghighlight'
+if has('nvim')
+	Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
+end
+" }}}
+
+"< tex conceal >
+" Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 
 "< File explorer >
 Plug 'scrooloose/nerdtree'
@@ -47,41 +125,6 @@ Plug 'tpope/vim-surround'
 
 "< Auto close brackets >
 Plug 'jiangmiao/auto-pairs'
-
-"< Jedi >
-if !has('nvim')
-	Plug 'davidhalter/jedi-vim', {'for': 'python'}
-endif
-
-"< Auto complete >
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-" You need to compile YCM with semantic support for C-family languages:
-" cd ~/.vim/bundle/YouCompleteMe
-" ./install.sh --clang-completer
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
-	Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
-	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
-	Plug 'landaire/deoplete-d', { 'for': 'd' }
-	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
-	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-else
-	Plug 'Shougo/neocomplete'
-endif
-
-"< Syntax check >
-"< neomake >
-if has('nvim')
-	Plug 'neomake/neomake'
-"< Syntastic >
-else
-	Plug 'scrooloose/syntastic'
-endif
-
-"< Omnisharp >
-"Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
 
 "< Ctags >
 Plug 'soramugi/auto-ctags.vim'
@@ -112,12 +155,6 @@ Plug 'tyru/caw.vim'
 "< Align >
 Plug 'Align'
 
-"< Tag highlight >
-Plug 'skroll/vim-taghighlight'
-
-"< highlighter >
-Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
-
 "< Indent line >
 "Plug 'Yggdroot/indentLine'
 
@@ -127,57 +164,11 @@ Plug 'nathanaelkane/vim-indent-guides'
 "< Ag >
 Plug 'rking/ag.vim'
 
-"< Latex >
-Plug 'lervag/vimtex'
-
-"< tex conceal >
-" Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-
 "< Template >
 Plug 'aperezdc/vim-template'
 
 "< Previm >
 Plug 'kannokanno/previm'
-
-"< Color scheme (:Unite colorscheme -auto-preview) >
-" Plug 'altercation/vim-colors-solarized' " solarized
-Plug 'jwhitley/vim-colors-solarized'    " solarized for syntastic
-Plug 'croaker/mustang-vim'              " mustang
-Plug 'jeffreyiacono/vim-colors-wombat'  " wombat
-Plug 'nanotech/jellybeans.vim'          " jellybeans
-Plug 'vim-scripts/Lucius'               " lucius
-Plug 'vim-scripts/Zenburn'              " zenburn
-Plug 'mrkn/mrkn256.vim'                 " mrkn256
-" Plug 'jpo/vim-railscasts-theme'         " railscasts
-Plug 'therubymug/vim-pyte'              " pyte
-Plug 'tomasr/molokai'                   " molokai
-Plug 'chriskempson/vim-tomorrow-theme'  " tomorrow night
-Plug 'vim-scripts/twilight'             " twilight
-Plug 'w0ng/vim-hybrid'                  " hybrid
-Plug 'KeitaNakamura/railscasts.vim'		" railscasts
-Plug 'joshdick/onedark.vim'				" onedark
-Plug 'KeitaNakamura/neodark.vim'		" neodark
-
-"< Julia-vim >
-Plug 'JuliaEditorSupport/julia-vim'
-
-" < Lint for juila >
-Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
-
-"< Syntax-cpp >
-Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
-
-"< Syntax-D language >
-Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
-
-"< Syntax-Swift >
-" If you wrote Plug 'apple-swift' before vim-swift, apple-swift's syntax highlight is used
-" Instoll to custom directory '~/.vim/custom/apple-swift' for syntax highlight
-"Plug 'apple-swift', { 'dir': '~/.vim/custom/apple-swift', 'for': 'swift', 'frozen': 1}
-Plug 'kballard/vim-swift', { 'for': 'swift' }
-
-"< vim-go >
-Plug 'fatih/vim-go', { 'for': 'go' }
 
 "< Tmux Navigator >
 " Plug 'christoomey/vim-tmux-navigator'
@@ -336,60 +327,6 @@ augroup END
 "}}}
 
 " SETTING FOR PLUGINS {{{1
-" CtrlP {{{2
-if executable('ag')
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
-endif
-let g:ctrlp_root_markers = ['makefile']
-" nnoremap <C-f> :CtrlP <ENTER>
-" Prefix: f
-" nnoremap f <Nop>
-" nnoremap fa :<C-u>CtrlP<Space>
-" nnoremap fb :<C-u>CtrlPBuffer<CR>
-" nnoremap fd :<C-u>CtrlPDir<CR>
-" nnoremap ff :<C-u>CtrlP<CR>
-" nnoremap fl :<C-u>CtrlPLine<CR>
-" nnoremap fm :<C-u>CtrlPMRUFiles<CR>
-" nnoremap fq :<C-u>CtrlPQuickfix<CR>
-" nnoremap fs :<C-u>CtrlPMixed<CR>
-" nnoremap ft :<C-u>CtrlPTag<CR>
-" let g:ctrlp_map = '<Nop>'
-" let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
-" }}}
-" NERD tree {{{2
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-let NERDTreeMapChangeRoot='l'
-let NERDTreeMapUpdir='h'
-let NERDTreeCascadeSingleChildDir=0
-let NERDTreeCascadeOpenSingleChildDir=0
-let NERDTreeChDirMode=2
-let NERDTreeDirArrowExpandable='+'
-let NERDTreeDirArrowCollapsible='-'
-" }}}
-" vimfiler {{{2
-" noremap <C-e> :VimFilerBufferDir -split -simple -toggle <ENTER>
-" noremap <C-e> :VimFilerBufferDir -simple -toggle <ENTER>
-" noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit -toggle <ENTER>
-" noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<ENTER>
-" noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
-" }}}
-" Jedi {{{2
-let g:jedi#show_call_signatures = 2
-" let g:jedi#completions_enabled = 0
-" }}}
-" YouCompleteMe {{{2
-" set completeopt=menuone
-" let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" let g:ycm_global_ycm_extra_conf = '~/dotfiles/_ycm_extra_conf.py'
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 1
-let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
-" let g:ycm_show_diagnostics_ui = 0
-" }}]
-
 " deoplete {{{2
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -464,6 +401,21 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
+" Jedi {{{2
+let g:jedi#show_call_signatures = 2
+" let g:jedi#completions_enabled = 0
+" }}}
+" YouCompleteMe {{{2
+" set completeopt=menuone
+" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/dotfiles/_ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
+" let g:ycm_show_diagnostics_ui = 0
+" }}}
 " Syntastic {{{2
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_enable_signs=1
@@ -486,13 +438,85 @@ if has('nvim')
 	autocmd! BufWritePost * Neomake
 endif
 " }}}
-" caw (comment out plugin) {{{2
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
+" vim-go {{{2
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+augroup VimGo
+	autocmd!
+	autocmd FileType go :highlight goErr ctermfg=214
+	autocmd FileType go :match goErr /\<err\>/
+augroup END
+" }}}
+" vimtex {{{2
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1 " improve performance
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_latexmk_background = 1
+let g:vimtex_latexmk_options = '-pdfdvi'
+let g:vimtex_quickfix_mode = 0
+" let g:vimtex_view_general_viewer = '/opt/homebrew-cask/Caskroom/skim/1.4.13/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_viewer = '/usr/local/bin/displayline'
+let g:vimtex_view_general_options = '@line @pdf @tex'
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+            \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
+            \ ]
+" }}}
+" tex-conceal {{{2
+" let g:tex_conceal="agmb"
+" autocmd VimEnter,Colorscheme * :hi Conceal guibg=green ctermfg=white ctermbg=234
+" }}}
+" CtrlP {{{2
+if executable('ag')
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+endif
+let g:ctrlp_root_markers = ['makefile']
+" nnoremap <C-f> :CtrlP <ENTER>
+" Prefix: f
+" nnoremap f <Nop>
+" nnoremap fa :<C-u>CtrlP<Space>
+" nnoremap fb :<C-u>CtrlPBuffer<CR>
+" nnoremap fd :<C-u>CtrlPDir<CR>
+" nnoremap ff :<C-u>CtrlP<CR>
+" nnoremap fl :<C-u>CtrlPLine<CR>
+" nnoremap fm :<C-u>CtrlPMRUFiles<CR>
+" nnoremap fq :<C-u>CtrlPQuickfix<CR>
+" nnoremap fs :<C-u>CtrlPMixed<CR>
+" nnoremap ft :<C-u>CtrlPTag<CR>
+" let g:ctrlp_map = '<Nop>'
+" let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+" }}}
+" NERD tree {{{2
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+let NERDTreeMapChangeRoot='l'
+let NERDTreeMapUpdir='h'
+let NERDTreeCascadeSingleChildDir=0
+let NERDTreeCascadeOpenSingleChildDir=0
+let NERDTreeChDirMode=2
+let NERDTreeDirArrowExpandable='+'
+let NERDTreeDirArrowCollapsible='-'
+" }}}
+" vimfiler {{{2
+" noremap <C-e> :VimFilerBufferDir -split -simple -toggle <ENTER>
+" noremap <C-e> :VimFilerBufferDir -simple -toggle <ENTER>
+" noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit -toggle <ENTER>
+" noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<ENTER>
+" noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
 " highlighter {{{2
 let g:highlighter#auto_update = 2
 let g:highlighter#project_root_signs = ['.git']
+" }}}
+" caw (comment out plugin) {{{2
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
 " }}}
 " indentLine {{{2
 let g:indentLine_color_term = 239
@@ -645,27 +669,6 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
-" vimtex {{{2
-let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_manual = 1 " improve performance
-let g:vimtex_latexmk_continuous = 1
-let g:vimtex_latexmk_background = 1
-let g:vimtex_latexmk_options = '-pdfdvi'
-let g:vimtex_quickfix_mode = 0
-" let g:vimtex_view_general_viewer = '/opt/homebrew-cask/Caskroom/skim/1.4.13/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_viewer = '/usr/local/bin/displayline'
-let g:vimtex_view_general_options = '@line @pdf @tex'
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-            \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
-            \ ]
-" }}}
-" tex-conceal {{{2
-" let g:tex_conceal="agmb"
-" autocmd VimEnter,Colorscheme * :hi Conceal guibg=green ctermfg=white ctermbg=234
-" }}}
 " ConqueGdb {{{2
 " let g:ConqueGdb_Leader = '<Space>'
 " let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
@@ -691,20 +694,8 @@ augroup PrevimSetting
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 " }}}
-" vim-go {{{2
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-augroup VimGo
-	autocmd!
-	autocmd FileType go :highlight goErr ctermfg=214
-	autocmd FileType go :match goErr /\<err\>/
-augroup END
-" }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
 nmap <Leader>s <Plug>(easymotion-s2)
+" }}}
 " }}}

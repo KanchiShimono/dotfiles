@@ -29,7 +29,7 @@ dest="$dest/$reponame"
 
 if [ -d "$dest" ]; then
     echo "${dest/$HOME/~}: already exists" 1>&2;
-	echo "Overwrite repository $dest? (Y/N)"
+	echo "Overwrite repository $dest? (Y/n)"
 	read ans
 	case "$ans" in
 		[yY] | [yY]es | YES ) echo "Overwrite repository $dest"

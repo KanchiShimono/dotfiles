@@ -83,6 +83,8 @@ brew install cocoapods
 brew install qt
 brew install qt5
 brew install archey
+brew install figlet
+brew install screenfetch
 
 # Font
 #---------------------------------------------------------------------------
