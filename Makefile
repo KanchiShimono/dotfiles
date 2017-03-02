@@ -12,9 +12,13 @@ list:
 
 .PHONY: deploy
 deploy:
-	@echo 'Deploying dotfiles to the HOME directory'
+	@echo 'Deploying dotfiles to your HOME directory'
 	@echo ''
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(patsubst _%,\.%,$(val));)
+	@echo ''
+	@echo 'If you used Neovim and using existing .vimrc, execute manually:'
+	@echo '    ln -sfv ~/.vimrc ~/.config/nvim/init.vim'
+	@echo ''
 
 .PHONY: init
 init:
@@ -30,7 +34,7 @@ update:
 
 .PHONY: clean
 clean:
-	@echo 'Unlinking following dotfiles in the HOME directory'
+	@echo 'Unlinking following dotfiles in your HOME directory'
 	@$(foreach val, $(DOTFILES), echo $(HOME)/$(patsubst _%,\.%,$(val));)
 	@$(foreach val, $(DOTFILES), unlink $(HOME)/$(patsubst _%,\.%,$(val));)
 
