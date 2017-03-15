@@ -55,6 +55,7 @@ brew install nkf
 brew install ffmpeg
 brew install ninja
 brew install rename
+brew install tree
 brew install sl
 brew install ghostscript
 brew install imagemagick --with-ghostscript
