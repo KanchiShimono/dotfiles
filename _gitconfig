@@ -12,5 +12,7 @@
 [user]
 	name = Kanchi Shimono
 	email = shimono-kanchi-yc@ynu.jp
+[srcmgr]
+	root = ~/dev/src
 [ghq]
 	root = ~/dev/src
