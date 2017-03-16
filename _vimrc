@@ -65,6 +65,8 @@ if has('nvim') "For Neovim
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 else "For Vim
 	Plug 'Shougo/neocomplete'
 	Plug 'davidhalter/jedi-vim', {'for': 'python'}
