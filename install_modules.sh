@@ -13,7 +13,8 @@ pip2 install neovim
 # ------------------------------------------------------------------------------
 julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
 	PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
-	BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff;
+	BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff \
+	PkgDev;
 julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
 	https://github.com/KanchiShimono/CubicEquation.jl \
 	https://github.com/KeitaNakamura/LinearEquations.jl \

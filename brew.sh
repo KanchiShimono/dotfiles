@@ -55,6 +55,7 @@ brew install nkf
 brew install ffmpeg
 brew install ninja
 brew install rename
+brew install tree
 brew install sl
 brew install ghostscript
 brew install imagemagick --with-ghostscript
@@ -67,12 +68,6 @@ brew tap neovim/neovim
 brew install neovim
 ln -sfv ~/.vimrc ~/.config/nvim/init.vim
 ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
-# Install vim-plug for vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Install vim-plug for neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Xcode
 #---------------------------------------------------------------------------
