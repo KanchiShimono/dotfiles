@@ -4,7 +4,7 @@
 " \ \ / / | '_ ` _ \| '__/ __|
 "  \ V /| | | | | | | | | (__ 
 "   \_/ |_|_| |_| |_|_|  \___|
-
+"
 "*********************************************************************
 
 " Installed Plugins by vim-plug {{{1
@@ -110,14 +110,13 @@ end
 
 "< File explorer >
 Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
 " Plug 'Shougo/unite.vim'
 " Plug 'Shougo/vimfiler.vim'
 " Plug 'ujihisa/unite-colorscheme'
 
-"< CtrlP >
-Plug 'kien/ctrlp.vim'
-
-"< fugitive >
+"< Git wrapper >
 Plug 'tpope/vim-fugitive'
 
 "< vim-surround >
@@ -161,13 +160,10 @@ Plug 'Align'
 "< Indent guides >
 Plug 'nathanaelkane/vim-indent-guides'
 
-"< Ag >
-Plug 'rking/ag.vim'
-
 "< Template >
 Plug 'aperezdc/vim-template'
 
-"< Previm >
+"< Markdown preview >
 Plug 'kannokanno/previm'
 
 "< Tmux Navigator >
@@ -184,11 +180,13 @@ call plug#end()
 " }}}
 
 "  GLOBAL SETTING {{{1
-"
+
+" About me {{{2
 let g:user  = "K.Shimono"
 let g:email = "shimono-kanchi-yc@ynu.jp"
+" }}}
 
-" let g:hybrid_use_Xresources = 1 " for GVim
+" color setting {{{2
 syntax on
 " set t_Co=256
 " set termguicolors
@@ -201,9 +199,12 @@ colorscheme neodark
 " if has("termguicolors")
 " 	set termguicolors
 " endif
-set synmaxcol=350
 " hi Visual ctermbg=236
+" hi CursorLine cterm=underline ctermfg=None ctermbg=None
+" hi clear cursorLine
+" }}}
 
+" general settig {{{2
 set number
 set hlsearch
 set ignorecase
@@ -214,42 +215,49 @@ set incsearch
 set whichwrap=b,s,h,l,<,>,[,]
 set colorcolumn=80
 set laststatus=2
+set synmaxcol=350
 set nowrap
 set noshowmode
-" set noswapfile
 set scrolloff=2
 set cursorline
-nnoremap <silent> <C-n> :set cursorline!<CR>
-" hi CursorLine cterm=underline ctermfg=None ctermbg=None
-" hi clear cursorLine
 set foldmethod=marker
 set mouse=a
+set encoding=utf-8
+set fileencodings=utf-8,sjis
+set fileformats=unix,dos,mac
+set spelllang=en,cjk
+set backspace=indent,eol,start
+set clipboard+=unnamed
+" set noswapfile
+" set guicursor+=i:blinkwait0
+" set ambiwidth=double
+" set iskeyword=@,48-57,_,-,:,192-255
+" }}}
+
+" key mapping {{{2
+nnoremap <silent> <C-n> :set cursorline!<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-" set ambiwidth=double
-set encoding=utf-8
-set fileencodings=utf-8,sjis
-set fileformats=unix,dos,mac
 vnoremap <silent> <C-p> "0p<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
+noremap <expr> <F7> LaTeXtoUnicode#Toggle()
+inoremap <expr> <F7> LaTeXtoUnicode#Toggle()
+inoremap <special> <Esc> <Esc>hl
 " nnoremap <C-n> gt
 " nnoremap <C-p> gT
 " nnoremap j gj
 " nnoremap k gk
+" }}}
+
+" others setting {{{2
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
-set spelllang=en,cjk
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = '~/.vim/template'
 let tlist_tex_settings='latex;l:labels;c:chapter;s:sections;t:subsections;u:subsubsections'
-" set iskeyword=@,48-57,_,-,:,192-255
-noremap <expr> <F7> LaTeXtoUnicode#Toggle()
-inoremap <expr> <F7> LaTeXtoUnicode#Toggle()
-
-set backspace=indent,eol,start
 
 if exists('$TMUX')
  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -258,10 +266,7 @@ else
  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-
-inoremap <special> <Esc> <Esc>hl
-" set guicursor+=i:blinkwait0
-set clipboard+=unnamed
+" }}}
 " }}}
 
 " LOCAL SETTING {{{1
@@ -329,14 +334,19 @@ augroup END
 " SETTING FOR PLUGINS {{{1
 " deoplete {{{2
 let g:deoplete#enable_at_startup = 1
+" Enable pressing TAB key to select completion in popup window -----------------
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" ------------------------------------------------------------------------------
+" Insert new line when press enter
+" Neovim default behavior is close popup instead of inserting new line
 if has('nvim')
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function() abort
 		return pumvisible() ? deoplete#close_popup() : "\<CR>"
 	endfunction
 endif
+" ------------------------------------------------------------------------------
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
@@ -350,7 +360,9 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 	\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
 	\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
 	\ .')'
+" Close the preview window after completion is done ----------------------------
 autocmd CompleteDone * pclose!
+" ------------------------------------------------------------------------------
 "}}}
 " deoplete-clang {{{2
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/4.0.0/lib/libclang.dylib'
@@ -411,7 +423,6 @@ let g:jedi#show_call_signatures = 2
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " let g:ycm_global_ycm_extra_conf = '~/dotfiles/_ycm_extra_conf.py'
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
 " let g:ycm_show_diagnostics_ui = 0
@@ -428,10 +439,8 @@ let g:syntastic_warning_symbol='⚠︎'
 let g:syntastic_c_check_header=1
 let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_compiler='clang++'
-" let g:syntastic_cpp_compiler_options='-std=c++14 -stdlib=libc++'
 let g:syntastic_cpp_compiler_options='-std=c++1y -stdlib=libc++'
-" let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy', 'gcc', 'cppcheck']
-let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_checkers = ['gcc', 'clang_check', 'clang_tidy', 'cppcheck']
 " }}}
 " Neomake {{{2
 if has('nvim')
@@ -472,6 +481,16 @@ let g:ycm_semantic_triggers.tex = [
 " let g:tex_conceal="agmb"
 " autocmd VimEnter,Colorscheme * :hi Conceal guibg=green ctermfg=white ctermbg=234
 " }}}
+" NERD tree {{{2
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+let NERDTreeMapChangeRoot='l'
+let NERDTreeMapUpdir='h'
+let NERDTreeCascadeSingleChildDir=0
+let NERDTreeCascadeOpenSingleChildDir=0
+let NERDTreeChDirMode=2
+let NERDTreeDirArrowExpandable='+'
+let NERDTreeDirArrowCollapsible='-'
+" }}}
 " CtrlP {{{2
 if executable('ag')
   let g:ctrlp_use_caching = 0
@@ -492,16 +511,6 @@ let g:ctrlp_root_markers = ['makefile']
 " nnoremap ft :<C-u>CtrlPTag<CR>
 " let g:ctrlp_map = '<Nop>'
 " let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
-" }}}
-" NERD tree {{{2
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-let NERDTreeMapChangeRoot='l'
-let NERDTreeMapUpdir='h'
-let NERDTreeCascadeSingleChildDir=0
-let NERDTreeCascadeOpenSingleChildDir=0
-let NERDTreeChDirMode=2
-let NERDTreeDirArrowExpandable='+'
-let NERDTreeDirArrowCollapsible='-'
 " }}}
 " vimfiler {{{2
 " noremap <C-e> :VimFilerBufferDir -split -simple -toggle <ENTER>
