@@ -87,6 +87,8 @@ else
 endif
 
 "< Syntax each language >
+" julia-vim is not only for julia but also
+" for other filetypes. Bacause julia-vim support unicode strings by Latex style
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
 Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
