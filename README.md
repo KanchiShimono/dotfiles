@@ -22,7 +22,7 @@ bash -c "`curl -fsSL https://raw.githubusercontent.com/KanchiShimono/dotfiles/ma
 
 ## Manual tasks
 
-- Change modifier keys</a>
+- Change modifier keys
 	- <a href="https://support.apple.com/kb/PH25240?locale=en_US&viewlocale=en_US">English</a>
 	- <a href="https://support.apple.com/kb/PH25240?viewlocale=ja_JP&locale=ja_JP">Japanese</a>
 - Set up Google Japanese IME, Keyhac and Microsoft Word template configuration
