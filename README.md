@@ -22,14 +22,14 @@ bash -c "`curl -fsSL https://raw.githubusercontent.com/KanchiShimono/dotfiles/ma
 
 ## Manual tasks
 
-- Change modifier keys
-	- <a href="https://support.apple.com/kb/PH25240?locale=en_US&viewlocale=en_US">English</a>
-	- <a href="https://support.apple.com/kb/PH25240?viewlocale=ja_JP&locale=ja_JP">Japanese</a>
+- Change modifier keys (⌘: command, ⌥: option, ⇪: caps lock, ⇧: shif, ⌃: control)
+	- [English](https://support.apple.com/kb/PH25240?locale=en_US&viewlocale=en_US)
+	- [Japanese](https://support.apple.com/kb/PH25240?viewlocale=ja_JP&locale=ja_JP)
 - Set up Google Japanese IME, Keyhac and Microsoft Word template configuration
 	- Configuration files are contained in google_japanese, keyhac and word directory
 	  in this repository
-- <a href="https://github.com/neovim/neovim/wiki/FAQ#my-ctrl-h-mapping-doesnt-work">
-	If you use Neovim 0.1.7 older, CTRL-H key mapping doesn't work</a>. Run following command
+- [If you use Neovim 0.1.7 older, CTRL-H key mapping doesn't work.](https://github.com/neovim/neovim/wiki/FAQ#my-ctrl-h-mapping-doesnt-work)
+  Run following command
 ```sh
 infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 tic $TERM.ti
