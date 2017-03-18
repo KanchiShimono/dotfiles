@@ -97,6 +97,7 @@ Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
 Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'lervag/vimtex'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 "< Highlight >
 Plug 'skroll/vim-taghighlight'
