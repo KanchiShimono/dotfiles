@@ -699,10 +699,6 @@ let g:vimtex_indent_enabled = 1
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 let g:previm_show_header = 0
 " let g:previm_enable_realtime = 1
-augroup PrevimSetting
-	autocmd!
-	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
 " }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
