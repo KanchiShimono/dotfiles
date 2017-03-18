@@ -96,7 +96,7 @@ Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
 "Plug 'apple-swift', { 'dir': '~/.vim/custom/apple-swift', 'for': 'swift', 'frozen': 1}
 Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 "< Highlight >
