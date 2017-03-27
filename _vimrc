@@ -87,6 +87,8 @@ else
 endif
 
 "< Syntax each language >
+" julia-vim is not only for julia but also
+" for other filetypes. Bacause julia-vim support unicode strings by Latex style
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'zyedidia/julialint.vim', { 'for': 'julia' }
 Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
@@ -96,7 +98,8 @@ Plug 'JesseKPhillips/d.vim', { 'for': 'd' }
 "Plug 'apple-swift', { 'dir': '~/.vim/custom/apple-swift', 'for': 'swift', 'frozen': 1}
 Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 "< Highlight >
 Plug 'skroll/vim-taghighlight'
@@ -698,10 +701,6 @@ let g:vimtex_indent_enabled = 1
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 let g:previm_show_header = 0
 " let g:previm_enable_realtime = 1
-augroup PrevimSetting
-	autocmd!
-	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
 " }}}
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
