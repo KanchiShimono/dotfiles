@@ -14,10 +14,16 @@ Automatically set up my development environment.
 
 ## Installation
 
-Only run following command in bash.
-
+Run following command in bash.
 ```sh
 bash -c "`curl -fsSL https://raw.githubusercontent.com/KanchiShimono/dotfiles/master/install.sh`"
+```
+After then, you have to run following git command. Because installed git configuration file
+is set for only me, so you should change configuration for yours.
+```sh
+git config --global core.excludesfile ~/.gitignore_global
+git config --global user.name "Your Name"
+git config --global user.email your-email-address@example.com
 ```
 
 ## Manual tasks
