@@ -59,6 +59,7 @@ brew install tree
 brew install sl
 brew install ghostscript
 brew install imagemagick --with-ghostscript
+brew install diff-so-fancy
 
 # Vim
 #---------------------------------------------------------------------------
