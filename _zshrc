@@ -12,7 +12,7 @@
 # export GOPATH="$HOME/dev"
 # export PATH="$PATH:$GOPATH/bin"
 
-for file in ~/.zsh/{paths,alias,functions,completion,prompt}.zsh; do
+for file in ~/.zsh/{paths,alias,functions,completion,history,prompt}.zsh; do
 	[ -f "$file" ] && source "$file";
 done;
 unset file;
