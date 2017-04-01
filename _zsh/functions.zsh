@@ -44,8 +44,8 @@ nvf() {
     file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir" && nvim "$OLDPWD/$file"
 }
 
-# search ~/dev/src directory and cd
-function cdsrc () {
+# search development directory and cd
+function cdd () {
 	# if type srcmgr >/dev/null 2>&1; then
 	# 	local selected_dir=$(srcmgr list | fzf +m -q "$LBUFFER")
 	# elif type ghq >/dev/null 2>&1; then
