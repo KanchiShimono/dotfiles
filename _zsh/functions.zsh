@@ -44,8 +44,8 @@ nvf() {
     file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir" && nvim "$OLDPWD/$file"
 }
 
-# search ~/dev/src directory and cd
-function cdsrc () {
+# search development directory and cd
+function cdd () {
 	# if type srcmgr >/dev/null 2>&1; then
 	# 	local selected_dir=$(srcmgr list | fzf +m -q "$LBUFFER")
 	# elif type ghq >/dev/null 2>&1; then
@@ -57,4 +57,9 @@ function cdsrc () {
     if [ -n "$selected_dir" ]; then
 		cd "$selected_dir"
     fi
+}
+
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
