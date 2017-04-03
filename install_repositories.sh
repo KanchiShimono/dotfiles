@@ -9,9 +9,8 @@ go get github.com/motemen/gore
 git-get KanchiShimono/CubicEquation.jl
 git-get KeitaNakamura/JFEM.jl
 git-get KeitaNakamura/MaterialModels.jl
-git-get KeitaNakamura/TensorSymbolicNotation.jl
 git-get KeitaNakamura/LinearEquations.jl
-git-get KeitaNakamura/ElementSimulator.jl
+git-get KeitaNakamura/ElementTestSimulator.jl
 git-get KeitaNakamura/PyPlotUtils.jl
 git-get apple/swift
 git-get neovim/neovim

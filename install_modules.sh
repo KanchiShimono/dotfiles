@@ -18,9 +18,7 @@ julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
 julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
 	https://github.com/KanchiShimono/CubicEquation.jl \
 	https://github.com/KeitaNakamura/LinearEquations.jl \
-	https://github.com/KeitaNakamura/TensorSymbolicNotation.jl \
 	https://github.com/KeitaNakamura/ElementTestSimulator.jl \
-	https://github.com/KeitaNakamura/ElementSimulator.jl \
 	https://github.com/KeitaNakamura/PyPlotUtils.jl;
 
 # pure prompt
