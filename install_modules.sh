@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# pure prompt
+# ------------------------------------------------------------------------------
+npm install --global pure-prompt
+
 # packages for python
 # ------------------------------------------------------------------------------
 pip3 install numpy pandas matplotlib tqdm Sphinx jupyter
@@ -20,7 +24,3 @@ julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
 	https://github.com/KeitaNakamura/LinearEquations.jl \
 	https://github.com/KeitaNakamura/ElementTestSimulator.jl \
 	https://github.com/KeitaNakamura/PyPlotUtils.jl;
-
-# pure prompt
-# ------------------------------------------------------------------------------
-npm install --global pure-prompt
