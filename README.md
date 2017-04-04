@@ -31,6 +31,7 @@ git config --global user.email your-email-address@example.com
 - Change modifier keys (⌘: command, ⌥: option, ⇪: caps lock, ⇧: shif, ⌃: control)
 	- [English](https://support.apple.com/kb/PH25240?locale=en_US&viewlocale=en_US)
 	- [Japanese](https://support.apple.com/kb/PH25240?viewlocale=ja_JP&locale=ja_JP)
+- [Change a key repeats](https://support.apple.com/kb/PH26213?locale=ja_JP&viewlocale=en_US)
 - Set up Google Japanese IME, Keyhac and Microsoft Word template configuration
 	- Configuration files are contained in google_japanese, keyhac and word directory
 	  in this repository
@@ -40,3 +41,4 @@ git config --global user.email your-email-address@example.com
 infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 tic $TERM.ti
 ```
+- Install fonts for lightline. See [here](https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher#os-x) and once generate patched font.
