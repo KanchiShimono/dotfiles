@@ -17,7 +17,7 @@ brew install zsh-syntax-highlighting
 #---------------------------------------------------------------------------
 # C / C++
 brew install gcc
-brew install llvm --with-clang
+brew install llvm
 brew install boost
 brew install eigen
 # python 2
@@ -85,4 +85,4 @@ brew install screenfetch
 # Font
 #---------------------------------------------------------------------------
 brew tap sanemat/font
-brew install ricty --vim-powerline
+brew install ricty --with-powerline

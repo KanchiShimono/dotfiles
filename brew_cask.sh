@@ -9,6 +9,8 @@ brew cask install karabiner
 brew cask install insomniax
 brew cask install the-unarchiver
 brew cask install middleclick
+brew cask install google-chrome
+brew cask install google-japanese-ime
 
 # Developer Tools
 #---------------------------------------------------------------------------
