@@ -7,9 +7,13 @@
 "
 "*********************************************************************
 
+" Neovim or Vim detection {{{1
+let is_nvim = has('nvim')
+" }}}
+
 " Installed Plugins by vim-plug {{{1
 if has('vim_starting')
-  if has('nvim')
+  if is_nvim
 	  if !filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
 		  echo 'install vim-plug for Neovim...'
 		  call system('curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
@@ -22,7 +26,7 @@ if has('vim_starting')
   endif
 endif
 
-if has('nvim')
+if is_nvim
 	call plug#begin('~/.config/nvim/plugged')
 else
 	call plug#begin('~/.vim/plugged')
@@ -56,7 +60,7 @@ Plug 'KeitaNakamura/neodark.vim'		" neodark
 " }}}
 
 "< Auto complete > {{{3
-if has('nvim') "For Neovim
+if is_nvim "For Neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 	Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
@@ -80,7 +84,7 @@ endif
 
 "< Syntax > {{{3
 "< Syntax check >
-if has('nvim')
+if is_nvim
 	Plug 'neomake/neomake'
 else
 	Plug 'scrooloose/syntastic'
@@ -103,7 +107,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 "< Highlight >
 Plug 'skroll/vim-taghighlight'
-if has('nvim')
+if is_nvim
 	Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 end
 " }}}
@@ -343,7 +347,7 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " ------------------------------------------------------------------------------
 " Insert new line when press enter
 " Neovim default behavior is close popup instead of inserting new line
-if has('nvim')
+if is_nvim
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function() abort
 		return pumvisible() ? deoplete#close_popup() : "\<CR>"
@@ -400,7 +404,7 @@ let g:neocomplete#auto_completin_start_length = 2
 " inoremap <expr><C-y>  neocomplete#close_popup()
 " inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :"\<Space>"
-if !has('nvim')
+if !is_nvim
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
 		" return neocomplete#close_popup() . "\<CR>"
@@ -446,7 +450,7 @@ let g:syntastic_cpp_compiler_options='-std=c++1y -stdlib=libc++'
 let g:syntastic_cpp_checkers = ['gcc', 'clang_check', 'clang_tidy', 'cppcheck']
 " }}}
 " Neomake {{{2
-if has('nvim')
+if is_nvim
 	autocmd! BufWritePost * Neomake
 endif
 " }}}
@@ -666,7 +670,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-if !has('nvim')
+if !is_nvim
 	augroup AutoSyntastic
 		autocmd!
 		autocmd BufWritePost *.c,*.cpp call s:syntastic()
