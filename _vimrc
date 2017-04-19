@@ -453,6 +453,8 @@ let g:syntastic_cpp_checkers = ['gcc', 'clang_check', 'clang_tidy', 'cppcheck']
 if is_nvim
 	autocmd! BufWritePost * Neomake
 endif
+let g:neomake_cpp_enabled_markers = ['clang']
+let g:neomake_cpp_clang_args = ["-std=c++1z", "-Wextra", "-Wall", "-fsanitize=undefined", "-g"]
 " }}}
 " vim-go {{{2
 let g:go_highlight_functions = 1
