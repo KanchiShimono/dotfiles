@@ -72,9 +72,9 @@ if is_nvim "For Neovim
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 else "For Vim
-	Plug 'Shougo/neocomplete'
+	" Plug 'Shougo/neocomplete'
 	Plug 'davidhalter/jedi-vim', {'for': 'python'}
-	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --gocode-completer'}
 	" You need to compile YCM with semantic support for C-family languages:
 	" cd ~/.vim/bundle/YouCompleteMe
 	" ./install.sh --clang-completer
