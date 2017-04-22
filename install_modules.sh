@@ -13,6 +13,11 @@ pip2 install numpy pandas matplotlib tqdm Sphinx jupyter
 pip3 install neovim
 pip2 install neovim
 
+# go
+# ------------------------------------------------------------------------------
+go get -u github.com/nsf/gocode
+go get -u github.com/motemen/gore
+
 # julia
 # ------------------------------------------------------------------------------
 julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
