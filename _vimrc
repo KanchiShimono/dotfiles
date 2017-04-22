@@ -380,7 +380,7 @@ let deoplete#sources#jedi#enable_cache=1
 let deoplete#sources#jedi#show_docstring=1
 " }}}
 " deoplete-go {{{2
-let g:deoplete#source#go#go_codebinary = '~/dev/bin/gocode'
+let g:deoplete#source#go#go_codebinary = '$GOPATH/bin/gocode'
 let g:deoplete#source#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#source#go#pointer = 1
 " }}}
