@@ -159,7 +159,7 @@ Plug 'tyru/caw.vim'
 " Plug 'ervandew/supertab'
 
 "< Align >
-Plug 'Align'
+Plug 'vim-scripts/Align'
 
 "< Indent line >
 "Plug 'Yggdroot/indentLine'
