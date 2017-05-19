@@ -5,7 +5,6 @@ export PATH="$PATH:$DOTROOT/bin"
 export GOPATH=$HOME/dev
 
 go get github.com/KanchiShimono/srcmgr
-go get github.com/motemen/gore
 git-get KanchiShimono/CubicEquation.jl
 git-get KeitaNakamura/JFEM.jl
 git-get KeitaNakamura/MaterialModels.jl

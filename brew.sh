@@ -45,6 +45,7 @@ brew install julia
 #---------------------------------------------------------------------------
 brew install cmake
 brew install tmux
+brew install git-flow
 brew install the_silver_searcher
 brew install the_platinum_searcher
 brew install fzf

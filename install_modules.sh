@@ -6,12 +6,17 @@ npm install --global pure-prompt
 
 # packages for python
 # ------------------------------------------------------------------------------
-pip3 install numpy pandas matplotlib tqdm Sphinx jupyter
+pip3 install numpy pandas matplotlib tqdm Sphinx jupyter flake8
 pip2 install numpy pandas matplotlib tqdm Sphinx jupyter
 # python2 -m pip install ipykernel
 # python2 -m ipykernel install --user
 pip3 install neovim
 pip2 install neovim
+
+# go
+# ------------------------------------------------------------------------------
+go get -u github.com/nsf/gocode
+go get -u github.com/motemen/gore
 
 # julia
 # ------------------------------------------------------------------------------
