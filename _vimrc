@@ -67,7 +67,7 @@ if is_nvim "For Neovim
 	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
-	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
