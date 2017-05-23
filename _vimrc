@@ -70,7 +70,9 @@ if is_nvim "For Neovim
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+	Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
 	" Plug 'Shougo/neocomplete'
 	Plug 'davidhalter/jedi-vim', {'for': 'python'}
@@ -108,8 +110,11 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "< Highlight >
 Plug 'skroll/vim-taghighlight'
 if is_nvim
+	Plug 'arakashic/chromatica.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
-end
+else
+	Plug 'jeaye/color_coded'
+endif
 " }}}
 
 "< tex conceal >
@@ -336,6 +341,16 @@ augroup vimrc-julia
     autocmd FileType julia call s:julia()
 augroup END
 "}}}
+" java {{{2
+function! s:java()
+	setlocal omnifunc=javacomplete#Complete
+endfunction
+
+augroup vimrc-java
+    autocmd!
+    autocmd FileType java call s:java()
+augroup END
+"}}}
 "}}}
 
 " SETTING FOR PLUGINS {{{1
@@ -533,6 +548,15 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit -toggle <ENTER>
 " noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<ENTER>
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
+" }}}
+" chromatica {{{2
+let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/4.0.0_1/lib/libclang.dylib'
+let g:chromatica#enable_at_startup = 1
+let g:chromatica#responsive_mode = 1
+" }}}
+" color_coded {{{2
+let g:color_coded_enabled = 1
+let g:color_coded_filetypes = ['c', 'cpp', 'objc']
 " }}}
 " highlighter {{{2
 let g:highlighter#auto_update = 2
