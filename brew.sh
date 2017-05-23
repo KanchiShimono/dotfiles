@@ -64,8 +64,8 @@ brew install diff-so-fancy
 
 # Vim
 #---------------------------------------------------------------------------
-brew install vim --with-lua --with-luajit
-brew install macvim --with-lua --with-luajit
+brew install vim --with-lua
+brew install macvim --with-lua
 brew tap neovim/neovim
 brew install neovim
 ln -sfv ~/.vimrc ~/.config/nvim/init.vim
