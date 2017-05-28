@@ -67,19 +67,22 @@ if is_nvim "For Neovim
 	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
-	Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+	Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
 	" Plug 'Shougo/neocomplete'
-	Plug 'davidhalter/jedi-vim', {'for': 'python'}
 	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --gocode-completer'}
 	" You need to compile YCM with semantic support for C-family languages:
 	" cd ~/.vim/bundle/YouCompleteMe
 	" ./install.sh --clang-completer
 	Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
 endif
+"For common
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 " }}}
 
 "< Syntax > {{{3
@@ -108,8 +111,11 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "< Highlight >
 Plug 'skroll/vim-taghighlight'
 if is_nvim
+	Plug 'arakashic/chromatica.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
-end
+else
+	Plug 'jeaye/color_coded'
+endif
 " }}}
 
 "< tex conceal >
@@ -336,9 +342,22 @@ augroup vimrc-julia
     autocmd FileType julia call s:julia()
 augroup END
 "}}}
+" java {{{2
+function! s:java()
+	setlocal omnifunc=javacomplete#Complete
+endfunction
+
+augroup vimrc-java
+    autocmd!
+    autocmd FileType java call s:java()
+augroup END
+"}}}
 "}}}
 
 " SETTING FOR PLUGINS {{{1
+" vim-plug {{{2
+let g:plug_shallow = 0
+" }}}
 " deoplete {{{2
 let g:deoplete#enable_at_startup = 1
 " Enable pressing TAB key to select completion in popup window -----------------
@@ -376,13 +395,16 @@ let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/4.0.0_1/lib
 let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/4.0.0_1/lib/clang'
 " }}}
 " deoplete-jedi {{{2
-let deoplete#sources#jedi#enable_cache=1
-let deoplete#sources#jedi#show_docstring=1
+let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
+let g:deoplete#sources#jedi#enable_cache = 1
+let g:deoplete#sources#jedi#show_docstring = 1
 " }}}
 " deoplete-go {{{2
-let g:deoplete#source#go#go_codebinary = '$GOPATH/bin/gocode'
-let g:deoplete#source#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#source#go#pointer = 1
+let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#pointer = 1
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/${GOOS}_${GOARCH}'
 " }}}
 " neocomplete {{{2
 let g:acp_enableAtStartup = 0
@@ -528,9 +550,19 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<ENTER>
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
+" chromatica {{{2
+let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/4.0.0_1/lib/libclang.dylib'
+let g:chromatica#enable_at_startup = 1
+let g:chromatica#responsive_mode = 1
+" }}}
+" color_coded {{{2
+let g:color_coded_enabled = 1
+let g:color_coded_filetypes = ['c', 'cpp', 'objc']
+" }}}
 " highlighter {{{2
 let g:highlighter#auto_update = 2
-let g:highlighter#project_root_signs = ['.git']
+let g:highlighter#project_root_signs = ['.git', '.hg']
+let g:highlighter#disabled_languages = ['c', 'cpp']
 " }}}
 " caw (comment out plugin) {{{2
 nmap <Leader>c <Plug>(caw:i:toggle)
