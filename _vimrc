@@ -75,13 +75,14 @@ if is_nvim "For Neovim
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
 	" Plug 'Shougo/neocomplete'
-	Plug 'davidhalter/jedi-vim', {'for': 'python'}
 	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --gocode-completer'}
 	" You need to compile YCM with semantic support for C-family languages:
 	" cd ~/.vim/bundle/YouCompleteMe
 	" ./install.sh --clang-completer
 	Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
 endif
+"For common
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 " }}}
 
 "< Syntax > {{{3
