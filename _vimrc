@@ -398,6 +398,7 @@ let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/4.0.0_1/lib/
 let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
 let g:deoplete#sources#jedi#enable_cache = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#server_timeout = 60
 " }}}
 " deoplete-go {{{2
 let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
