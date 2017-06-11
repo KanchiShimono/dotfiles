@@ -17,6 +17,7 @@ else
 	" For gvim
 	set guifont=Monaco:h14
 endif
+let g:deoplete#sources#jedi#show_docstring = 0
 " set transparency=20
 " hi clear cursorLine
 "****************************************************************************************************
