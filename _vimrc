@@ -63,9 +63,9 @@ Plug 'KeitaNakamura/neodark.vim'		" neodark
 if is_nvim "For Neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
-	Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+	" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
+	Plug 'JuliaEditorSupport/deoplete-julia', { 'for': 'julia' }
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
@@ -79,10 +79,10 @@ else "For Vim
 	" You need to compile YCM with semantic support for C-family languages:
 	" cd ~/.vim/bundle/YouCompleteMe
 	" ./install.sh --clang-completer
-	Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
+	Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
 endif
 "For common
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " }}}
 
 "< Syntax > {{{3
