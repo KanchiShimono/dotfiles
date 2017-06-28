@@ -59,6 +59,8 @@ Plug 'joshdick/onedark.vim'				" onedark
 Plug 'KeitaNakamura/neodark.vim'		" neodark
 " }}}
 
+Plug 'equalsraf/neovim-gui-shim'
+
 "< Auto complete > {{{3
 if is_nvim "For Neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
