@@ -59,39 +59,37 @@ Plug 'joshdick/onedark.vim'				" onedark
 Plug 'KeitaNakamura/neodark.vim'		" neodark
 " }}}
 
+Plug 'equalsraf/neovim-gui-shim'
+
 "< Auto complete > {{{3
 if is_nvim "For Neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
-	Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+	" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-	Plug 'JuliaEditorSupport/deoplete-julia', {'for': 'julia'}
+	Plug 'JuliaEditorSupport/deoplete-julia', { 'for': 'julia' }
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-	Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
 	" Plug 'Shougo/neocomplete'
-	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --gocode-completer'}
-	" You need to compile YCM with semantic support for C-family languages:
-	" cd ~/.vim/bundle/YouCompleteMe
-	" ./install.sh --clang-completer
-	Plug 'Omnisharp/omnisharp-vim', {'for': 'cs'}
+	Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
 endif
 "For common
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" You need to compile YCM with semantic support for C-family languages:
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.sh --clang-completer
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " }}}
 
 "< Syntax > {{{3
 "< Syntax check >
-if is_nvim
-	Plug 'neomake/neomake'
-else
-	Plug 'scrooloose/syntastic'
-endif
+Plug 'w0rp/ale'
 
 "< Syntax each language >
 " julia-vim is not only for julia but also
@@ -398,6 +396,7 @@ let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/4.0.0_1/lib/
 let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
 let g:deoplete#sources#jedi#enable_cache = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#server_timeout = 60
 " }}}
 " deoplete-go {{{2
 let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
@@ -453,8 +452,29 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " let g:ycm_global_ycm_extra_conf = '~/dotfiles/_ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 1
-let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
-" let g:ycm_show_diagnostics_ui = 0
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+if is_nvim " For Neovim
+	let g:ycm_filetype_specific_completion_to_disable = {
+		\ 'python': 1,
+		\ 'java': 1,
+		\ 'go': 1
+		\ }
+else " For Vim
+	let g:ycm_filetype_specific_completion_to_disable = {
+		\ 'python': 1,
+		\ 'java': 1,
+		\ }
+endif
+let g:ycm_show_diagnostics_ui = 0
+" }}}
+" ale {{{2
+let g:ale_linters = {
+	\ 'cpp': ['clang'],
+	\ 'python': ['flake8'],
+	\ 'go': ['go build', 'gofmt', 'golint', 'go vet'],
+	\ }
+let g:ale_cpp_clang_options = '-std=c++1z -Wextra -Wall -fsanitize=undefined -g'
 " }}}
 " Syntastic {{{2
 let g:syntastic_python_checkers = ['flake8']
@@ -472,10 +492,8 @@ let g:syntastic_cpp_compiler_options='-std=c++1y -stdlib=libc++'
 let g:syntastic_cpp_checkers = ['gcc', 'clang_check', 'clang_tidy', 'cppcheck']
 " }}}
 " Neomake {{{2
-if is_nvim
-	autocmd! BufWritePost * Neomake
-endif
-let g:neomake_cpp_enabled_markers = ['clang']
+" autocmd! BufWritePost * Neomake
+let g:neomake_cpp_enabled_makers = ['clang']
 let g:neomake_cpp_clang_args = ["-std=c++1z", "-Wextra", "-Wall", "-fsanitize=undefined", "-g"]
 " }}}
 " vim-go {{{2
@@ -598,7 +616,8 @@ let g:lightline = {
       \ 'colorscheme': 'neodark',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'ale_warnings', 'ale_errors' ] ]
       \ },
       \ 'component_function': {
       \   'modified': 'LightLineModified',
@@ -610,6 +629,14 @@ let g:lightline = {
       \   'fileencoding': 'LightLineFileencoding',
       \   'mode': 'LightLineMode',
       \ },
+      \ 'component_expand': {
+      \     'ale_errors': 'LightLineAleErrors',
+      \     'ale_warnings': 'LightLineAleWarnings',
+      \ },
+	  \ 'component_type': {
+      \     'ale_errors': 'error',
+      \     'ale_warnings': 'warning',
+	  \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
@@ -704,16 +731,42 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-if !is_nvim
-	augroup AutoSyntastic
-		autocmd!
-		autocmd BufWritePost *.c,*.cpp call s:syntastic()
-	augroup END
-	function! s:syntastic()
-		SyntasticCheck
-		call lightline#update()
-	endfunction
-endif
+augroup LightLineOnAle
+	autocmd!
+	autocmd User ALELint call lightline#update()
+augroup END
+
+function! LightLineAleErrors() abort
+  return s:ale_string(0)
+endfunction
+
+function! LightLineAleWarnings() abort
+  return s:ale_string(1)
+endfunction
+
+function! LightLineAleOK() abort
+  return s:ale_string(2)
+endfunction
+
+function! s:ale_string(mode)
+  if !exists('g:ale_buffer_info')
+    return ''
+  endif
+
+  let l:buffer = bufnr('%')
+  let l:counts = ale#statusline#Count(l:buffer)
+  let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
+
+  if a:mode == 0 " Error
+    let l:errors = l:counts.error + l:counts.style_error
+    return l:errors ? printf(l:error_format, l:errors) : ''
+  elseif a:mode == 1 " Warning
+    let l:warnings = l:counts.warning + l:counts.style_warning
+    return l:warnings ? printf(l:warning_format, l:warnings) : ''
+  endif
+
+  return l:no_errors
+endfunction
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
