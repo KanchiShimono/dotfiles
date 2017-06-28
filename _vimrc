@@ -75,14 +75,14 @@ if is_nvim "For Neovim
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
 	" Plug 'Shougo/neocomplete'
-	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --gocode-completer'}
-	" You need to compile YCM with semantic support for C-family languages:
-	" cd ~/.vim/bundle/YouCompleteMe
-	" ./install.sh --clang-completer
 	Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
 endif
 "For common
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" You need to compile YCM with semantic support for C-family languages:
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.sh --clang-completer
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
 " }}}
 
 "< Syntax > {{{3
@@ -450,8 +450,22 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " let g:ycm_global_ycm_extra_conf = '~/dotfiles/_ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 1
-let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+if is_nvim " For Neovim
+	let g:ycm_filetype_specific_completion_to_disable = {
+		\ 'python': 1,
+		\ 'java': 1,
+		\ 'go': 1
+		\ }
+else " For Vim
+	let g:ycm_filetype_specific_completion_to_disable = {
+		\ 'python': 1,
+		\ 'java': 1,
+		\ }
+endif
 let g:ycm_show_diagnostics_ui = 0
+" }}}
 " ale {{{2
 let g:ale_linters = {
 	\ 'cpp': ['clang'],
