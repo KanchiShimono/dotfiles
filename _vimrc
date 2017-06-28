@@ -70,7 +70,6 @@ if is_nvim "For Neovim
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-	Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
@@ -83,6 +82,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " }}}
 
 "< Syntax > {{{3
