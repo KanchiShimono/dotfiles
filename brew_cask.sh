@@ -15,6 +15,7 @@ brew cask install google-japanese-ime
 
 # Developer Tools
 #---------------------------------------------------------------------------
+brew cask install visual-studio-code
 brew cask install sourcetree
 
 # Productivity
