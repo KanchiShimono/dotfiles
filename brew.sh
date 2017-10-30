@@ -37,6 +37,9 @@ brew install lua
 brew install luajit
 # node
 brew install node
+# java
+brew install maven
+brew install tomcat
 # julia
 brew tap staticfloat/julia
 brew install julia
