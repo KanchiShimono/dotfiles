@@ -374,6 +374,7 @@ endif
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#omni#input_patterns.tex = '\\(?:'
 	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
 	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
@@ -532,6 +533,7 @@ let g:ale_linters = {
 	\ 'cpp': ['clang'],
 	\ 'python': ['flake8'],
 	\ 'go': ['go build', 'gofmt', 'golint', 'go vet'],
+	\ 'java': [],
 	\ }
 let g:ale_cpp_clang_options = '-std=c++1z -Wextra -Wall -fsanitize=undefined -g'
 " }}}
@@ -855,5 +857,8 @@ let g:previm_show_header = 0
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
 nmap <Leader>s <Plug>(easymotion-s2)
+" }}}
+" eclim {{{2
+let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 " }}}
