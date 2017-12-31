@@ -25,7 +25,7 @@ brew cask install mendeley-desktop
 # Tools
 #---------------------------------------------------------------------------
 brew cask install skim
-brew cask install mactex
+# brew cask install mactex
 
 # Programming
 #---------------------------------------------------------------------------
