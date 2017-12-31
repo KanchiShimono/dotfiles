@@ -4,6 +4,12 @@
 # ------------------------------------------------------------------------------
 npm install --global pure-prompt
 
+# npm packages
+# ------------------------------------------------------------------------------
+npm install --global tern
+npm install --global eslint
+npm install --global create-react-app
+
 # packages for python
 # ------------------------------------------------------------------------------
 pip3 install numpy pandas matplotlib tqdm Sphinx jupyter flake8

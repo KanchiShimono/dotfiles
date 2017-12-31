@@ -37,9 +37,14 @@ brew install lua
 brew install luajit
 # node
 brew install node
+# java
+brew install maven
+brew install tomcat
 # julia
 brew tap staticfloat/julia
 brew install julia
+# swift
+brew install sourcekitten
 
 # Shell Utilities
 #---------------------------------------------------------------------------
@@ -73,6 +78,11 @@ ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
 # Xcode
 #---------------------------------------------------------------------------
 brew install cocoapods
+
+# Network
+#---------------------------------------------------------------------------
+brew install nmap
+brew install telnet
 
 # Others
 #---------------------------------------------------------------------------

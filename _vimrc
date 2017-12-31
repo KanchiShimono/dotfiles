@@ -77,9 +77,9 @@ if is_nvim "For Neovim
 else "For Vim
 	" Plug 'Shougo/neocomplete'
 	Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
+	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 endif
 "For common
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " You need to compile YCM with semantic support for C-family languages:
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.sh --clang-completer
@@ -374,6 +374,7 @@ endif
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#omni#input_patterns.tex = '\\(?:'
 	\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
 	\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
@@ -404,6 +405,65 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 let g:deoplete#sources#go#pointer = 1
 let g:deoplete#sources#go#use_cache = 1
 let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/${GOOS}_${GOARCH}'
+" }}}
+" deoplete-ternjs {{{2
+" Set bin if you have many instalations
+let g:deoplete#sources#ternjs#tern_bin = '/usr/local/bin/tern'
+let g:deoplete#sources#ternjs#timeout = 1
+
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+
+" Whether to include the distance (in scopes for variables, in prototypes for
+" properties) between the completions and the origin position in the result
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+let g:deoplete#sources#ternjs#docs = 1
+
+" When on, only completions that match the current word at the given point will
+" be returned. Turn this off to get all results, so that you can filter on the
+" client side. Default: 1
+let g:deoplete#sources#ternjs#filter = 0
+
+" Whether to use a case-insensitive compare between the current word and
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" When completing a property and no completions are found, Tern will use some
+" heuristics to try and return some properties anyway. Set this to 0 to
+" turn that off. Default: 1
+let g:deoplete#sources#ternjs#guess = 0
+
+" Determines whether the result set will be sorted. Default: 1
+let g:deoplete#sources#ternjs#sort = 0
+
+" When disabled, only the text before the given position is considered part of
+" the word. When enabled (the default), the whole variable name that the cursor
+" is on will be included. Default: 1
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+
+" Whether to ignore the properties of Object.prototype unless they have been
+" spelled out by at least to characters. Default: 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+
+" Whether to include JavaScript keywords when completing something that is not
+" a property. Default: 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+
+" If completions should be returned when inside a literal. Default: 1
+let g:deoplete#sources#ternjs#in_literal = 0
+
+
+"Add extra filetypes
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
 " }}}
 " neocomplete {{{2
 let g:acp_enableAtStartup = 0
@@ -473,6 +533,7 @@ let g:ale_linters = {
 	\ 'cpp': ['clang'],
 	\ 'python': ['flake8'],
 	\ 'go': ['go build', 'gofmt', 'golint', 'go vet'],
+	\ 'java': [],
 	\ }
 let g:ale_cpp_clang_options = '-std=c++1z -Wextra -Wall -fsanitize=undefined -g'
 " }}}
@@ -569,7 +630,7 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
 " chromatica {{{2
-let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/4.0.0_1/lib/libclang.dylib'
+let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
 " }}}
@@ -796,5 +857,8 @@ let g:previm_show_header = 0
 " easymotion {{{2
 let g:EasyMotion_do_mapping = 0
 nmap <Leader>s <Plug>(easymotion-s2)
+" }}}
+" eclim {{{2
+let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 " }}}

@@ -15,6 +15,7 @@ brew cask install google-japanese-ime
 
 # Developer Tools
 #---------------------------------------------------------------------------
+brew cask install visual-studio-code
 brew cask install sourcetree
 
 # Productivity
@@ -25,3 +26,9 @@ brew cask install mendeley-desktop
 #---------------------------------------------------------------------------
 brew cask install skim
 brew cask install mactex
+
+# Programming
+#---------------------------------------------------------------------------
+brew cask install java
+brew cask install intellij-idea-ce
+brew cask install eclipse-jee

@@ -19,16 +19,16 @@ function get_meter() {
 	  echo '|★ ★ ★ ★ ★ |'
   else
     if [ $percentage -le 20 ]; then
-	  echo '|★ ⭐︎ ⭐︎ ⭐︎ ⭐︎ |'
+	  echo '|★ ⭐︎⭐︎⭐︎⭐︎|'
       # echo '|█    |'
     elif [ $percentage -gt 20 ] && [ $percentage -le 40 ]; then
-	  echo '|★ ★ ⭐︎ ⭐︎ ⭐︎ |'
+	  echo '|★ ★ ⭐︎⭐︎⭐︎|'
       # echo '|██   |'
     elif [ $percentage -gt 40 ] && [ $percentage -le 60 ]; then
-	  echo '|★ ★ ★ ⭐︎ ⭐︎ |'
+	  echo '|★ ★ ★ ⭐︎⭐︎|'
       # echo '|███  |'
     elif [ $percentage -gt 60 ] && [ $percentage -le 80 ]; then
-	  echo '|★ ★ ★ ★ ⭐︎ |'
+	  echo '|★ ★ ★ ★ ⭐︎|'
       # echo '|████ |'
     elif [ $percentage -gt 80 ] && [ $percentage -le 100 ]; then
 	  echo '|★ ★ ★ ★ ★ |'
