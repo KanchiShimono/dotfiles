@@ -41,8 +41,8 @@ brew install node
 brew install maven
 brew install tomcat
 # julia
-brew tap staticfloat/julia
-brew install julia
+# brew tap staticfloat/julia
+# brew install julia
 # swift
 brew install sourcekitten
 
