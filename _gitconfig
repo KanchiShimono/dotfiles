@@ -15,5 +15,7 @@
 	email = shimono-kanchi-yc@ynu.jp
 [srcmgr]
 	root = ~/dev/src
+	root = ~/.config/nvim/plugged
+	root = ~/.vim/plugged
 [ghq]
 	root = ~/dev/src
