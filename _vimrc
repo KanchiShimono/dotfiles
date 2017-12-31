@@ -630,7 +630,7 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
 " chromatica {{{2
-let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/4.0.0_1/lib/libclang.dylib'
+let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
 " }}}
