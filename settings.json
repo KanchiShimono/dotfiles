@@ -3,10 +3,16 @@
   "editor.fontFamily": "Monaco",
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
+
   "files.autoSave": "off",
+
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "newUntitledFile",
+
+  "extensions.ignoreRecommendations": false,
+  "extensions.autoUpdate": false,
 
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
@@ -35,7 +41,10 @@
       "eslint"
     ],
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
     },
     "rules": {
       // always indent with 4 spaces
@@ -92,13 +101,12 @@
   },
   "javascript.validate.enable": false,
 
-  "python.pythonPath": "python3",
+  "python.pythonPath": "/usr/local/bin/python3",
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
+  "python.autoComplete.addBrackets": true,
 
   "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
 
-  "path-intellisense.showHiddenFiles": true,
-  "extensions.ignoreRecommendations": false,
-  "workbench.startupEditor": "newUntitledFile"
+  "path-intellisense.showHiddenFiles": true
 }
