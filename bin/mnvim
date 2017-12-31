@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Find Neovim executable
+if [ -L "$0" ]; then
+	curdir=`pwd -P`
+	self_path=$0
+	cd "`dirname $self_path`"
+	while [ -L "$self_path" ]; do
+		self_path=`readlink $self_path`
+		cd "`dirname $self_path`"
+		self_path=`basename $self_path`
+	done
+	binary="$HOME/dev/src/github.com/equalsraf/neovim-qt/build/bin/nvim-qt.app/Contents/MacOS/nvim-qt"
+	cd "$curdir"
+else
+	binary="$HOME/dev/src/github.com/equalsraf/neovim-qt/build/bin/nvim-qt.app/Contents/MacOS/nvim-qt"
+fi
+if ! [ -x "$binary" ]; then
+	echo "Sorry, cannnot find Neovim executable"
+	exit 1
+fi
+
+name="`basename "$0"`"
+gui=
+opts=
+
+case "$name" in m*|g*) gui=true ;; esac
+
+if [ -n "${SSH_CONNECTION}" ]; then
+	gui=
+fi
+
+if [ "$gui" ]; then
+	exec "$binary" $opts ${1:+"$@"}
+else
+	exec "$binary" $opts ${1:+"$@"}
+fi
