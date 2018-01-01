@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# set GOPATH for go get command
+export PATH="$PATH:$DOTROOT/bin"
+export GOPATH=$HOME/dev
+
 # pure prompt
 # ------------------------------------------------------------------------------
 npm install --global pure-prompt
