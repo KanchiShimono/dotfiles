@@ -83,7 +83,7 @@ endif
 " You need to compile YCM with semantic support for C-family languages:
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.sh --clang-completer
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': './install.py --clang-completer --gocode-completer' }
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " }}}
 
