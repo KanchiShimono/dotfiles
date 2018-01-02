@@ -20,7 +20,7 @@ brew cask install sourcetree
 
 # Productivity
 #---------------------------------------------------------------------------
-brew cask install mendeley-desktop
+brew cask install mendeley
 
 # Tools
 #---------------------------------------------------------------------------
