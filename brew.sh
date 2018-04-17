@@ -21,9 +21,9 @@ brew install llvm
 brew install boost
 brew install eigen
 # python 2
-brew install python
+brew install python@2
 # python 3
-brew install python3
+brew install python
 # ruby
 brew install ruby
 # perl
@@ -69,8 +69,8 @@ brew install diff-so-fancy
 
 # Vim
 #---------------------------------------------------------------------------
-brew install vim --with-lua
-brew install macvim --with-lua
+brew install vim --with-python3 --with-lua
+brew install macvim --with-python3 --with-lua
 brew install neovim
 ln -sfv ~/.vimrc ~/.config/nvim/init.vim
 ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
