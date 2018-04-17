@@ -59,6 +59,7 @@
   "java.home": "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home",
   "java.format.enabled": true,
 
+  // Enable eslint instread of built in checker
   "eslint.enable": true,
   "eslint.nodePath": "/usr/local/lib/node_modules/eslint",
   "eslint.options": {
@@ -130,7 +131,6 @@
       ]
     }
   },
-  "javascript.validate.enable": false,
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.linting.flake8Enabled": true,
@@ -138,6 +138,10 @@
   "python.autoComplete.addBrackets": true,
 
   "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
+
+  // Disable built in checker
+  "javascript.validate.enable": false,
+  "javascript.format.enable": true,
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,
