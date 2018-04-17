@@ -75,9 +75,14 @@ if is_nvim "For Neovim
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
 else "For Vim
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+	Plug 'zchee/deoplete-go', { 'for': 'go' }
 	" Plug 'Shougo/neocomplete'
 	Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
-	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+	" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 endif
 "For common
 " You need to compile YCM with semantic support for C-family languages:
