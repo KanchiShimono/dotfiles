@@ -24,6 +24,10 @@ pip2 install numpy pandas matplotlib ipython tqdm Sphinx jupyter
 pip3 install neovim
 pip2 install neovim
 
+# Haskell
+# ------------------------------------------------------------------------------
+stack setup
+
 # go
 # ------------------------------------------------------------------------------
 go get -u github.com/nsf/gocode
