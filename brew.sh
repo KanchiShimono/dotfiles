@@ -21,9 +21,9 @@ brew install llvm
 brew install boost
 brew install eigen
 # python 2
-brew install python
+brew install python@2
 # python 3
-brew install python3
+brew install python
 # ruby
 brew install ruby
 # perl
