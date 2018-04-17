@@ -74,6 +74,10 @@ if is_nvim "For Neovim
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
+	Plug 'autozimu/LanguageClient-neovim', {
+	            \ 'branch': 'next',
+	            \ 'do': 'bash install.sh'
+	\ }
 else "For Vim
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
@@ -506,6 +510,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+" }}}
+" LanguageClient-neovim {{{2
+let g:LanguageClient_serverCommands = {
+\ 'haskell': ['hie', '--lsp'],
+\ }
 " }}}
 " Jedi {{{2
 let g:jedi#show_call_signatures = 2

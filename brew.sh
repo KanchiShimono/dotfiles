@@ -24,6 +24,9 @@ brew install eigen
 brew install python@2
 # python 3
 brew install python
+# Haskell
+brew install ghc
+brew install haskell-stack
 # ruby
 brew install ruby
 # perl

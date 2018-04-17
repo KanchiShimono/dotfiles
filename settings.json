@@ -139,4 +139,7 @@
 
   "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
 
+  "languageServerHaskell.hlintOn": true,
+  "languageServerHaskell.maxNumberOfProblems": 100,
+  "languageServerHaskell.useHieWrapper": true
 }
