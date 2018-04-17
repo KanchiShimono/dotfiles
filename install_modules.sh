@@ -12,6 +12,7 @@ npm install --global pure-prompt
 # ------------------------------------------------------------------------------
 npm install --global tern
 npm install --global eslint
+npm install --global neovim
 npm install --global create-react-app
 
 # packages for python
