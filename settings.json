@@ -10,6 +10,19 @@
   ],
   "editor.find.globalFindClipboard": true,
 
+  "[javascript]": {
+    "editor.tabSize": 2,
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+  },
+  "[jsx-tags]": {
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+  },
+
   "files.autoSave": "off",
   "files.autoGuessEncoding": true,
 
