@@ -3,13 +3,52 @@
   "editor.fontFamily": "Monaco",
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
+  "editor.renderWhitespace": "all",
+  "editor.renderIndentGuides": true,
+  "editor.rulers": [
+    80, 100
+  ],
+  "editor.find.globalFindClipboard": true,
+
+  "[javascript]": {
+    "editor.tabSize": 2,
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+  },
+  "[jsx-tags]": {
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+  },
 
   "files.autoSave": "off",
+  "files.autoGuessEncoding": true,
 
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.enablePreview": false,
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.list.openMode": "singleClick",
+  "workbench.fontAliasing": "default",
+
+  "search.smartCase": true,
+
+  "update.channel": "none",
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+  },
+  "emmet.syntaxProfiles": {
+    "html": {
+      "attr_quotes": "single",
+    },
+    "jsx": {
+      "self_closing_tag": true,
+    },
+  },
 
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
@@ -17,8 +56,13 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
-  "vim.disableAnnoyingNeovimMessage": true,
   "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-d>": true,
+  },
+
+  "path-intellisense.showHiddenFiles": true,
 
   "C_Cpp.intelliSenseEngine": "Default",
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
@@ -28,78 +72,8 @@
   "java.home": "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home",
   "java.format.enabled": true,
 
+  // Enable eslint instread of built in checker
   "eslint.enable": true,
-  "eslint.nodePath": "/usr/local/lib/node_modules/eslint",
-  "eslint.options": {
-    "env": {
-      "browser": true,
-      "commonjs": true,
-      "es6": true
-    },
-    // "extends": "eslint:recommended",
-    "extends": [
-      "eslint"
-    ],
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      // always indent with 4 spaces
-      "indent": [
-        "error",
-        4
-      ],
-      // end of line is LF
-      "linebreak-style": [
-        "warn",
-        "unix"
-      ],
-      // single quotes only
-      "quotes": [
-        "error",
-        "single"
-      ],
-      // semi-colon at the end of the line
-      "semi": [
-        "error",
-        "always"
-      ],
-      // brace style
-      "brace-style": [
-        "error",
-        "stroustrup"
-      ],
-      // variable camelcase
-      "camelcase": "off",
-      // Use == for comparision, not ===
-      "eqeqeq": "off",
-      // allow to write "var xx = function"
-      "func-style": [
-        "error",
-        "expression"
-      ],
-      // Do not care about the sequence of the functions and class in the code
-      "no-use-before-define": [
-        "error",
-        {
-          "functions": false,
-          "classes": false
-        }
-      ],
-      // allow non-used variables, set it to warning, not error.
-      "no-unused-vars": [
-        "warn",
-        {
-          "vars": "all",
-          "args": "after-used"
-        }
-      ]
-    }
-  },
-  "javascript.validate.enable": false,
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.linting.flake8Enabled": true,
@@ -108,5 +82,11 @@
 
   "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
 
-  "path-intellisense.showHiddenFiles": true
+  // Disable built in checker
+  "javascript.validate.enable": false,
+  "javascript.format.enable": true,
+
+  "languageServerHaskell.hlintOn": true,
+  "languageServerHaskell.maxNumberOfProblems": 100,
+  "languageServerHaskell.useHieWrapper": true
 }

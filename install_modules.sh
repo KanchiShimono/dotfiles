@@ -12,6 +12,7 @@ npm install --global pure-prompt
 # ------------------------------------------------------------------------------
 npm install --global tern
 npm install --global eslint
+npm install --global neovim
 npm install --global create-react-app
 
 # packages for python
@@ -22,6 +23,10 @@ pip2 install numpy pandas matplotlib ipython tqdm Sphinx jupyter
 # python2 -m ipykernel install --user
 pip3 install neovim
 pip2 install neovim
+
+# Haskell
+# ------------------------------------------------------------------------------
+stack setup
 
 # go
 # ------------------------------------------------------------------------------

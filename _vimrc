@@ -71,9 +71,13 @@ if is_nvim "For Neovim
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-	Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 	Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }
+	Plug 'autozimu/LanguageClient-neovim', {
+	            \ 'branch': 'next',
+	            \ 'do': 'bash install.sh'
+	\ }
 else "For Vim
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
@@ -115,6 +119,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'skroll/vim-taghighlight'
 if is_nvim
 	Plug 'arakashic/chromatica.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 	Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 else
 	Plug 'jeaye/color_coded'
@@ -506,6 +511,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
+" LanguageClient-neovim {{{2
+let g:LanguageClient_serverCommands = {
+\ 'haskell': ['hie', '--lsp'],
+\ }
+" }}}
 " Jedi {{{2
 let g:jedi#show_call_signatures = 2
 " let g:jedi#completions_enabled = 0
@@ -638,6 +648,11 @@ let g:ctrlp_root_markers = ['makefile']
 let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
+" }}}
+" tigris {{{2
+let g:tigris#enabled = 1
+let g:tigris#on_the_fly_enabled = 1
+let g:tigris#delay = 500
 " }}}
 " color_coded {{{2
 let g:color_coded_enabled = 1
