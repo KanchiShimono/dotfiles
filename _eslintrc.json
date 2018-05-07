@@ -1,57 +1,16 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true
-    },
     "extends": [
-        "eslint"
+        "airbnb"
     ],
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
+    "parser": "babel-eslint",
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "warn",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "brace-style": [
-            "error",
-            "stroustrup"
-        ],
-        "camelcase": "off",
-        "eqeqeq": "off",
-        "func-style": [
-            "error",
-            "expression"
-        ],
-        "no-use-before-define": [
-            "error",
+        "react/jsx-filename-extension": [
+            1,
             {
-                "functions": false,
-                "classes": false
-            }
-        ],
-        "no-unused-vars": [
-            "warn",
-            {
-                "vars": "all",
-                "args": "after-used"
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
             }
         ]
     }
