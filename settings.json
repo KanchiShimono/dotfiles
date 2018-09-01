@@ -57,10 +57,33 @@
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
+  "vim.whichwrap": "h,l,<,>,[,]",
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-d>": true,
   },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["u"],
+      "after": [],
+      "commands": [
+        {
+          "command": "undo",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<C-r>"],
+      "after": [],
+      "commands": [
+        {
+          "command": "redo",
+          "args": []
+        }
+      ]
+    }
+  ],
 
   "path-intellisense.showHiddenFiles": true,
 
