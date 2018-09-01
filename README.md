@@ -42,3 +42,8 @@ infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 tic $TERM.ti
 ```
 - Install fonts for lightline. See [here](https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher#os-x) and once generate patched font.
+- Create symbolic links VS Code setting files
+```sh
+ln -s ~/dev/src/github.com/KanchiShimono/dotfiles/VSCode/settings.json ~/Library/Application\ Support/Code/User
+ln -s ~/dev/src/github.com/KanchiShimono/dotfiles/VSCode/keybindings.json ~/Library/Application\ Support/Code/User
+```
