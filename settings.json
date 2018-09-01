@@ -88,5 +88,9 @@
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,
-  "languageServerHaskell.useHieWrapper": true
+  "languageServerHaskell.useHieWrapper": true,
+
+  "bracketPairColorizer.forceUniqueOpeningColor": false,
+  "bracketPairColorizer.colorMode": "Consecutive",
+  "bracketPairColorizer.highlightActiveScope": true
 }
