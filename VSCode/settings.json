@@ -22,6 +22,11 @@
   "[json]": {
     "editor.tabSize": 2,
   },
+  "[markdown]": {
+    "editor.tabSize": 2,
+    // Override because default setting for markdown is enable wordWrap
+    "editor.wordWrap": "off",
+  },
 
   "files.autoSave": "off",
   "files.autoGuessEncoding": true,
