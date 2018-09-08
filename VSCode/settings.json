@@ -3,12 +3,18 @@
   "editor.fontFamily": "Monaco",
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
+  "editor.lineNumbers": "on",
   "editor.renderWhitespace": "all",
   "editor.renderIndentGuides": true,
   "editor.rulers": [
     80, 100
   ],
   "editor.find.globalFindClipboard": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
 
   "[javascript]": {
     "editor.tabSize": 2,
@@ -37,8 +43,10 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.list.openMode": "singleClick",
   "workbench.fontAliasing": "default",
+  "workbench.activityBar.visible": true,
 
   "search.smartCase": true,
+  "search.location": "panel",
 
   "update.channel": "none",
 
