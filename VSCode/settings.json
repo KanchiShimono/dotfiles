@@ -69,6 +69,7 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
+  "vim.foldfix": true,
   "vim.useSystemClipboard": true,
   "vim.whichwrap": "h,l,<,>,[,]",
   "vim.useCtrlKeys": true,
