@@ -4,6 +4,8 @@ christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
+eamodio.gitlens
+humao.rest-client
 joshpeng.sublime-babel-vscode
 julialang.language-julia
 justusadam.language-haskell
@@ -13,6 +15,7 @@ msjsdiag.debugger-for-chrome
 ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
+ms-vscode.Go
 ms-vscode.PowerShell
 PeterJausovec.vscode-docker
 PKief.material-icon-theme
