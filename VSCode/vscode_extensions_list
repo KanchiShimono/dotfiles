@@ -1,4 +1,3 @@
-Zignd.html-css-class-completion
 alanz.vscode-hie-server
 bajdzis.vscode-database
 christian-kohler.path-intellisense
@@ -10,11 +9,11 @@ julialang.language-julia
 justusadam.language-haskell
 ms-azuretools.vscode-cosmosdb
 MS-CEINTL.vscode-language-pack-ja
+msjsdiag.debugger-for-chrome
 ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
 ms-vscode.PowerShell
-msjsdiag.debugger-for-chrome
 PeterJausovec.vscode-docker
 PKief.material-icon-theme
 pthorsson.vscode-jsp
@@ -24,3 +23,4 @@ shd101wyy.markdown-preview-enhanced
 vscodevim.vim
 vscoss.vscode-ansible
 zhuangtongfa.Material-theme
+Zignd.html-css-class-completion
