@@ -494,22 +494,22 @@ let g:neocomplete#auto_completin_start_length = 2
 " inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " inoremap <expr><C-y>  neocomplete#close_popup()
 " inoremap <expr><C-e>  neocomplete#cancel_popup()
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :"\<Space>"
-if !is_nvim
-	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-	function! s:my_cr_function()
-		" return neocomplete#close_popup() . "\<CR>"
-		" For no inserting <CR> key.
-		return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-	endfunction
-endif
+" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :"\<Space>"
+" if !is_nvim
+" 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" 	function! s:my_cr_function()
+" 		" return neocomplete#close_popup() . "\<CR>"
+" 		" For no inserting <CR> key.
+" 		return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" 	endfunction
+" endif
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+" let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
 " LanguageClient-neovim {{{2
 let g:LanguageClient_serverCommands = {
