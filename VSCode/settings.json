@@ -44,6 +44,7 @@
   "workbench.list.openMode": "singleClick",
   "workbench.fontAliasing": "default",
   "workbench.activityBar.visible": true,
+  "workbench.settings.editor": "json",
 
   "search.smartCase": true,
   "search.location": "panel",
@@ -114,14 +115,17 @@
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "flake8",
   "python.linting.pylintEnabled": false,
   "python.autoComplete.addBrackets": true,
 
-  "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
+  "julia.executablePath": "/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia",
 
   // Disable built in checker
   "javascript.validate.enable": false,
   "javascript.format.enable": true,
+
+  "go.buildOnSave": "off",
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,
