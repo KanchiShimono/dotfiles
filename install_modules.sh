@@ -21,8 +21,8 @@ pip3 install numpy pandas matplotlib ipython tqdm Sphinx jupyter flake8 beautifu
 pip2 install numpy pandas matplotlib ipython tqdm Sphinx jupyter
 # python2 -m pip install ipykernel
 # python2 -m ipykernel install --user
-pip3 install neovim
-pip2 install neovim
+pip3 install pynvim
+pip2 install pynvim
 
 # Haskell
 # ------------------------------------------------------------------------------

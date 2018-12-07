@@ -659,7 +659,7 @@ let g:color_coded_enabled = 1
 let g:color_coded_filetypes = ['c', 'cpp', 'objc']
 " }}}
 " highlighter {{{2
-let g:highlighter#auto_update = 2
+let g:highlighter#auto_update = 1
 let g:highlighter#project_root_signs = ['.git', '.hg']
 let g:highlighter#disabled_languages = ['c', 'cpp']
 " }}}
