@@ -4,9 +4,8 @@
 #---------------------------------------------------------------------------
 brew cask install alfred
 brew cask install appcleaner
-brew cask install cmd-eikana
 brew cask install iterm2
-brew cask install karabiner
+brew cask install karabiner-elements
 brew cask install insomniax
 brew cask install the-unarchiver
 brew cask install middleclick
