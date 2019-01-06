@@ -67,7 +67,7 @@ if is_nvim "For Neovim
 	Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 	" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-	Plug 'JuliaEditorSupport/deoplete-julia', { 'for': 'julia' }
+	" Plug 'JuliaEditorSupport/deoplete-julia', { 'for': 'julia' }
 	Plug 'landaire/deoplete-d', { 'for': 'd' }
 	Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
 	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
@@ -514,6 +514,12 @@ endif
 " LanguageClient-neovim {{{2
 let g:LanguageClient_serverCommands = {
 \ 'haskell': ['hie', '--lsp'],
+\ 'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', '
+\     using LanguageServer;
+\     server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
+\     server.runlinter = true;
+\     run(server);
+\ '],
 \ }
 " }}}
 " Jedi {{{2
@@ -551,6 +557,9 @@ let g:ale_linters = {
 	\ 'java': [],
 	\ }
 let g:ale_cpp_clang_options = '-std=c++1z -Wextra -Wall -fsanitize=undefined -g'
+" }}}
+" julia-vim {{{2
+let g:default_julia_version = '1.0'
 " }}}
 " Syntastic {{{2
 let g:syntastic_python_checkers = ['flake8']

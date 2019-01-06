@@ -16,6 +16,7 @@ brew cask install google-japanese-ime
 #---------------------------------------------------------------------------
 brew cask install visual-studio-code
 brew cask install sourcetree
+brew cask install chromedriver
 
 # Productivity
 #---------------------------------------------------------------------------
@@ -28,7 +29,6 @@ brew cask install skim
 
 # Programming
 #---------------------------------------------------------------------------
-brew cask install java
 brew cask install intellij-idea-ce
 brew cask install eclipse-jee
 brew cask install julia

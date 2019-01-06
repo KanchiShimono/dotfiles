@@ -41,6 +41,8 @@ brew install luajit
 # node
 brew install node
 # java
+# Some packages dependent on java so java cask package is installed here
+brew cask install java
 brew install maven
 brew install tomcat
 # julia
