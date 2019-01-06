@@ -29,7 +29,6 @@ brew cask install skim
 
 # Programming
 #---------------------------------------------------------------------------
-brew cask install java
 brew cask install intellij-idea-ce
 brew cask install eclipse-jee
 brew cask install julia
