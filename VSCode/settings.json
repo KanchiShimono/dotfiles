@@ -115,9 +115,11 @@
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.jediEnabled": false,
+  "python.formatting.provider": "yapf",
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
   "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
   "python.autoComplete.addBrackets": true,
 
   "julia.executablePath": "/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia",
