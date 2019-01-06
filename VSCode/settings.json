@@ -126,7 +126,24 @@
   "javascript.validate.enable": false,
   "javascript.format.enable": true,
 
+  "go.alternateTools": {
+    "go-langserver": "golsp"
+  },
   "go.buildOnSave": "off",
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "autoComplete": true,
+    "rename": true,
+    "goToDefinition": true,
+    "hover": true,
+    "signatureHelp": true,
+    "goToTypeDefinition": true,
+    "goToImplementation": true,
+    "documentSymbols": true,
+    "workspaceSymbols": true,
+    "findReferences": true
+  },
+  "go.useLanguageServer": true,
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,
