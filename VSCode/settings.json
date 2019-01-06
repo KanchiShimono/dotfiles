@@ -115,6 +115,7 @@
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.jediEnabled": false,
+  "python.formatting.provider": "yapf",
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
   "python.linting.pylintEnabled": false,
