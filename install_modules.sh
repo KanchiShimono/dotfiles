@@ -30,7 +30,7 @@ stack setup
 
 # go
 # ------------------------------------------------------------------------------
-go get -u -v github.com/mdempsky/gocode
+go get -u -v golang.org/x/tools/cmd/golsp
 go get -u -v github.com/motemen/gore
 go get -u -v github.com/ramya-rao-a/go-outline
 go get -u -v github.com/acroca/go-symbols
