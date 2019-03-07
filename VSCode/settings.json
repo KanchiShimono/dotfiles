@@ -47,6 +47,7 @@
   "workbench.settings.editor": "json",
 
   "search.smartCase": true,
+  "search.showLineNumbers": true,
   "search.location": "panel",
 
   "update.channel": "none",
@@ -70,6 +71,7 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
+  "vim.searchHighlightColor": "rgba(199, 192, 145, 0.5)",
   "vim.foldfix": true,
   "vim.useSystemClipboard": true,
   "vim.whichwrap": "h,l,<,>,[,]",
