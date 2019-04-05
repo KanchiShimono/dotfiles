@@ -13,6 +13,7 @@ brew install zsh-autosuggestions
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 
+brew tap homebrew/cask-versions
 # Languages
 #---------------------------------------------------------------------------
 # C / C++
@@ -43,6 +44,7 @@ brew install node
 # java
 # Some packages dependent on java so java cask package is installed here
 brew cask install java
+brew cask install java8
 brew install maven
 brew install tomcat
 # julia
@@ -89,6 +91,9 @@ brew install cocoapods
 brew install nmap
 brew install telnet
 
+# Data Science
+#---------------------------------------------------------------------------
+brew install apache-spark
 # Others
 #---------------------------------------------------------------------------
 brew install qt
