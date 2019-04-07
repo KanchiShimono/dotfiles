@@ -11,6 +11,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v "1.8")
 export PYSPARK_PYTHON="/usr/local/bin/python3"
 export PYSPARK_DRIVER_PYTHON="/usr/local/bin/python3"
 export QT_HOMEBREW=true
+export HOMEBREW_NO_INSTALL_CLEANUP=true
 
 # source /opt/intel/compilers_and_libraries_2017/mac/mkl/bin/mklvars.sh intel64 ilp64
 # source /opt/intel/compilers_and_libraries_2017/mac/bin/compilervars.sh intel64
