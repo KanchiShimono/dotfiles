@@ -4,6 +4,7 @@ christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
+dragos.scala-lsp
 eamodio.gitlens
 humao.rest-client
 joshpeng.sublime-babel-vscode
@@ -16,13 +17,15 @@ ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
 ms-vscode.Go
-ms-vscode.PowerShell
+ms-vscode.powershell
 PeterJausovec.vscode-docker
 PKief.material-icon-theme
 pthorsson.vscode-jsp
 redhat.java
 redhat.vscode-yaml
 rlovelett.vscode-swift-language
+scala-lang.scala
+scala-lang.scala-snippets
 shd101wyy.markdown-preview-enhanced
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
