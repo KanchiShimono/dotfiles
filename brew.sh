@@ -21,6 +21,7 @@ brew install gcc
 brew install llvm
 brew install boost
 brew install eigen
+brew install libomp
 # python 2
 brew install python@2
 # python 3

@@ -17,7 +17,7 @@ npm install --global create-react-app
 
 # packages for python
 # ------------------------------------------------------------------------------
-pip3 install numpy pandas matplotlib ipython tqdm Sphinx jupyter flake8 beautifulsoup4 requests lxml selenium yapf mypy pyspark pyarrow mecab-python3
+pip3 install numpy pandas matplotlib ipython tqdm Sphinx jupyter flake8 beautifulsoup4 requests lxml selenium yapf mypy pyspark pyarrow mecab-python3 xgboost lightgbm
 pip3 install pynvim
 
 # Haskell
