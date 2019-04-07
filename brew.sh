@@ -94,6 +94,10 @@ brew install telnet
 # Data Science
 #---------------------------------------------------------------------------
 brew install apache-spark
+brew install swig
+brew install mecab
+brew install mecab-ipadic
+
 # Others
 #---------------------------------------------------------------------------
 brew install qt
