@@ -51,7 +51,7 @@
   "search.showLineNumbers": true,
   "search.location": "panel",
 
-  "update.channel": "none",
+  "update.mode": "none",
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
