@@ -18,3 +18,4 @@ git-get google/benchmark
 git-get google/material-design-icons
 git-get google/web-starter-kit
 git-get haskell/haskell-ide-engine
+git-get facebookresearch/fastText
