@@ -17,6 +17,10 @@ for file in ~/.zsh/{paths,alias,bindkey,functions,completion,history,prompt}.zsh
 done;
 unset file;
 
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 autoload colors
 colors
 export LSCOLORS=exfxcxdxbxegedabagacad
