@@ -57,6 +57,7 @@ Plug 'w0ng/vim-hybrid'                  " hybrid
 Plug 'KeitaNakamura/railscasts.vim'		" railscasts
 Plug 'joshdick/onedark.vim'				" onedark
 Plug 'KeitaNakamura/neodark.vim'		" neodark
+Plug 'koirand/tokyo-metro.vim'
 " }}}
 
 Plug 'equalsraf/neovim-gui-shim'
