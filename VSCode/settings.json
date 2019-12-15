@@ -39,6 +39,7 @@
   },
   "[json]": {
     "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[markdown]": {
     "editor.tabSize": 2,
