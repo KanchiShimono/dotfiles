@@ -180,9 +180,6 @@
   "javascript.validate.enable": false,
   "javascript.format.enable": true,
 
-  "go.alternateTools": {
-    "go-langserver": "gopls"
-  },
   "go.buildOnSave": "off",
   "go.languageServerExperimentalFeatures": {
     "format": true,
@@ -198,6 +195,13 @@
     "findReferences": true
   },
   "go.useLanguageServer": true,
+  "gopls": {
+    "usePlaceholders": true,
+    "completionDocumentation": true,
+    "completeUnimported": true,
+    "deepCompletion": true,
+    "fuzzyMatching": true
+  },
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,
