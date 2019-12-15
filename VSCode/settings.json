@@ -165,12 +165,13 @@
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyArgs": [
-    "--strict",
     "--namespace-packages",
-    "--show-column-numbers"
+    "--show-column-numbers",
+    "--ignore-missing-imports"
   ],
   "python.autoComplete.addBrackets": true,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "pyright.useLibraryCodeForTypes": true,
 
   "julia.executablePath": "/Applications/Julia-1.2.app/Contents/Resources/julia/bin/julia",
   "julia.runLinter": true,
