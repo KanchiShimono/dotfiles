@@ -59,7 +59,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.list.openMode": "singleClick",
   "workbench.fontAliasing": "default",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": true,
   "workbench.settings.editor": "json",
 
   "search.smartCase": true,
