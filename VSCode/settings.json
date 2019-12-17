@@ -39,6 +39,7 @@
   },
   "[json]": {
     "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[markdown]": {
     "editor.tabSize": 2,
@@ -46,21 +47,30 @@
     "editor.wordWrap": "off",
   },
 
+  "explorer.compactFolders": true,
+
   "files.autoSave": "off",
   "files.autoGuessEncoding": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
 
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.enablePreview": false,
+  "workbench.editor.splitSizing": "distribute",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.list.openMode": "singleClick",
   "workbench.fontAliasing": "default",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": true,
   "workbench.settings.editor": "json",
+
+  "problems.showCurrentInStatus": true,
 
   "search.smartCase": true,
   "search.showLineNumbers": true,
   "search.location": "panel",
+  "search.searchOnType": true,
+  "search.collapseResults": "auto",
 
   "update.mode": "none",
 
@@ -160,8 +170,14 @@
   "python.linting.flake8Path": "flake8",
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [
+    "--namespace-packages",
+    "--show-column-numbers",
+    "--ignore-missing-imports"
+  ],
   "python.autoComplete.addBrackets": true,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "pyright.useLibraryCodeForTypes": true,
 
   "julia.executablePath": "/Applications/Julia-1.2.app/Contents/Resources/julia/bin/julia",
   "julia.runLinter": true,
@@ -170,9 +186,6 @@
   "javascript.validate.enable": false,
   "javascript.format.enable": true,
 
-  "go.alternateTools": {
-    "go-langserver": "gopls"
-  },
   "go.buildOnSave": "off",
   "go.languageServerExperimentalFeatures": {
     "format": true,
@@ -188,6 +201,13 @@
     "findReferences": true
   },
   "go.useLanguageServer": true,
+  "gopls": {
+    "usePlaceholders": true,
+    "completionDocumentation": true,
+    "completeUnimported": true,
+    "deepCompletion": true,
+    "fuzzyMatching": true
+  },
 
   "languageServerHaskell.hlintOn": true,
   "languageServerHaskell.maxNumberOfProblems": 100,

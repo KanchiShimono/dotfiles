@@ -17,6 +17,7 @@ ms-azuretools.vscode-cosmosdb
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 msjsdiag.debugger-for-chrome
+ms-pyright.pyright
 ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
@@ -39,5 +40,5 @@ shd101wyy.markdown-preview-enhanced
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
 vscoss.vscode-ansible
-zhuangtongfa.Material-theme
+zhuangtongfa.material-theme
 Zignd.html-css-class-completion

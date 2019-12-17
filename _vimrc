@@ -57,6 +57,7 @@ Plug 'w0ng/vim-hybrid'                  " hybrid
 Plug 'KeitaNakamura/railscasts.vim'		" railscasts
 Plug 'joshdick/onedark.vim'				" onedark
 Plug 'KeitaNakamura/neodark.vim'		" neodark
+Plug 'koirand/tokyo-metro.vim'
 " }}}
 
 Plug 'equalsraf/neovim-gui-shim'
@@ -823,8 +824,11 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 augroup LightLineOnAle
-	autocmd!
-	autocmd User ALELint call lightline#update()
+    autocmd!
+    autocmd User ALEFixPre   call lightline#update()
+    autocmd User ALEFixPost  call lightline#update()
+    autocmd User ALELintPre  call lightline#update()
+    autocmd User ALELintPost call lightline#update()
 augroup END
 
 function! LightLineAleErrors() abort
@@ -844,19 +848,18 @@ function! s:ale_string(mode)
     return ''
   endif
 
-  let l:buffer = bufnr('%')
-  let l:counts = ale#statusline#Count(l:buffer)
-  let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
+  let l:counts = ale#statusline#Count(bufnr(''))
 
   if a:mode == 0 " Error
     let l:errors = l:counts.error + l:counts.style_error
-    return l:errors ? printf(l:error_format, l:errors) : ''
+    return l:errors ? printf('E: %d', l:errors) : ''
   elseif a:mode == 1 " Warning
     let l:warnings = l:counts.warning + l:counts.style_warning
-    return l:warnings ? printf(l:warning_format, l:warnings) : ''
+    return l:warnings ? printf('W: %d', l:warnings) : ''
   endif
 
-  return l:no_errors
+  " no erros
+  return ''
 endfunction
 
 let g:unite_force_overwrite_statusline = 0

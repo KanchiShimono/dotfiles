@@ -26,6 +26,7 @@ brew install libomp
 brew install python@2
 # python 3
 brew install python
+brew install pyenv
 # Haskell
 brew install ghc
 brew install haskell-stack

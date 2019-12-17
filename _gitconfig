@@ -12,7 +12,7 @@
 	trustExitCode = true
 [user]
 	name = Kanchi Shimono
-	email = shimono-kanchi-yc@ynu.jp
+	email = dev.kanchi.shimono@gmail.com
 [srcmgr]
 	root = ~/dev/src
 	root = ~/.config/nvim/plugged

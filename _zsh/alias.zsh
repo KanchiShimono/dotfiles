@@ -1,5 +1,6 @@
 alias ls='ls -G'
-alias lsla='ls -la'
+alias ll='ls -lhG'
+alias lla='ls -lhaG'
 alias rm='rm -i'
 alias ..='cd ..'
 alias ...='cd ../..'
