@@ -47,6 +47,8 @@
     "editor.wordWrap": "off",
   },
 
+  "explorer.compactFolders": true,
+
   "files.autoSave": "off",
   "files.autoGuessEncoding": true,
   "files.insertFinalNewline": true,
@@ -62,9 +64,13 @@
   "workbench.activityBar.visible": true,
   "workbench.settings.editor": "json",
 
+  "problems.showCurrentInStatus": true,
+
   "search.smartCase": true,
   "search.showLineNumbers": true,
   "search.location": "panel",
+  "search.searchOnType": true,
+  "search.collapseResults": "auto",
 
   "update.mode": "none",
 
