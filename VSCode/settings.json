@@ -151,15 +151,13 @@
 
   // Enable eslint instread of built in checker
   "eslint.enable": true,
-  "eslint.validate": [
+  "eslint.probe": [
     "javascript",
     "javascriptreact",
-    {
-      "language": "typescript"
-    },
-    {
-      "language": "typescriptreact"
-    },
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue"
   ],
 
   "python.pythonPath": "/usr/local/bin/python3",
