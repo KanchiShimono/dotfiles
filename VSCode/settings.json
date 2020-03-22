@@ -140,6 +140,7 @@
   "vsintellicode.python.completionsEnabled": true,
   "vsintellicode.typescript.completionsEnabled": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.features.python.deepLearning": "enabled",
 
   "C_Cpp.intelliSenseEngine": "Default",
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
@@ -169,6 +170,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyArgs": [
+    "--strict",
     "--namespace-packages",
     "--show-column-numbers",
     "--ignore-missing-imports"
