@@ -24,7 +24,8 @@
   },
   "[javascriptreact]": {
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.tabSize": 2,
@@ -67,8 +68,8 @@
   "problems.showCurrentInStatus": true,
 
   "search.smartCase": true,
+  "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
   "search.showLineNumbers": true,
-  "search.location": "panel",
   "search.searchOnType": true,
   "search.collapseResults": "auto",
 
@@ -90,6 +91,8 @@
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
 
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "/Users/kanchi/.vimrc",
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
