@@ -187,16 +187,6 @@
   "go.buildOnSave": "off",
   "go.languageServerExperimentalFeatures": {
     "format": true,
-    "autoComplete": true,
-    "rename": true,
-    "goToDefinition": true,
-    "hover": true,
-    "signatureHelp": true,
-    "goToTypeDefinition": true,
-    "goToImplementation": true,
-    "documentSymbols": true,
-    "workspaceSymbols": true,
-    "findReferences": true
   },
   "go.useLanguageServer": true,
   "gopls": {
@@ -204,7 +194,9 @@
     "completionDocumentation": true,
     "completeUnimported": true,
     "deepCompletion": true,
-    "fuzzyMatching": true
+    "matcher": "fuzzy",
+    "hoverKind": "FullDocumentation",
+    "staticcheck": true
   },
 
   "languageServerHaskell.hlintOn": true,
