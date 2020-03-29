@@ -2,3 +2,5 @@
 .DS_Store
 *.swp
 _Trash
+.mypy_cache
+

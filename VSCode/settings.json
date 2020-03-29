@@ -24,7 +24,8 @@
   },
   "[javascriptreact]": {
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.tabSize": 2,
@@ -67,8 +68,8 @@
   "problems.showCurrentInStatus": true,
 
   "search.smartCase": true,
+  "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
   "search.showLineNumbers": true,
-  "search.location": "panel",
   "search.searchOnType": true,
   "search.collapseResults": "auto",
 
@@ -90,6 +91,8 @@
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
 
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "/Users/kanchi/.vimrc",
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.hlsearch": true,
@@ -140,6 +143,7 @@
   "vsintellicode.python.completionsEnabled": true,
   "vsintellicode.typescript.completionsEnabled": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.features.python.deepLearning": "enabled",
 
   "C_Cpp.intelliSenseEngine": "Default",
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
@@ -151,15 +155,13 @@
 
   // Enable eslint instread of built in checker
   "eslint.enable": true,
-  "eslint.validate": [
+  "eslint.probe": [
     "javascript",
     "javascriptreact",
-    {
-      "language": "typescript"
-    },
-    {
-      "language": "typescriptreact"
-    },
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue"
   ],
 
   "python.pythonPath": "/usr/local/bin/python3",
@@ -171,6 +173,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyArgs": [
+    "--strict",
     "--namespace-packages",
     "--show-column-numbers",
     "--ignore-missing-imports"
@@ -189,16 +192,6 @@
   "go.buildOnSave": "off",
   "go.languageServerExperimentalFeatures": {
     "format": true,
-    "autoComplete": true,
-    "rename": true,
-    "goToDefinition": true,
-    "hover": true,
-    "signatureHelp": true,
-    "goToTypeDefinition": true,
-    "goToImplementation": true,
-    "documentSymbols": true,
-    "workspaceSymbols": true,
-    "findReferences": true
   },
   "go.useLanguageServer": true,
   "gopls": {
@@ -206,7 +199,9 @@
     "completionDocumentation": true,
     "completeUnimported": true,
     "deepCompletion": true,
-    "fuzzyMatching": true
+    "matcher": "fuzzy",
+    "hoverKind": "FullDocumentation",
+    "staticcheck": true
   },
 
   "languageServerHaskell.hlintOn": true,
