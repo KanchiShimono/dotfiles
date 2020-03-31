@@ -401,8 +401,8 @@ autocmd CompleteDone * pclose!
 " ------------------------------------------------------------------------------
 "}}}
 " deoplete-clang {{{2
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/9.0.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/9.0.1/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/10.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/10.0.0/lib/clang'
 " }}}
 " deoplete-jedi {{{2
 let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
@@ -656,7 +656,7 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
 " chromatica {{{2
-let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/9.0.1/lib/libclang.dylib'
+let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/10.0.0/lib/libclang.dylib'
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
 " }}}
