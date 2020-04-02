@@ -170,6 +170,9 @@
   "python.autoUpdateLanguageServer": true,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
+  "python.linting.flake8Args": [
+    "--max-complexity=10"
+  ],
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyArgs": [
