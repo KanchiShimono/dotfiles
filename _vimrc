@@ -361,6 +361,16 @@ augroup vimrc-java
     autocmd FileType java call s:java()
 augroup END
 "}}}
+" clang {{{2
+function! s:get_latest_version_path(base)
+    let l:paths = split(glob(a:base . '*'), '\n')
+    let l:pattern = '\v^(' . a:base . ')([^/][0-9\._]+)'
+    let l:versions = map(l:paths, 'matchlist(v:val, l:pattern)[2]')
+    let l:copied = copy(l:versions)
+    call sort(l:copied, 'N')
+    return a:base . l:copied[-1]
+endfunction
+"}}}
 "}}}
 
 " SETTING FOR PLUGINS {{{1
@@ -401,8 +411,8 @@ autocmd CompleteDone * pclose!
 " ------------------------------------------------------------------------------
 "}}}
 " deoplete-clang {{{2
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/10.0.0_1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/10.0.0_1/lib/clang'
+let g:deoplete#sources#clang#libclang_path = s:get_latest_version_path('/usr/local/Cellar/llvm/') . '/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = s:get_latest_version_path('/usr/local/Cellar/llvm/') . '/lib/clang'
 " }}}
 " deoplete-jedi {{{2
 let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
@@ -656,7 +666,7 @@ let g:ctrlp_root_markers = ['makefile']
 " noremap <C-e> :VimFilerExplorer -find -toggle<ENTER>
 " }}}
 " chromatica {{{2
-let g:chromatica#libclang_path = '/usr/local/Cellar/llvm/10.0.0_1/lib/libclang.dylib'
+let g:chromatica#libclang_path = s:get_latest_version_path('/usr/local/Cellar/llvm/') . '/lib/libclang.dylib'
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
 " }}}
