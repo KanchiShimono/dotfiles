@@ -212,9 +212,22 @@
   "languageServerHaskell.maxNumberOfProblems": 100,
   "languageServerHaskell.useHieWrapper": true,
 
-  "bracketPairColorizer.forceUniqueOpeningColor": false,
-  "bracketPairColorizer.colorMode": "Consecutive",
-  "bracketPairColorizer.highlightActiveScope": true,
+  "bracket-pair-colorizer-2.colors": [
+    "Gold",
+    "Orchid",
+    "LightSkyBlue"
+  ],
+  "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
+  "bracket-pair-colorizer-2.colorMode": "Consecutive",
+  "bracket-pair-colorizer-2.highlightActiveScope": true,
+  "bracket-pair-colorizer-2.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}",
+    "opacity: 0.5"
+  ],
+  "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "bracket-pair-colorizer-2.showBracketsInRuler": true,
 
   "powermode.enabled": true,
   "powermode.enableShake": false,
