@@ -185,6 +185,12 @@
   "python.autoComplete.addBrackets": true,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
   "pyright.useLibraryCodeForTypes": true,
+  "autoDocstring.docstringFormat": "google",
+  "autoDocstring.generateDocstringOnEnter": true,
+  "autoDocstring.guessTypes": true,
+  "autoDocstring.includeExtendedSummary": true,
+  "autoDocstring.includeName": false,
+  "autoDocstring.startOnNewLine": false,
 
   "julia.executablePath": "/Applications/Julia-1.2.app/Contents/Resources/julia/bin/julia",
   "julia.runLinter": true,
