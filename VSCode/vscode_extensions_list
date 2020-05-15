@@ -2,7 +2,7 @@ alanz.vscode-hie-server
 bajdzis.vscode-database
 christian-kohler.path-intellisense
 chrmarti.regex
-CoenraadS.bracket-pair-colorizer
+CoenraadS.bracket-pair-colorizer-2
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 dragos.scala-lsp
@@ -31,6 +31,7 @@ ms-vscode-remote.remote-ssh-explorer
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 ms-vsliveshare.vsliveshare
+njpwerner.autodocstring
 PKief.material-icon-theme
 pthorsson.vscode-jsp
 redhat.java
