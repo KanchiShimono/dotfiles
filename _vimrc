@@ -63,28 +63,29 @@ Plug 'koirand/tokyo-metro.vim'
 Plug 'equalsraf/neovim-gui-shim'
 
 "< Auto complete > {{{3
+
 if is_nvim "For Neovim
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/neoinclude.vim' "| Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
   " Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+  " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   " Plug 'JuliaEditorSupport/deoplete-julia', { 'for': 'julia' }
   Plug 'landaire/deoplete-d', { 'for': 'd' }
   Plug 'mitsuse/autocomplete-swift', { 'for': 'swift' }
-  Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+  " Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
   Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
   Plug 'Shougo/neco-vim', { 'for': 'vim' }
-  Plug 'autozimu/LanguageClient-neovim', {
-              \ 'branch': 'next',
-              \ 'do': 'bash install.sh'
-  \ }
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "            \ 'branch': 'next',
+  "            \ 'do': 'bash install.sh'
+  "\ }
 else "For Vim
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-  Plug 'zchee/deoplete-go', { 'for': 'go' }
+  " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+  " Plug 'zchee/deoplete-go', { 'for': 'go' }
   " Plug 'Shougo/neocomplete'
   Plug 'Omnisharp/omnisharp-vim', { 'for': 'cs' }
   " Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -95,6 +96,14 @@ endif
 " ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': 'python3 install.py --clang-completer --gocode-completer --ts-completer' }
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+
+" < Language Server Client > {{{4
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" }}}
+
 " }}}
 
 "< Syntax > {{{3
@@ -559,6 +568,10 @@ else " For Vim
     \ }
 endif
 let g:ycm_show_diagnostics_ui = 0
+" }}}
+" vim-lsp-settings {{{2
+let g:lsp_settings_servers_dir = '~/.local/share/vim-lsp-settings/servers'
+let g:lsp_settings_filetype_python = 'pyls-ms'
 " }}}
 " ale {{{2
 let g:ale_linters = {
