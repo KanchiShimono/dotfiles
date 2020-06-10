@@ -38,6 +38,9 @@
   "[jsx-tags]": {
     "editor.tabSize": 2,
   },
+  "[python]": {
+    "editor.formatOnSave": true
+  },
   "[json]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "vscode.json-language-features",
@@ -147,7 +150,7 @@
   "vsintellicode.java.completionsEnabled": true,
   "vsintellicode.python.completionsEnabled": true,
   "vsintellicode.typescript.completionsEnabled": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.modify.editor.suggestSelection": "enabled",
   "vsintellicode.features.python.deepLearning": "enabled",
 
   "C_Cpp.intelliSenseEngine": "Default",
@@ -171,7 +174,12 @@
 
   "python.pythonPath": "/usr/local/bin/python3",
   "python.jediEnabled": false,
-  "python.formatting.provider": "yapf",
+  "python.languageServer": "Microsoft",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length=79",
+    "--skip-string-normalization"
+  ],
   "python.autoUpdateLanguageServer": true,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
@@ -188,6 +196,8 @@
   ],
   "python.autoComplete.addBrackets": true,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "pyright.disableLanguageServices": false,
+  "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
   "autoDocstring.docstringFormat": "google",
   "autoDocstring.generateDocstringOnEnter": true,
