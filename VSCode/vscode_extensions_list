@@ -1,4 +1,5 @@
 alanz.vscode-hie-server
+alefragnani.Bookmarks
 bajdzis.vscode-database
 christian-kohler.path-intellisense
 chrmarti.regex
@@ -8,12 +9,14 @@ dbaeumer.vscode-eslint
 dragos.scala-lsp
 eamodio.gitlens
 esbenp.prettier-vscode
+hediet.vscode-drawio
 hoovercj.vscode-power-mode
 humao.rest-client
 joshpeng.sublime-babel-vscode
 julialang.language-julia
 justusadam.language-haskell
 kumar-harsh.graphql-for-vscode
+mads-hartmann.bash-ide-vscode
 ms-azuretools.vscode-cosmosdb
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
