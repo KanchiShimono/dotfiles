@@ -54,6 +54,8 @@ brew install tomcat
 # brew install julia
 # swift
 brew install sourcekitten
+# rust
+brew install rustup-init
 
 # Shell Utilities
 #---------------------------------------------------------------------------
