@@ -9,6 +9,7 @@ dbaeumer.vscode-eslint
 dragos.scala-lsp
 eamodio.gitlens
 esbenp.prettier-vscode
+golang.go
 hediet.vscode-drawio
 hoovercj.vscode-power-mode
 humao.rest-client
@@ -25,7 +26,6 @@ ms-pyright.pyright
 ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
-ms-vscode.Go
 ms-vscode.powershell
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
@@ -40,9 +40,12 @@ pthorsson.vscode-jsp
 redhat.java
 redhat.vscode-yaml
 rlovelett.vscode-swift-language
+rust-lang.rust
 scala-lang.scala
 scala-lang.scala-snippets
 shd101wyy.markdown-preview-enhanced
+tamasfe.even-better-toml
+vadimcn.vscode-lldb
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
 vscoss.vscode-ansible

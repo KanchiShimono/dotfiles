@@ -37,3 +37,8 @@ brew cask install julia
 #---------------------------------------------------------------------------
 brew cask install virtualbox
 brew cask install vagrant
+
+# Communication
+#---------------------------------------------------------------------------
+brew cask install slack
+brew cask install discord
