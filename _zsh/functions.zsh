@@ -1,4 +1,4 @@
-export FZF_DEFAULT_COMMAND='ag -ag ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden'
 
 # search directory and cd
 fd() {
