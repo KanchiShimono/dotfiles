@@ -1,4 +1,4 @@
-export FZF_DEFAULT_COMMAND='ag -ag ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden'
 
 # search directory and cd
 fd() {
@@ -62,4 +62,9 @@ function cdd () {
 # fh - repeat history
 fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# ccp - copy file to clipboad
+ccp() {
+	bat $* | pbcopy
 }
