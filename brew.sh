@@ -77,7 +77,7 @@ brew install sl
 brew install ghostscript
 brew install imagemagick --with-ghostscript
 brew install diff-so-fancy
-brew install github/gh/gh
+brew install gh
 brew install exa
 brew install bat
 brew install fd
