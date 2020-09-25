@@ -12,6 +12,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PYSPARK_PYTHON="/usr/local/bin/python3"
 export PYSPARK_DRIVER_PYTHON="/usr/local/bin/python3"
+export PATH="$HOME/.cargo/bin:$PATH"
 export QT_HOMEBREW=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 # Avoid crashing macOS Mojave when use python multiprocessing
