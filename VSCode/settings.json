@@ -8,6 +8,7 @@
   "editor.renderIndentGuides": true,
   "editor.suggestSelection": "first",
   "editor.copyWithSyntaxHighlighting": false,
+  "editor.cursorSmoothCaretAnimation": true,
   "editor.rulers": [
     80, 100
   ],
@@ -54,9 +55,12 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[yaml]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2,
     // Override because default setting for markdown is enable wordWrap
     "editor.wordWrap": "off",
@@ -69,6 +73,9 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+
+  "notebook.diff.enablePreview": true,
+  "notebook.showCellStatusBar": true,
 
   "git.enabled": true,
   "git.showCommitInput": true,
@@ -184,7 +191,7 @@
   ],
 
   "python.pythonPath": "/usr/local/bin/python3",
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
     "--line-length=79",
@@ -206,6 +213,9 @@
   ],
   "python.autoComplete.addBrackets": true,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "python.dataScience.interactiveWindowMode": "perFile",
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.diagnosticMode": "workspace",
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
@@ -238,9 +248,13 @@
     "staticcheck": true
   },
 
-  "languageServerHaskell.hlintOn": true,
-  "languageServerHaskell.maxNumberOfProblems": 100,
-  "languageServerHaskell.useHieWrapper": true,
+  "rust-client.engine": "rust-analyzer",
+  "rust.rust-analyzer": {
+    "releaseTag": "2020-08-31",
+  },
+
+  "haskell.hlintOn": true,
+  "haskell.maxNumberOfProblems": 100,
 
   "bracket-pair-colorizer-2.colors": [
     "Gold",
