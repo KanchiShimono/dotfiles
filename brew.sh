@@ -45,7 +45,7 @@ brew install luajit
 brew install node
 # java
 # Some packages dependent on java so java cask package is installed here
-brew cask install java
+brew install java
 brew cask install java8
 brew install maven
 brew install tomcat
@@ -74,6 +74,7 @@ brew install ninja
 brew install rename
 brew install tree
 brew install sl
+brew install jq
 brew install ghostscript
 brew install imagemagick --with-ghostscript
 brew install diff-so-fancy
@@ -102,6 +103,11 @@ brew install cocoapods
 brew install nmap
 brew install telnet
 
+# Application Development
+#---------------------------------------------------------------------------
+brew install k9s
+brew install kustomize
+
 # Data Science
 #---------------------------------------------------------------------------
 brew install apache-spark
@@ -119,5 +125,6 @@ brew install screenfetch
 
 # Font
 #---------------------------------------------------------------------------
+brew install fontforge
 brew tap sanemat/font
 brew install ricty --with-powerline
