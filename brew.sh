@@ -102,6 +102,11 @@ brew install cocoapods
 brew install nmap
 brew install telnet
 
+# Application Development
+#---------------------------------------------------------------------------
+brew install k9s
+brew install kustomize
+
 # Data Science
 #---------------------------------------------------------------------------
 brew install apache-spark
