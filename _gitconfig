@@ -1,12 +1,12 @@
 [core]
-	excludesfile = /Users/Kanchi/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/vim
 [alias]
 	graph = log --graph --oneline --decorate=full --all
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
