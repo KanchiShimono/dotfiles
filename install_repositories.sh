@@ -5,17 +5,17 @@ export PATH="$PATH:$DOTROOT/bin"
 # export GOPATH=$HOME/dev
 
 # go get github.com/KanchiShimono/srcmgr
-git-get KanchiShimono/CubicEquation.jl
-git-get KeitaNakamura/JFEM.jl
-git-get KeitaNakamura/MaterialModels.jl
-git-get KeitaNakamura/LinearEquations.jl
-git-get KeitaNakamura/ElementTestSimulator.jl
-git-get KeitaNakamura/PyPlotUtils.jl
-git-get apple/swift
-git-get neovim/neovim
-git-get JuliaLang/julia
-git-get google/benchmark
-git-get google/material-design-icons
-git-get google/web-starter-kit
-git-get haskell/haskell-ide-engine
-git-get facebookresearch/fastText
+# git-get KanchiShimono/CubicEquation.jl
+# git-get KeitaNakamura/JFEM.jl
+# git-get KeitaNakamura/MaterialModels.jl
+# git-get KeitaNakamura/LinearEquations.jl
+# git-get KeitaNakamura/ElementTestSimulator.jl
+# git-get KeitaNakamura/PyPlotUtils.jl
+# git-get apple/swift
+# git-get neovim/neovim
+# git-get JuliaLang/julia
+# git-get google/benchmark
+# git-get google/material-design-icons
+# git-get google/web-starter-kit
+# git-get haskell/haskell-ide-engine
+# git-get facebookresearch/fastText
