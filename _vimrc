@@ -650,7 +650,10 @@ let NERDTreeDirArrowExpandable='+'
 let NERDTreeDirArrowCollapsible='-'
 " }}}
 " CtrlP {{{2
-if executable('ag')
+if executable('rg')
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'rg %s --files --color=never --no-ignore --hidden --glob ""'
+elseif executable('ag')
   let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
