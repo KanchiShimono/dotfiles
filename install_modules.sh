@@ -16,8 +16,32 @@ npm install --global create-react-app
 
 # packages for python
 # ------------------------------------------------------------------------------
-pip3 install numpy pandas matplotlib ipython tqdm Sphinx jupyter flake8 beautifulsoup4 requests lxml selenium yapf mypy pyspark pyarrow mecab-python3 xgboost lightgbm rope isort scikit-learn gensim
-pip3 install pynvim
+# pip3 install \
+#  black \
+#  yapf \
+#  mypy \
+#  rope \
+#  isort \
+#  ipython \
+#  jupyter \
+#  pynvim \
+#  Sphinx \
+#  flake8 \
+#  requests \
+#  beautifulsoup4 \
+#  lxml \
+#  tqdm \
+#  selenium \
+#  pyarrow \
+#  matplotlib \
+#  numpy \
+#  pandas \
+#  pyspark \
+#  xgboost \
+#  lightgbm \
+#  scikit-learn \
+#  gensim \
+#  mecab-python3
 
 # Haskell
 # ------------------------------------------------------------------------------
@@ -49,11 +73,11 @@ stack setup
 # julia
 # ------------------------------------------------------------------------------
 julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
-	PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
-	BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff \
-	PkgDev;
+    PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
+    BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff \
+    PkgDev;
 julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
-	https://github.com/KanchiShimono/CubicEquation.jl \
-	https://github.com/KeitaNakamura/LinearEquations.jl \
-	https://github.com/KeitaNakamura/ElementTestSimulator.jl \
-	https://github.com/KeitaNakamura/PyPlotUtils.jl;
+    https://github.com/KanchiShimono/CubicEquation.jl \
+    https://github.com/KeitaNakamura/LinearEquations.jl \
+    https://github.com/KeitaNakamura/ElementTestSimulator.jl \
+    https://github.com/KeitaNakamura/PyPlotUtils.jl;

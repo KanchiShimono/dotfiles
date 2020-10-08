@@ -22,8 +22,6 @@ brew install llvm
 brew install boost
 brew install eigen
 brew install libomp
-# python 2
-brew install python@2
 # python 3
 brew install python
 brew install pyenv
@@ -46,12 +44,11 @@ brew install node
 # java
 # Some packages dependent on java so java cask package is installed here
 brew install java
-brew cask install java8
+brew cask install adoptopenjdk
 brew install maven
 brew install tomcat
 # julia
-# brew tap staticfloat/julia
-# brew install julia
+# julia package is moved to cask
 # swift
 brew install sourcekitten
 # rust
@@ -76,7 +73,7 @@ brew install tree
 brew install sl
 brew install jq
 brew install ghostscript
-brew install imagemagick --with-ghostscript
+brew install imagemagick
 brew install diff-so-fancy
 brew install gh
 brew install exa
@@ -88,11 +85,9 @@ brew install tokei
 
 # Vim
 #---------------------------------------------------------------------------
-brew install vim --with-lua
-brew install macvim --with-lua
+brew install vim
+# brew install macvim
 brew install neovim
-ln -sfv ~/.vimrc ~/.config/nvim/init.vim
-ln -sfv ~/.gvimrc ~/.config/nvim/ginit.vim
 
 # Xcode
 #---------------------------------------------------------------------------
@@ -110,7 +105,6 @@ brew install kustomize
 
 # Data Science
 #---------------------------------------------------------------------------
-brew install apache-spark
 brew install swig
 brew install mecab
 brew install mecab-ipadic
