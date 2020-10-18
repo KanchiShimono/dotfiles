@@ -1,4 +1,5 @@
 alefragnani.Bookmarks
+apollographql.vscode-apollo
 bajdzis.vscode-database
 christian-kohler.path-intellisense
 chrmarti.regex
@@ -41,10 +42,12 @@ pthorsson.vscode-jsp
 redhat.java
 redhat.vscode-yaml
 rlovelett.vscode-swift-language
+RobbOwen.synthwave-vscode
 rust-lang.rust
 scala-lang.scala
 scala-lang.scala-snippets
 shd101wyy.markdown-preview-enhanced
+stylelint.vscode-stylelint
 tamasfe.even-better-toml
 vadimcn.vscode-lldb
 VisualStudioExptTeam.vscodeintellicode
