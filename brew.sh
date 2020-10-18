@@ -82,6 +82,7 @@ brew install fd
 brew install procs
 brew install ripgrep
 brew install tokei
+brew install diskonaut
 
 # Vim
 #---------------------------------------------------------------------------
