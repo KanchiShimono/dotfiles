@@ -82,6 +82,7 @@ brew install fd
 brew install procs
 brew install ripgrep
 brew install tokei
+brew install diskonaut
 
 # Vim
 #---------------------------------------------------------------------------
@@ -100,6 +101,9 @@ brew install telnet
 
 # Application Development
 #---------------------------------------------------------------------------
+brew install docker
+brew install docker-completion
+brew install docker-compose-completion
 brew install k9s
 brew install kustomize
 

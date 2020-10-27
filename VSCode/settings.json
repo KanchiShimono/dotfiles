@@ -60,8 +60,8 @@
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.defaultFormatter": "mrmlnc.vscode-remark",
+    "editor.tabSize": 4,
     // Override because default setting for markdown is enable wordWrap
     "editor.wordWrap": "off",
   },
@@ -81,7 +81,7 @@
   "git.showCommitInput": true,
   "git.showProgress": true,
 
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "SynthWave '84",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.enablePreview": false,
   "workbench.editor.splitSizing": "distribute",
@@ -190,7 +190,7 @@
     "vue"
   ],
 
-  "python.pythonPath": "/usr/local/bin/python3",
+  "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
@@ -226,7 +226,7 @@
   "autoDocstring.includeName": false,
   "autoDocstring.startOnNewLine": false,
 
-  "julia.executablePath": "/Applications/Julia-1.2.app/Contents/Resources/julia/bin/julia",
+  "julia.executablePath": "/usr/local/bin/julia",
   "julia.runLinter": true,
 
   // Disable built in checker
@@ -243,9 +243,10 @@
     "completionDocumentation": true,
     "completeUnimported": true,
     "deepCompletion": true,
-    "matcher": "fuzzy",
+    "matcher": "Fuzzy",
     "hoverKind": "FullDocumentation",
-    "staticcheck": true
+    "staticcheck": true,
+    "gofumpt": true
   },
 
   "rust-client.engine": "rust-analyzer",
@@ -272,6 +273,8 @@
   ],
   "bracket-pair-colorizer-2.showBracketsInGutter": true,
   "bracket-pair-colorizer-2.showBracketsInRuler": true,
+
+  "synthwave84.brightness": 0.7,
 
   "powermode.enabled": true,
   "powermode.enableShake": false,

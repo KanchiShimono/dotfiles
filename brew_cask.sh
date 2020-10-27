@@ -25,6 +25,7 @@ brew cask install mendeley
 # Tools
 #---------------------------------------------------------------------------
 brew cask install skim
+brew install bitwarden
 # mactex takes too long time to install, so disable default
 # brew cask install mactex
 
