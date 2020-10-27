@@ -60,8 +60,8 @@
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.defaultFormatter": "mrmlnc.vscode-remark",
+    "editor.tabSize": 4,
     // Override because default setting for markdown is enable wordWrap
     "editor.wordWrap": "off",
   },
