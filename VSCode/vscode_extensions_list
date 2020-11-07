@@ -8,6 +8,7 @@ DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 dragos.scala-lsp
 eamodio.gitlens
+EditorConfig.EditorConfig
 esbenp.prettier-vscode
 GitHub.github-vscode-theme
 golang.go

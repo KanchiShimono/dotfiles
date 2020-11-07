@@ -21,7 +21,11 @@
 
   "[javascript]": {
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[javascriptreact]": {
     "editor.tabSize": 2,
@@ -31,11 +35,18 @@
   "[typescript]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[typescriptreact]": {
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[jsx-tags]": {
     "editor.tabSize": 2,
@@ -188,6 +199,10 @@
     "typescriptreact",
     "html",
     "vue"
+  ],
+
+  "prettier.disableLanguages": [
+    "markdown"
   ],
 
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
