@@ -98,6 +98,7 @@ brew install cocoapods
 #---------------------------------------------------------------------------
 brew install nmap
 brew install telnet
+brew install wget
 
 # Application Development
 #---------------------------------------------------------------------------
