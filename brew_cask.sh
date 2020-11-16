@@ -37,6 +37,7 @@ brew cask install julia
 
 # Virtual Environment
 #---------------------------------------------------------------------------
+brew cask install docker
 brew cask install virtualbox
 brew cask install vagrant
 
