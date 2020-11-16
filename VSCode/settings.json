@@ -186,8 +186,7 @@
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
   "C_Cpp.loggingLevel": "Information",
 
-  // "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home",
-  "java.home": "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home",
+  "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home",
   "java.format.enabled": true,
 
   // Enable eslint instread of built in checker
@@ -204,6 +203,13 @@
   "prettier.disableLanguages": [
     "markdown"
   ],
+
+  "remark.format": {
+    "rules": {
+      "listItemIndent": "1",
+      "incrementListMarker": false,
+    }
+  },
 
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
@@ -227,10 +233,10 @@
     "--ignore-missing-imports"
   ],
   "python.autoComplete.addBrackets": true,
-  "python.dataScience.sendSelectionToInteractiveWindow": true,
-  "python.dataScience.interactiveWindowMode": "perFile",
   "python.analysis.completeFunctionParens": true,
   "python.analysis.diagnosticMode": "workspace",
+  "jupyter.sendSelectionToInteractiveWindow": true,
+  "jupyter.interactiveWindowMode": "perFile",
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
@@ -271,6 +277,13 @@
 
   "haskell.hlintOn": true,
   "haskell.maxNumberOfProblems": 100,
+
+  "yaml.schemas": {
+    "Kubernetes": "*.yaml",
+    "Kustomization": "*.yaml"
+  },
+  "yaml.schemaStore.enable": true,
+  "yaml.trace.server": "messages",
 
   "bracket-pair-colorizer-2.colors": [
     "Gold",

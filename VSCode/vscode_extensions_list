@@ -16,7 +16,6 @@ haskell.haskell
 hediet.vscode-drawio
 hoovercj.vscode-power-mode
 humao.rest-client
-joshpeng.sublime-babel-vscode
 julialang.language-julia
 justusadam.language-haskell
 kumar-harsh.graphql-for-vscode
@@ -26,8 +25,10 @@ ms-azuretools.vscode-cosmosdb
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 msjsdiag.debugger-for-chrome
+ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
 ms-python.vscode-pylance
+ms-toolsai.jupyter
 ms-vscode.azure-account
 ms-vscode.cpptools
 ms-vscode.powershell
@@ -43,7 +44,6 @@ PKief.material-icon-theme
 pthorsson.vscode-jsp
 redhat.java
 redhat.vscode-yaml
-rlovelett.vscode-swift-language
 RobbOwen.synthwave-vscode
 rust-lang.rust
 scala-lang.scala
@@ -55,7 +55,6 @@ tamasfe.even-better-toml
 vadimcn.vscode-lldb
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
-vscoss.vscode-ansible
 yzhang.markdown-all-in-one
 zhuangtongfa.material-theme
 Zignd.html-css-class-completion
