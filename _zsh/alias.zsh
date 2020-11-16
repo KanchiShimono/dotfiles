@@ -21,3 +21,4 @@ alias code_ext_list='code --list-extensions 2> /dev/null | sort -f -d'
 alias el='exa --color=always'
 alias ell='exa --color=always --long'
 alias ela='exa --color=always --long --all'
+alias k=kubectl
