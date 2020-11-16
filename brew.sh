@@ -108,6 +108,7 @@ brew install docker-completion
 brew install docker-compose-completion
 brew install k9s
 brew install kustomize
+brew install kompose
 
 # Data Science
 #---------------------------------------------------------------------------
