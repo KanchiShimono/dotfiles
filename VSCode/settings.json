@@ -1,6 +1,8 @@
 {
   "editor.fontSize": 12,
   "editor.fontFamily": "Monaco",
+  "editor.codeLensFontFamily": "Comic Sans MS",
+  "editor.codeLensFontSize": 12,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
   "editor.lineNumbers": "on",
