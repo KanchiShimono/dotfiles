@@ -192,8 +192,15 @@
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
   "C_Cpp.loggingLevel": "Information",
 
-  "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home",
+  "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home",
   "java.format.enabled": true,
+  "java.configuration.runtimes": [
+    {
+      "default": true,
+      "name": "JavaSE-1.8",
+      "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+    }
+  ],
 
   // Enable eslint instread of built in checker
   "eslint.enable": true,
