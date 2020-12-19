@@ -130,6 +130,10 @@
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
 
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
+  ],
+
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "~/.vimrc",
   "vim.enableNeovim": true,
