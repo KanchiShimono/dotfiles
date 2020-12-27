@@ -1,6 +1,8 @@
 {
   "editor.fontSize": 12,
   "editor.fontFamily": "Monaco",
+  "editor.codeLensFontFamily": "Comic Sans MS",
+  "editor.codeLensFontSize": 12,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
   "editor.lineNumbers": "on",
@@ -128,6 +130,10 @@
   "extensions.ignoreRecommendations": false,
   "extensions.autoUpdate": false,
 
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
+  ],
+
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "~/.vimrc",
   "vim.enableNeovim": true,
@@ -186,9 +192,15 @@
   "C_Cpp.intelliSenseEngineFallback": "Disabled",
   "C_Cpp.loggingLevel": "Information",
 
-  // "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home",
-  "java.home": "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home",
+  "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home",
   "java.format.enabled": true,
+  "java.configuration.runtimes": [
+    {
+      "default": true,
+      "name": "JavaSE-1.8",
+      "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+    }
+  ],
 
   // Enable eslint instread of built in checker
   "eslint.enable": true,
@@ -204,6 +216,13 @@
   "prettier.disableLanguages": [
     "markdown"
   ],
+
+  "remark.format": {
+    "rules": {
+      "listItemIndent": "1",
+      "incrementListMarker": false,
+    }
+  },
 
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
@@ -227,10 +246,10 @@
     "--ignore-missing-imports"
   ],
   "python.autoComplete.addBrackets": true,
-  "python.dataScience.sendSelectionToInteractiveWindow": true,
-  "python.dataScience.interactiveWindowMode": "perFile",
   "python.analysis.completeFunctionParens": true,
   "python.analysis.diagnosticMode": "workspace",
+  "jupyter.sendSelectionToInteractiveWindow": true,
+  "jupyter.interactiveWindowMode": "perFile",
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
@@ -271,6 +290,13 @@
 
   "haskell.hlintOn": true,
   "haskell.maxNumberOfProblems": 100,
+
+  "yaml.schemas": {
+    "Kubernetes": "*.yaml",
+    "Kustomization": "*.yaml"
+  },
+  "yaml.schemaStore.enable": true,
+  "yaml.trace.server": "messages",
 
   "bracket-pair-colorizer-2.colors": [
     "Gold",
