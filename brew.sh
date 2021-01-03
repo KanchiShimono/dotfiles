@@ -41,6 +41,7 @@ brew install lua
 brew install luajit
 # node
 brew install node
+brew install nodenv
 # java
 # Some packages dependent on java so java cask package is installed here
 brew install java
