@@ -12,6 +12,7 @@ EditorConfig.EditorConfig
 esbenp.prettier-vscode
 GitHub.github-vscode-theme
 golang.go
+hashicorp.terraform
 haskell.haskell
 hediet.vscode-drawio
 hoovercj.vscode-power-mode

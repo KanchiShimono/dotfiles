@@ -78,6 +78,9 @@
     // Override because default setting for markdown is enable wordWrap
     "editor.wordWrap": "off",
   },
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
 
   "explorer.compactFolders": true,
 
