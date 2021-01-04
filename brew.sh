@@ -54,6 +54,8 @@ brew install tomcat
 brew install sourcekitten
 # rust
 brew install rustup-init
+# terraform
+brew install tfenv
 
 # Shell Utilities
 #---------------------------------------------------------------------------
