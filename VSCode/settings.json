@@ -109,6 +109,7 @@
 
   "problems.showCurrentInStatus": true,
 
+  "search.mode": "view",
   "search.smartCase": true,
   "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
   "search.showLineNumbers": true,
