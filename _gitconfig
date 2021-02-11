@@ -19,3 +19,5 @@
 	root = ~/.vim/plugged
 [ghq]
 	root = ~/dev/src
+[delta]
+	line-numbers = true
