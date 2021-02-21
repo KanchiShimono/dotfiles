@@ -9,7 +9,7 @@ if [ -z $TMUX ]; then
 		fi
 		create_new_session="New Session"
 		ID="${create_new_session}:\n$ID"
-		ID="`echo -e "$ID" | fzf | cut -d : -f 1`"
+		ID="`echo -e "$ID" | sk --no-multi | cut -d : -f 1`"
 		if [ "$ID" = "$create_new_session" ]; then
 			tmux new-session
 		elif [ -n "$ID" ]; then

@@ -65,6 +65,7 @@ brew install git-flow
 brew install the_silver_searcher
 brew install the_platinum_searcher
 brew install fzf
+brew install sk
 brew install ctags
 brew install pandoc
 brew install reattach-to-user-namespace
