@@ -3,7 +3,7 @@
 	editor = /usr/local/bin/vim
 [alias]
 	graph = log --graph --oneline --decorate=full --all
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | delta | less --tabs=4 -RFX; }; f"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -19,3 +19,5 @@
 	root = ~/.vim/plugged
 [ghq]
 	root = ~/dev/src
+[delta]
+	line-numbers = true

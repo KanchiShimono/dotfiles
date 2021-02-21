@@ -83,6 +83,7 @@ brew install exa
 brew install bat
 brew install fd
 brew install procs
+brew install git-delta
 brew install ripgrep
 brew install tokei
 brew install diskonaut

@@ -53,6 +53,9 @@
   "[jsx-tags]": {
     "editor.tabSize": 2,
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[python]": {
     "editor.formatOnSave": true
   },
@@ -109,6 +112,7 @@
 
   "problems.showCurrentInStatus": true,
 
+  "search.mode": "view",
   "search.smartCase": true,
   "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
   "search.showLineNumbers": true,
