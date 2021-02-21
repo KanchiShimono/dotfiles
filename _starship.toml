@@ -1,0 +1,24 @@
+[character]
+success_symbol = "[❯❯❯](bold green)"
+error_symbol = "[❯❯❯](bold red)"
+vicmd_symbol = "[❮❮❮](bold green)"
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "bold blue"
+
+[git_branch]
+symbol = "🌱 "
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
