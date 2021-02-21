@@ -53,6 +53,9 @@
   "[jsx-tags]": {
     "editor.tabSize": 2,
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[python]": {
     "editor.formatOnSave": true
   },
