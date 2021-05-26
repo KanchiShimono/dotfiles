@@ -18,6 +18,12 @@ done;
 unset file;
 
 if command -v pyenv 1>/dev/null 2>&1; then
+    # pyenv split PATH manipulation and everything else from 2.0.0.
+    # Document recommends to run `init --path` command in both ~/.profile and ~/.zprofile,
+    # but working correctly on my enviroment even if run `init --path` in ~/.zshrc.
+    # Running `init --path` here, there is possibility to cause any problem.
+    # See: https://github.com/pyenv/pyenv/blob/master/CHANGELOG.md#breaking-changes
+    eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
 if command -v nodenv 1>/dev/null 2>&1; then
