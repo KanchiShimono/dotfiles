@@ -102,6 +102,12 @@
 
   "workbench.colorTheme": "SynthWave '84",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "workbench.editor.enablePreview": false,
   "workbench.editor.splitSizing": "distribute",
   "workbench.startupEditor": "newUntitledFile",
