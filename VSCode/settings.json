@@ -12,7 +12,7 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.rulers": [
-    80, 100
+    80, 88, 100
   ],
   "editor.find.globalFindClipboard": true,
   "editor.quickSuggestions": {
@@ -102,12 +102,9 @@
 
   "workbench.colorTheme": "SynthWave '84",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "workbench.editor.enablePreview": false,
   "workbench.editor.splitSizing": "distribute",
   "workbench.startupEditor": "newUntitledFile",
@@ -241,7 +238,6 @@
   "python.languageServer": "Pylance",
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
-    "--line-length=79",
     "--skip-string-normalization"
   ],
   "python.autoUpdateLanguageServer": true,
@@ -263,6 +259,7 @@
   "python.analysis.diagnosticMode": "workspace",
   "jupyter.sendSelectionToInteractiveWindow": true,
   "jupyter.interactiveWindowMode": "perFile",
+  "jupyter.experimental.debugging": true,
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
