@@ -21,6 +21,7 @@ julialang.language-julia
 justusadam.language-haskell
 kumar-harsh.graphql-for-vscode
 mads-hartmann.bash-ide-vscode
+matklad.rust-analyzer
 mrmlnc.vscode-remark
 ms-azuretools.vscode-cosmosdb
 ms-azuretools.vscode-docker
