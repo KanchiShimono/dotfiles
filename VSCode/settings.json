@@ -297,6 +297,8 @@
   "rust.rust-analyzer": {
     "releaseTag": "2020-08-31",
   },
+  "rust-analyzer.updates.channel": "stable",
+  "rust-analyzer.updates.askBeforeDownload": true,
 
   "haskell.hlintOn": true,
   "haskell.maxNumberOfProblems": 100,
