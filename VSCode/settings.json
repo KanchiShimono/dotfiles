@@ -9,6 +9,7 @@
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "all",
   "editor.renderIndentGuides": true,
+  "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorSmoothCaretAnimation": true,
