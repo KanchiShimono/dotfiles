@@ -3,6 +3,7 @@
   "editor.fontFamily": "Monaco",
   "editor.codeLensFontFamily": "Comic Sans MS",
   "editor.codeLensFontSize": 12,
+  "editor.bracketPairColorization.enabled": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
   "editor.lineNumbers": "on",
@@ -102,6 +103,12 @@
 
   "workbench.colorTheme": "SynthWave '84",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    // Respect for bracket-pair-colorizer colors
+    "editorBracketHighlight.foreground1": "#ffd700", // Gold
+    "editorBracketHighlight.foreground2": "#da70d6", // Orchid
+    "editorBracketHighlight.foreground3": "#179fff", // LightSkyBlue
+  },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
@@ -308,23 +315,6 @@
   },
   "yaml.schemaStore.enable": true,
   "yaml.trace.server": "messages",
-
-  "bracket-pair-colorizer-2.colors": [
-    "Gold",
-    "Orchid",
-    "LightSkyBlue"
-  ],
-  "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
-  "bracket-pair-colorizer-2.colorMode": "Consecutive",
-  "bracket-pair-colorizer-2.highlightActiveScope": true,
-  "bracket-pair-colorizer-2.activeScopeCSS": [
-    "borderStyle : solid",
-    "borderWidth : 1px",
-    "borderColor : {color}",
-    "opacity: 0.5"
-  ],
-  "bracket-pair-colorizer-2.showBracketsInGutter": true,
-  "bracket-pair-colorizer-2.showBracketsInRuler": true,
 
   "synthwave84.brightness": 0.7,
 
