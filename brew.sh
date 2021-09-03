@@ -110,7 +110,6 @@ brew install wget
 # Application Development
 #---------------------------------------------------------------------------
 brew install docker
-brew install docker-completion
 brew install docker-compose-completion
 brew install k9s
 brew install kustomize
