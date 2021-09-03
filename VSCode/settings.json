@@ -112,6 +112,7 @@
   "workbench.fontAliasing": "default",
   "workbench.activityBar.visible": true,
   "workbench.settings.editor": "json",
+  "workbench.editor.languageDetection": true,
 
   "problems.showCurrentInStatus": true,
 
@@ -272,6 +273,8 @@
 
   "julia.executablePath": "/usr/local/bin/julia",
   "julia.runLinter": true,
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": false,
 
   // Disable built in checker
   "javascript.validate.enable": false,
