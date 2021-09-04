@@ -108,7 +108,7 @@
     // Respect for bracket-pair-colorizer colors
     "editorBracketHighlight.foreground1": "#ffd700", // Gold
     "editorBracketHighlight.foreground2": "#da70d6", // Orchid
-    "editorBracketHighlight.foreground3": "#179fff", // LightSkyBlue
+    "editorBracketHighlight.foreground3": "#87cefa", // LightSkyBlue
   },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
