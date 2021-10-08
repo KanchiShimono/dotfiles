@@ -4,11 +4,12 @@
   "editor.codeLensFontFamily": "Comic Sans MS",
   "editor.codeLensFontSize": 12,
   "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.indentation": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "all",
-  "editor.renderIndentGuides": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
   "editor.copyWithSyntaxHighlighting": false,
@@ -62,7 +63,8 @@
     "editor.formatOnSave": true
   },
   "[rust]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "matklad.rust-analyzer"
   },
   "[json]": {
     "editor.tabSize": 2,
@@ -84,7 +86,8 @@
     "editor.wordWrap": "off",
   },
   "[terraform]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "hashicorp.terraform"
   },
 
   "explorer.compactFolders": true,
@@ -96,7 +99,8 @@
   "files.trimTrailingWhitespace": true,
 
   "notebook.diff.enablePreview": true,
-  "notebook.showCellStatusBar": true,
+  "notebook.lineNumbers": "on",
+  "notebook.showCellStatusBar": "visible",
 
   "git.enabled": true,
   "git.showCommitInput": true,
