@@ -90,6 +90,7 @@ brew install tokei
 brew install diskonaut
 brew install hexyl
 brew install starship
+brew install silicon
 
 # Vim
 #---------------------------------------------------------------------------
