@@ -25,3 +25,6 @@ modified = "📝"
 staged = '[++\($count\)](green)'
 renamed = "👅"
 deleted = "🗑"
+
+[kubernetes]
+disabled = false
