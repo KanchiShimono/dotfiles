@@ -3,7 +3,6 @@ apollographql.vscode-apollo
 bajdzis.vscode-database
 christian-kohler.path-intellisense
 chrmarti.regex
-CoenraadS.bracket-pair-colorizer-2
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 dragos.scala-lsp
@@ -48,7 +47,6 @@ quicktype.quicktype
 redhat.java
 redhat.vscode-yaml
 RobbOwen.synthwave-vscode
-rust-lang.rust
 scala-lang.scala
 scala-lang.scala-snippets
 shd101wyy.markdown-preview-enhanced
