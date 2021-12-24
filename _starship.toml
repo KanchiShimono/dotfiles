@@ -28,3 +28,7 @@ deleted = "🗑"
 
 [kubernetes]
 disabled = false
+
+[status]
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+disabled = false
