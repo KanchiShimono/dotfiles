@@ -110,7 +110,7 @@
   "git.showCommitInput": true,
   "git.showProgress": true,
 
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     // Respect for bracket-pair-colorizer colors
