@@ -10,7 +10,6 @@ compdef -d brew
 
 if type "kubectl" > /dev/null 2>&1; then
 	source <(kubectl completion zsh)
-	complete -F __start_kubectl k
 fi
 if type "kompose" > /dev/null 2>&1; then
 	source <(kompose completion zsh)
