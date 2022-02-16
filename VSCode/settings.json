@@ -5,6 +5,7 @@
   "editor.codeLensFontSize": 12,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": "active",
   "editor.guides.indentation": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 0,
@@ -60,7 +61,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   },
   "[rust]": {
     "editor.formatOnSave": true,
@@ -106,7 +110,7 @@
   "git.showCommitInput": true,
   "git.showProgress": true,
 
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     // Respect for bracket-pair-colorizer colors
