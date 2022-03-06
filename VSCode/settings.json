@@ -122,6 +122,7 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.editor.enablePreview": false,
+  "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.splitSizing": "distribute",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.list.openMode": "singleClick",
@@ -328,6 +329,7 @@
   "synthwave84.brightness": 0.7,
 
   "powermode.enabled": true,
-  "powermode.enableShake": false,
-  "powermode.presets": "fireworks"
+  "powermode.presets": "fireworks",
+  "powermode.combo.timeout": 60,
+  "powermode.shake.enabled": false
 }
