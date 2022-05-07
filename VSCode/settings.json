@@ -319,10 +319,6 @@
   "haskell.hlintOn": true,
   "haskell.maxNumberOfProblems": 100,
 
-  "yaml.schemas": {
-    "Kubernetes": "*.yaml",
-    "Kustomization": "*.yaml"
-  },
   "yaml.schemaStore.enable": true,
   "yaml.trace.server": "messages",
 
