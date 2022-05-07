@@ -61,6 +61,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
@@ -254,10 +255,6 @@
 
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": [
-    "--skip-string-normalization"
-  ],
   "python.autoUpdateLanguageServer": true,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
@@ -275,6 +272,13 @@
   "python.autoComplete.addBrackets": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.diagnosticMode": "workspace",
+  "black-formatter.args": [
+    "--skip-string-normalization"
+  ],
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
   "jupyter.sendSelectionToInteractiveWindow": true,
   "jupyter.interactiveWindowMode": "perFile",
   "jupyter.experimental.debugging": true,
