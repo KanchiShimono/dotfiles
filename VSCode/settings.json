@@ -15,7 +15,7 @@
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
   "editor.copyWithSyntaxHighlighting": false,
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.rulers": [
     80, 88, 100
   ],
@@ -282,9 +282,8 @@
     "--profile",
     "black"
   ],
-  "jupyter.sendSelectionToInteractiveWindow": true,
-  "jupyter.interactiveWindowMode": "perFile",
-  "jupyter.experimental.debugging": true,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
