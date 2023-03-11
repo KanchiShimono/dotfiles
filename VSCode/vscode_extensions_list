@@ -30,6 +30,7 @@ MS-CEINTL.vscode-language-pack-ja
 msjsdiag.debugger-for-chrome
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.black-formatter
+ms-python.flake8
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
