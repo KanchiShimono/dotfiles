@@ -11,12 +11,14 @@
   "editor.quickSuggestionsDelay": 0,
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "all",
+  "editor.stickyScroll.enabled": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
+  "editor.inlineSuggest.enabled": true,
   "editor.copyWithSyntaxHighlighting": false,
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.rulers": [
-    80, 88, 100
+    80, 88, 100, 120
   ],
   "editor.find.globalFindClipboard": true,
   "editor.quickSuggestions": {
@@ -25,33 +27,12 @@
     "strings": false
   },
 
-  "[javascript]": {
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
-  },
-  "[javascriptreact]": {
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
-  },
-  "[typescriptreact]": {
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[jsx-tags]": {
@@ -61,14 +42,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     }
   },
   "[rust]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "matklad.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "[json]": {
     "editor.tabSize": 2,
@@ -110,6 +92,8 @@
   "git.showCommitInput": true,
   "git.showProgress": true,
 
+  "diffEditor.ignoreTrimWhitespace": false,
+
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
@@ -122,11 +106,11 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.editor.enablePreview": false,
+  "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.splitSizing": "distribute",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.list.openMode": "singleClick",
   "workbench.fontAliasing": "default",
-  "workbench.activityBar.visible": true,
   "workbench.settings.editor": "json",
   "workbench.editor.languageDetection": true,
 
@@ -253,30 +237,12 @@
 
   "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": [
-    "--skip-string-normalization"
-  ],
   "python.autoUpdateLanguageServer": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": "flake8",
-  "python.linting.flake8Args": [
-    "--max-complexity=10"
-  ],
-  "python.linting.pylintEnabled": false,
-  "python.linting.mypyEnabled": true,
-  "python.linting.mypyArgs": [
-    "--strict",
-    "--namespace-packages",
-    "--show-column-numbers",
-    "--ignore-missing-imports"
-  ],
   "python.autoComplete.addBrackets": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.diagnosticMode": "workspace",
-  "jupyter.sendSelectionToInteractiveWindow": true,
-  "jupyter.interactiveWindowMode": "perFile",
-  "jupyter.experimental.debugging": true,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,
@@ -317,17 +283,17 @@
 
   "haskell.hlintOn": true,
   "haskell.maxNumberOfProblems": 100,
+  "haskell.manageHLS": "PATH",
 
-  "yaml.schemas": {
-    "Kubernetes": "*.yaml",
-    "Kustomization": "*.yaml"
-  },
   "yaml.schemaStore.enable": true,
   "yaml.trace.server": "messages",
+
+  "terraform.languageServer.enable": true,
 
   "synthwave84.brightness": 0.7,
 
   "powermode.enabled": true,
-  "powermode.enableShake": false,
-  "powermode.presets": "fireworks"
+  "powermode.presets": "fireworks",
+  "powermode.combo.timeout": 60,
+  "powermode.shake.enabled": false
 }
