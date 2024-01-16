@@ -1,7 +1,7 @@
-#          _              
-#  _______| |__  _ __ ___ 
+#          _
+#  _______| |__  _ __ ___
 # |_  / __| '_ \| '__/ __|
-#  / /\__ \ | | | | | (__ 
+#  / /\__ \ | | | | | (__
 # /___|___/_| |_|_|  \___|
 #
 
@@ -43,8 +43,6 @@ fi
 # PROMPT="%{$fg[cyan]%}%~%{$reset_color%} %{$fg_bold[red]%}≈★ %{$reset_color%} "
 # PROMPT2="%{$fg[green]%}%_> %{$reset_color%}"
 # SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
-TERM=screen-256color
-# TERM=xterm-256color
 
 # 補完機能を有効にする
 # fpath=(/usr/local/share/zsh-completions $fpath)

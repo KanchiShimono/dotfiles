@@ -24,6 +24,7 @@ brew cask install mendeley
 
 # Tools
 #---------------------------------------------------------------------------
+brew install --cask alacritty
 brew cask install skim
 brew install bitwarden
 brew install --cask tunnelblick
