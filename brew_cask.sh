@@ -4,9 +4,7 @@
 #---------------------------------------------------------------------------
 brew cask install alfred
 brew cask install appcleaner
-brew cask install iterm2
 brew cask install karabiner-elements
-brew cask install insomniax
 brew cask install the-unarchiver
 brew cask install middleclick
 brew cask install google-chrome
@@ -33,15 +31,7 @@ brew install --cask tunnelblick
 
 # Programming
 #---------------------------------------------------------------------------
-brew cask install intellij-idea-ce
-brew cask install eclipse-jee
 brew cask install julia
-
-# Virtual Environment
-#---------------------------------------------------------------------------
-brew cask install docker
-brew cask install virtualbox
-brew cask install vagrant
 
 # Communication
 #---------------------------------------------------------------------------

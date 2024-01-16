@@ -34,8 +34,6 @@ brew install ruby
 brew install perl
 # Go
 brew install go
-# D
-brew install dmd
 # lua
 brew install lua
 brew install luajit
@@ -48,10 +46,6 @@ brew install java
 brew cask install adoptopenjdk
 brew install maven
 brew install tomcat
-# julia
-# julia package is moved to cask
-# swift
-brew install sourcekitten
 # rust
 brew install rustup-init
 # terraform
@@ -61,14 +55,10 @@ brew install tfenv
 #---------------------------------------------------------------------------
 brew install cmake
 brew install tmux
-brew install git-flow
-brew install the_silver_searcher
-brew install the_platinum_searcher
 brew install fzf
 brew install sk
 brew install ctags
 brew install pandoc
-brew install reattach-to-user-namespace
 brew install nkf
 brew install ffmpeg
 brew install ninja
@@ -78,7 +68,6 @@ brew install sl
 brew install jq
 brew install ghostscript
 brew install imagemagick
-brew install diff-so-fancy
 brew install gh
 brew install exa
 brew install bat
@@ -98,10 +87,6 @@ brew install vim
 # brew install macvim
 brew install neovim
 
-# Xcode
-#---------------------------------------------------------------------------
-brew install cocoapods
-
 # Network
 #---------------------------------------------------------------------------
 brew install nmap
@@ -111,16 +96,12 @@ brew install wget
 # Application Development
 #---------------------------------------------------------------------------
 brew install docker
-brew install docker-compose-completion
 brew install k9s
-brew install kustomize
 brew install kompose
 
 # Data Science
 #---------------------------------------------------------------------------
 brew install swig
-brew install mecab
-brew install mecab-ipadic
 
 # Others
 #---------------------------------------------------------------------------
