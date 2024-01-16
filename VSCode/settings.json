@@ -235,7 +235,6 @@
     }
   },
 
-  "python.defaultInterpreterPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
   "python.autoUpdateLanguageServer": true,
   "python.autoComplete.addBrackets": true,

@@ -29,10 +29,6 @@ brew install --cask tunnelblick
 # mactex takes too long time to install, so disable default
 # brew cask install mactex
 
-# Programming
-#---------------------------------------------------------------------------
-brew cask install julia
-
 # Communication
 #---------------------------------------------------------------------------
 brew cask install slack

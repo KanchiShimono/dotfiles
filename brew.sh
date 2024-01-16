@@ -22,34 +22,6 @@ brew install llvm
 brew install boost
 brew install eigen
 brew install libomp
-# python 3
-brew install python
-brew install pyenv
-# Haskell
-brew install ghc
-brew install haskell-stack
-# ruby
-brew install ruby
-# perl
-brew install perl
-# Go
-brew install go
-# lua
-brew install lua
-brew install luajit
-# node
-brew install node
-brew install nodenv
-# java
-# Some packages dependent on java so java cask package is installed here
-brew install java
-brew cask install adoptopenjdk
-brew install maven
-brew install tomcat
-# rust
-brew install rustup-init
-# terraform
-brew install tfenv
 
 # Shell Utilities
 #---------------------------------------------------------------------------
@@ -96,8 +68,7 @@ brew install wget
 # Application Development
 #---------------------------------------------------------------------------
 brew install docker
-brew install k9s
-brew install kompose
+brew install mise
 
 # Data Science
 #---------------------------------------------------------------------------
