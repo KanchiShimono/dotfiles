@@ -21,14 +21,14 @@ if command -v mise 1>/dev/null 2>&1; then
     eval "$(mise activate zsh)"
 fi
 
-autoload colors
-colors
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+# autoload colors
+# colors
+# export LSCOLORS=exfxcxdxbxegedabagacad
+# export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-if [ -n "$LS_COLORS" ]; then
-	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
+# if [ -n "$LS_COLORS" ]; then
+# 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# fi
 
 # PROMPT="%{$fg_bold[red]%}★ %{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%} %# "
 # PROMPT="%{$fg[cyan]%}%~%{$reset_color%} %{$fg_bold[red]%}≈★ %{$reset_color%} "
@@ -43,7 +43,7 @@ fi
 # zstyle ':completion:*:default' menu select=1
 # compdef -d brew
 # source ~/.zsh/zcomplete.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # pure prompt
 # autoload -U promptinit && promptinit
@@ -55,4 +55,8 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Refer to following FAQ
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # https://github.com/sindresorhus/pure (About Ctrl+L)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# FIXMI: Change to `~/.config/sheldon/plugins.toml`
+export SHELDON_CONFIG_FILE="$HOME/.sheldon_plugins.toml"
+eval "$(sheldon source)"

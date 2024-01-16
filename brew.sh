@@ -9,9 +9,7 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
 	echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
 	chsh -s /usr/local/bin/zsh
 fi
-brew install zsh-autosuggestions
-brew install zsh-completions
-brew install zsh-syntax-highlighting
+brew install sheldon
 
 brew tap homebrew/cask-versions
 # Languages
