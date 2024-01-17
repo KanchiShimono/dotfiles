@@ -57,6 +57,4 @@ fi
 # https://github.com/sindresorhus/pure (About Ctrl+L)
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# FIXMI: Change to `~/.config/sheldon/plugins.toml`
-export SHELDON_CONFIG_FILE="$HOME/.sheldon_plugins.toml"
 eval "$(sheldon source)"

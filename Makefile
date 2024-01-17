@@ -1,5 +1,5 @@
 DOTROOT    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard _??*)
+CANDIDATES := $(wildcard _??*) $(wildcard .config/*)
 EXCLUSIONS := .DS_Store .git .gitmodules .travis.yml
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 
@@ -19,7 +19,6 @@ deploy:
 	@mkdir -p $(HOME)/.config/nvim
 	@ln -snfv $(DOTROOT)/_vimrc $(HOME)/.config/nvim/init.vim
 	@ln -snfv $(DOTROOT)/_gvimrc $(HOME)/.config/nvim/ginit.vim
-	@ln -snfv $(DOTROOT)/karabiner $(HOME)/.config
 
 .PHONY: init
 init:
@@ -40,7 +39,6 @@ clean:
 	@$(foreach val, $(DOTFILES), unlink $(HOME)/$(patsubst _%,\.%,$(val));)
 	@unlink $(HOME)/.config/nvim/init.vim
 	@unlink $(HOME)/.config/nvim/ginit.vim
-	@unlink $(HOME)/.config/karabiner
 
 .PHONY: cleanall
 cleanall: clean
