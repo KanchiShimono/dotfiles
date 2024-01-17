@@ -1,6 +1,6 @@
 DOTROOT    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard _??*) $(wildcard .config/*)
-EXCLUSIONS := .DS_Store .git .gitmodules .travis.yml
+CANDIDATES := $(filter-out $(EXCLUSIONS), $(wildcard .??*)) $(wildcard .config/*)
+EXCLUSIONS := .DS_Store .git .gitmodules .gitignore .config
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 
 .PHONY: all
