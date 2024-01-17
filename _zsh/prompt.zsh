@@ -9,5 +9,4 @@ SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 # prompt pure
 
 # starship prompt
-export STARSHIP_CONFIG=$HOME/.starship.toml
 eval "$(starship init zsh)"
