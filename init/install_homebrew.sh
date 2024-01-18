@@ -12,7 +12,7 @@ fi
 # Install Homebrew
 if ! has "brew"; then
 	echo "Start installing Homebrew..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
 	echo "Homebrew has already been installed!"
 	echo "Updating Homebrew..."

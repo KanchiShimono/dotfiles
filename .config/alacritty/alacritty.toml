@@ -1,5 +1,10 @@
 [shell]
 program = "/bin/zsh"
+args = [
+  "-l",
+  "-c",
+  "source ~/dev/src/github.com/KanchiShimono/dotfiles/bin/tmuxx",
+]
 
 
 [env]

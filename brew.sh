@@ -39,7 +39,7 @@ brew install jq
 brew install ghostscript
 brew install imagemagick
 brew install gh
-brew install exa
+brew install eza
 brew install bat
 brew install fd
 brew install procs
