@@ -17,8 +17,8 @@ deploy:
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(patsubst _%,\.%,$(val));)
 	@mkdir -p $(HOME)/.config
 	@mkdir -p $(HOME)/.config/nvim
-	@ln -snfv $(DOTROOT)/_vimrc $(HOME)/.config/nvim/init.vim
-	@ln -snfv $(DOTROOT)/_gvimrc $(HOME)/.config/nvim/ginit.vim
+	@ln -snfv $(DOTROOT)/.vimrc $(HOME)/.config/nvim/init.vim
+	@ln -snfv $(DOTROOT)/.gvimrc $(HOME)/.config/nvim/ginit.vim
 
 .PHONY: init
 init:
