@@ -1,5 +1,5 @@
 *~
 .DS_Store
 *.swp
-fontList.cache
-fontList.py3k.cache
+.config/karabiner/automatic_backups/
+.config/matplotlib/font*.json
