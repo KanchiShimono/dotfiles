@@ -1,12 +1,18 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/vim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[diff]
+	colorMoved = dimmed-zebra
+[merge]
+	conflictstyle = diff3
 [alias]
 	graph = log --graph --oneline --decorate=full --all
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | delta | less --tabs=4 -RFX; }; f"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -20,4 +26,5 @@
 [ghq]
 	root = ~/dev/src
 [delta]
+	navigate = true
 	line-numbers = true

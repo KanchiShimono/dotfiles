@@ -12,14 +12,18 @@
 # export GOPATH="$HOME/dev"
 # export PATH="$PATH:$GOPATH/bin"
 
+if command -v mise 1>/dev/null 2>&1; then
+    eval "$(mise activate zsh)"
+    # Enable zsh completion for tools installed with mise
+    # https://github.com/jdx/mise/discussions/734
+    # https://mise.jdx.dev/faq.html#mise-isn-t-working-when-calling-from-tmux-or-another-shell-initialization-script
+    eval "$(mise hook-env)"
+fi
+
 for file in ~/.zsh/{paths,alias,bindkey,functions,completion,history,prompt}.zsh; do
 	[ -f "$file" ] && source "$file";
 done;
 unset file;
-
-if command -v mise 1>/dev/null 2>&1; then
-    eval "$(mise activate zsh)"
-fi
 
 # autoload colors
 # colors
