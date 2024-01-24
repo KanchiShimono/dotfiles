@@ -14,11 +14,8 @@ list:
 deploy:
 	@echo 'Deploying dotfiles to your HOME directory'
 	@echo ''
-	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(patsubst _%,\.%,$(val));)
 	@mkdir -p $(HOME)/.config
-	@mkdir -p $(HOME)/.config/nvim
-	@ln -snfv $(DOTROOT)/.vimrc $(HOME)/.config/nvim/init.vim
-	@ln -snfv $(DOTROOT)/.gvimrc $(HOME)/.config/nvim/ginit.vim
+	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(patsubst _%,\.%,$(val));)
 
 .PHONY: init
 init:
@@ -37,8 +34,6 @@ clean:
 	@echo 'Unlinking following dotfiles in your HOME directory'
 	@$(foreach val, $(DOTFILES), echo $(HOME)/$(patsubst _%,\.%,$(val));)
 	@$(foreach val, $(DOTFILES), unlink $(HOME)/$(patsubst _%,\.%,$(val));)
-	@unlink $(HOME)/.config/nvim/init.vim
-	@unlink $(HOME)/.config/nvim/ginit.vim
 
 .PHONY: cleanall
 cleanall: clean
