@@ -220,16 +220,15 @@ let g:email = "shimono-kanchi-yc@ynu.jp"
 " color setting {{{2
 syntax on
 " set t_Co=256
-" set termguicolors
+if has("termguicolors")
+	set termguicolors
+endif
 set background=dark
 let g:neodark#use_custom_terminal_theme = 1
 " let g:neodark#background = 'gray'
 " let g:neodark#use_256color = 1
 colorscheme neodark
 " let g:molokai_original = 1
-" if has("termguicolors")
-" 	set termguicolors
-" endif
 " hi Visual ctermbg=236
 " hi CursorLine cterm=underline ctermfg=None ctermbg=None
 " hi clear cursorLine
