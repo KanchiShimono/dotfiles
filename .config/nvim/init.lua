@@ -406,7 +406,8 @@ require('lazy').setup({
         'aa',
         function()
           require('align').align_to_char({
-            length = 1,
+            length = 2,
+            preview = true,
           })
         end,
         opts
