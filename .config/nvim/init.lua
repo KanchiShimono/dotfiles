@@ -115,7 +115,7 @@ require('lazy').setup({
       lspconfig.lua_ls.setup({
         on_init = function(client)
           local path = client.workspace_folders[1].name
-          if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+          if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
             client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
               Lua = {
                 runtime = {
@@ -254,49 +254,49 @@ require('lazy').setup({
       on_attach = function(bufnr)
         local api = require('nvim-tree.api')
         local function opts(desc)
-            return {
-              desc = 'nvim-tree: ' .. desc,
-              buffer = bufnr,
-              noremap = true,
-              silent = true,
-              nowait = true,
-            }
+          return {
+            desc = 'nvim-tree: ' .. desc,
+            buffer = bufnr,
+            noremap = true,
+            silent = true,
+            nowait = true,
+          }
         end
 
         -- api.config.mappings.default_on_attach(bufnr)
         -- selected from the default mappings
-        vim.keymap.set('n', '<C-i>',   api.node.show_info_popup,            opts('Info'))
-        vim.keymap.set('n', '<C-r>',   api.fs.rename_sub,                   opts('Rename: Omit Filename'))
-        vim.keymap.set('n', '<C-v>',   api.node.open.vertical,              opts('Open: Vertical Split'))
-        vim.keymap.set('n', '<BS>',    api.node.navigate.parent_close,      opts('Close Directory'))
-        vim.keymap.set('n', '<CR>',    api.node.open.edit,                  opts('Open'))
-        vim.keymap.set('n', 'a',       api.fs.create,                       opts('Create File Or Directory'))
-        vim.keymap.set('n', 'B',       api.tree.toggle_no_buffer_filter,    opts('Toggle Filter: No Buffer'))
-        vim.keymap.set('n', 'c',       api.fs.copy.node,                    opts('Copy'))
-        vim.keymap.set('n', 'C',       api.tree.toggle_git_clean_filter,    opts('Toggle Filter: Git Clean'))
-        vim.keymap.set('n', 'd',       api.fs.remove,                       opts('Delete'))
-        vim.keymap.set('n', 'D',       api.fs.trash,                        opts('Trash'))
-        vim.keymap.set('n', 'E',       api.tree.expand_all,                 opts('Expand All'))
-        vim.keymap.set('n', 'F',       api.live_filter.clear,               opts('Live Filter: Clear'))
-        vim.keymap.set('n', 'f',       api.live_filter.start,               opts('Live Filter: Start'))
-        vim.keymap.set('n', 'g?',      api.tree.toggle_help,                opts('Help'))
-        vim.keymap.set('n', 'gy',      api.fs.copy.absolute_path,           opts('Copy Absolute Path'))
-        vim.keymap.set('n', 'H',       api.tree.toggle_hidden_filter,       opts('Toggle Filter: Dotfiles'))
-        vim.keymap.set('n', 'I',       api.tree.toggle_gitignore_filter,    opts('Toggle Filter: Git Ignore'))
-        vim.keymap.set('n', 'M',       api.tree.toggle_no_bookmark_filter,  opts('Toggle Filter: No Bookmark'))
-        vim.keymap.set('n', 'm',       api.marks.toggle,                    opts('Toggle Bookmark'))
-        vim.keymap.set('n', 'o',       api.node.open.edit,                  opts('Open'))
-        vim.keymap.set('n', 'O',       api.node.open.no_window_picker,      opts('Open: No Window Picker'))
-        vim.keymap.set('n', 'p',       api.fs.paste,                        opts('Paste'))
-        vim.keymap.set('n', 'P',       api.node.navigate.parent,            opts('Parent Directory'))
-        vim.keymap.set('n', 'q',       api.tree.close,                      opts('Close'))
-        vim.keymap.set('n', 'r',       api.fs.rename,                       opts('Rename'))
-        vim.keymap.set('n', 'R',       api.tree.reload,                     opts('Refresh'))
-        vim.keymap.set('n', 'S',       api.tree.search_node,                opts('Search'))
-        vim.keymap.set('n', 'W',       api.tree.collapse_all,               opts('Collapse'))
-        vim.keymap.set('n', 'x',       api.fs.cut,                          opts('Cut'))
-        vim.keymap.set('n', 'y',       api.fs.copy.filename,                opts('Copy Name'))
-        vim.keymap.set('n', 'Y',       api.fs.copy.relative_path,           opts('Copy Relative Path'))
+        vim.keymap.set('n', '<C-i>', api.node.show_info_popup, opts('Info'))
+        vim.keymap.set('n', '<C-r>', api.fs.rename_sub, opts('Rename: Omit Filename'))
+        vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
+        vim.keymap.set('n', '<BS>', api.node.navigate.parent_close, opts('Close Directory'))
+        vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+        vim.keymap.set('n', 'a', api.fs.create, opts('Create File Or Directory'))
+        vim.keymap.set('n', 'B', api.tree.toggle_no_buffer_filter, opts('Toggle Filter: No Buffer'))
+        vim.keymap.set('n', 'c', api.fs.copy.node, opts('Copy'))
+        vim.keymap.set('n', 'C', api.tree.toggle_git_clean_filter, opts('Toggle Filter: Git Clean'))
+        vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
+        vim.keymap.set('n', 'D', api.fs.trash, opts('Trash'))
+        vim.keymap.set('n', 'E', api.tree.expand_all, opts('Expand All'))
+        vim.keymap.set('n', 'F', api.live_filter.clear, opts('Live Filter: Clear'))
+        vim.keymap.set('n', 'f', api.live_filter.start, opts('Live Filter: Start'))
+        vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
+        vim.keymap.set('n', 'gy', api.fs.copy.absolute_path, opts('Copy Absolute Path'))
+        vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Filter: Dotfiles'))
+        vim.keymap.set('n', 'I', api.tree.toggle_gitignore_filter, opts('Toggle Filter: Git Ignore'))
+        vim.keymap.set('n', 'M', api.tree.toggle_no_bookmark_filter, opts('Toggle Filter: No Bookmark'))
+        vim.keymap.set('n', 'm', api.marks.toggle, opts('Toggle Bookmark'))
+        vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
+        vim.keymap.set('n', 'O', api.node.open.no_window_picker, opts('Open: No Window Picker'))
+        vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
+        vim.keymap.set('n', 'P', api.node.navigate.parent, opts('Parent Directory'))
+        vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+        vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
+        vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
+        vim.keymap.set('n', 'S', api.tree.search_node, opts('Search'))
+        vim.keymap.set('n', 'W', api.tree.collapse_all, opts('Collapse'))
+        vim.keymap.set('n', 'x', api.fs.cut, opts('Cut'))
+        vim.keymap.set('n', 'y', api.fs.copy.filename, opts('Copy Name'))
+        vim.keymap.set('n', 'Y', api.fs.copy.relative_path, opts('Copy Relative Path'))
         -- custom mappings
         vim.keymap.set('n', '<C-e>', api.tree.toggle, opts('Toggle'))
         vim.keymap.set('n', '<C-s>', api.node.open.horizontal, opts('Open: Horizontal Split'))
@@ -359,7 +359,7 @@ require('lazy').setup({
             '--column',
             '--smart-case',
             '--trim',
-         },
+          },
         },
         pickers = {
           find_files = {
@@ -450,7 +450,7 @@ require('lazy').setup({
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         vim.api.nvim_set_hl(0, 'RainbowGold', { ctermfg = 11, fg = '#ffd700' })
-        vim.api.nvim_set_hl(0, 'RainbowOrchid', { ctermfg = 9,fg = '#da70d6' })
+        vim.api.nvim_set_hl(0, 'RainbowOrchid', { ctermfg = 9, fg = '#da70d6' })
         vim.api.nvim_set_hl(0, 'RainbowLightSkyBlue', { ctermfg = 14, fg = '#87cefa' })
       end)
 
@@ -491,7 +491,7 @@ vim.o.fileencodings = 'utf-8,sjis'
 vim.o.fileformats = 'unix,dos,mac'
 vim.o.spelllang = 'en,cjk'
 vim.o.backspace = 'indent,eol,start'
-vim.o.clipboard= 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
 
 vim.keymap.set('n', '<C-j>', '<C-w>j')
@@ -501,7 +501,7 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<ESC><ESC>', ':nohl<CR>', { silent = true })
 
 -- Remove trailing whitespace when saving the file
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = { '*' },
   command = '%s/\\s\\+$//e'
 })
