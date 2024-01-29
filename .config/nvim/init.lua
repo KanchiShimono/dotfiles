@@ -42,6 +42,11 @@ require('lazy').setup({
       local cmp = require('cmp')
 
       cmp.setup({
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
+        },
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -61,6 +66,8 @@ require('lazy').setup({
               fallback()
             end
           end,
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<CR>'] = cmp.mapping.confirm({ select = true })
         }),
         matching = {
@@ -71,6 +78,8 @@ require('lazy').setup({
           disallow_prefix_unmatching = false,
         },
         sources = cmp.config.sources({
+          { name = 'luasnip' },
+          { name = 'nvim_lsp' },
           { name = 'buffer' },
           { name = 'path' },
         }),
@@ -97,22 +106,104 @@ require('lazy').setup({
           { name = 'cmdline' },
         }),
       })
+
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lspconfig = require('lspconfig')
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        on_init = function(client)
+          local path = client.workspace_folders[1].name
+          if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+            client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+              Lua = {
+                runtime = {
+                  -- Tell the language server which version of Lua you're using
+                  -- (most likely LuaJIT in the case of Neovim)
+                  version = 'LuaJIT'
+                },
+                -- Make the server aware of Neovim runtime files
+                workspace = {
+                  checkThirdParty = false,
+                  library = {
+                    vim.env.VIMRUNTIME
+                    -- "${3rd}/luv/library"
+                    -- "${3rd}/busted/library",
+                  }
+                  -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                  -- library = vim.api.nvim_get_runtime_file("", true)
+                }
+              }
+            })
+
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          end
+          return true
+        end,
+        capabilities = capabilities,
+      })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.ruff_lsp.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.terraformls.setup({
+        capabilities = capabilities,
+      })
+
+      -- Global mappings.
+      -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+      vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+      vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+      -- Use LspAttach autocommand to only map the following keys
+      -- after the language server attaches to the current buffer
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(ev)
+          -- Enable completion triggered by <c-x><c-o>
+          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+          -- Buffer local mappings.
+          -- See `:help vim.lsp.*` for documentation on any of the below functions
+          local opts = { buffer = ev.buf }
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+          vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          vim.keymap.set('n', '<space>wl', function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          end, opts)
+          vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+          vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', '<space>f', function()
+            vim.lsp.buf.format { async = true }
+          end, opts)
+        end,
+      })
     end,
   },
-  {
-    'hrsh7th/cmp-buffer',
-  },
-  {
-    'hrsh7th/cmp-path',
-  },
-  {
-    'hrsh7th/cmp-cmdline',
-  },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-cmdline' },
   {
     'petertriho/cmp-git',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'L3MON4D3/LuaSnip' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'neovim/nvim-lspconfig' },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -120,7 +211,7 @@ require('lazy').setup({
       local configs = require('nvim-treesitter.configs')
 
       configs.setup({
-        ensure_installed = { 'c', 'go', 'lua', 'python', 'query', 'vim', 'vimdoc' },
+        ensure_installed = { 'c', 'go', 'lua', 'python', 'query', 'terraform', 'vim', 'vimdoc' },
         highlight = { enable = true },
         indent = { enable = true },
       })
@@ -272,9 +363,7 @@ require('lazy').setup({
       extensions = { 'lazy', 'nvim-tree' },
     },
   },
-  {
-    'tyru/caw.vim',
-  },
+  { 'tyru/caw.vim' },
   {
     'Vonr/align.nvim',
     branch = 'v2',
@@ -311,9 +400,7 @@ require('lazy').setup({
       require('scrollbar.handlers.search').setup()
     end
   },
-  {
-    'HiPhish/rainbow-delimiters.nvim',
-  },
+  { 'HiPhish/rainbow-delimiters.nvim' },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
@@ -386,3 +473,18 @@ vim.api.nvim_create_autocmd({'BufWritePre'}, {
   pattern = { '*' },
   command = '%s/\\s\\+$//e'
 })
+
+local function get_python_host_prog()
+  local venv_path = os.getenv('VIRTUAL_ENV')
+  if venv_path then
+    local python_path = vim.fn.glob(venv_path .. '/bin/python')
+    if python_path ~= '' then
+      return vim.fn.system('which python'):gsub('\n', '')
+    end
+  end
+  return nil
+end
+
+if get_python_host_prog() then
+  vim.g.python3_host_prog = get_python_host_prog()
+end
