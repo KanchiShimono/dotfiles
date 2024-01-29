@@ -2,4 +2,5 @@
 .DS_Store
 *.swp
 .config/karabiner/automatic_backups/
+.config/nvim/lazy-lock.json
 .config/matplotlib/font*.json
