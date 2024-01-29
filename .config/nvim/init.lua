@@ -30,11 +30,13 @@ require('lazy').setup({
   },
   {
     'KeitaNakamura/neodark.vim',
+    enabled = false,
     config = function()
       vim.o.background = 'dark'
       vim.g['neodark#use_custom_terminal_theme'] = 1
     end,
   },
+  { 'dracula/vim' },
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -499,7 +501,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<ESC><ESC>', ':nohl<CR>', { silent = true })
 
-vim.cmd.colorscheme 'neodark'
+vim.cmd.colorscheme 'dracula'
 
 -- Remove trailing whitespace when saving the file
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

@@ -26,8 +26,12 @@ github = "zsh-users/zsh-completions"
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ["{{ name }}.zsh"]
-[plugins.zsh-autosuggestions.hooks]
-post = "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=white\""
+# [plugins.zsh-autosuggestions.hooks]
+# # For using neodark in Alacritty
+# post = "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=white\""
+
+[plugins.dracula-zsh-syntax-highlighting]
+github = "dracula/zsh-syntax-highlighting"
 
 # zsh-syntax-highlighting must be put the end of .zshrc
 # Refer to following FAQ
