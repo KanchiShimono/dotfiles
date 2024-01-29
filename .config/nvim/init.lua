@@ -211,7 +211,30 @@ require('lazy').setup({
       local configs = require('nvim-treesitter.configs')
 
       configs.setup({
-        ensure_installed = { 'c', 'go', 'lua', 'python', 'query', 'terraform', 'vim', 'vimdoc' },
+        ensure_installed = {
+          'bash',
+          'c',
+          'diff',
+          'dockerfile',
+          'git_config',
+          'git_rebase',
+          'gitattributes',
+          'gitcommit',
+          'gitignore',
+          'go',
+          'gomod',
+          'gosum',
+          'gowork',
+          'json',
+          'jsonc',
+          'lua',
+          'python',
+          'query',
+          'rust',
+          'terraform',
+          'vim',
+          'vimdoc',
+        },
         highlight = { enable = true },
         indent = { enable = true },
       })
