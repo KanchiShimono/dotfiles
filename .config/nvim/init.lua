@@ -36,7 +36,10 @@ require('lazy').setup({
       vim.g['neodark#use_custom_terminal_theme'] = 1
     end,
   },
-  { 'dracula/vim' },
+  {
+    'dracula/vim',
+    name = 'dracula',
+  },
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -235,6 +238,7 @@ require('lazy').setup({
           'terraform',
           'vim',
           'vimdoc',
+          'yaml',
         },
         highlight = { enable = true },
         indent = { enable = true },
@@ -422,7 +426,12 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup()
+      require('gitsigns').setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+          delay = 0
+        },
+      })
       require('scrollbar.handlers.gitsigns').setup()
     end
   },
@@ -431,6 +440,13 @@ require('lazy').setup({
     config = function()
       -- require('hlslens').setup() is not required
       require('scrollbar.handlers.search').setup()
+    end
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      vim.o.termguicolors = true
+      require('colorizer').setup({ '*' })
     end
   },
   { 'HiPhish/rainbow-delimiters.nvim' },
