@@ -5,7 +5,7 @@ program = "/bin/zsh"
 args = [
   "-l",
   "-c",
-  "source ~/dev/src/github.com/KanchiShimono/dotfiles/bin/tmuxx",
+  "source ~/.zshrc; tmuxx",
 ]
 
 
