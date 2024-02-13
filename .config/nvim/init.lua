@@ -30,10 +30,15 @@ require('lazy').setup({
   },
   {
     'KeitaNakamura/neodark.vim',
+    enabled = false,
     config = function()
       vim.o.background = 'dark'
       vim.g['neodark#use_custom_terminal_theme'] = 1
     end,
+  },
+  {
+    'dracula/vim',
+    name = 'dracula',
   },
   {
     'hrsh7th/nvim-cmp',
@@ -233,6 +238,7 @@ require('lazy').setup({
           'terraform',
           'vim',
           'vimdoc',
+          'yaml',
         },
         highlight = { enable = true },
         indent = { enable = true },
@@ -335,10 +341,14 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
     config = function()
+      local telescope = require('telescope')
       local actions = require('telescope.actions')
-      require('telescope').setup({
+      telescope.setup({
         defaults = {
           mappings = {
             i = {
@@ -365,7 +375,13 @@ require('lazy').setup({
             hidden = true,
           },
         },
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown({})
+          },
+        },
       })
+      telescope.load_extension('ui-select')
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<C-p>', builtin.find_files)
       vim.keymap.set('n', '<C-o>', builtin.live_grep)
@@ -420,7 +436,12 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup()
+      require('gitsigns').setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+          delay = 0
+        },
+      })
       require('scrollbar.handlers.gitsigns').setup()
     end
   },
@@ -429,6 +450,13 @@ require('lazy').setup({
     config = function()
       -- require('hlslens').setup() is not required
       require('scrollbar.handlers.search').setup()
+    end
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      vim.o.termguicolors = true
+      require('colorizer').setup({ '*' })
     end
   },
   { 'HiPhish/rainbow-delimiters.nvim' },
@@ -444,7 +472,7 @@ require('lazy').setup({
         'RainbowOrchid',
         'RainbowLightSkyBlue',
       }
-      local hooks = require 'ibl.hooks'
+      local hooks = require('ibl.hooks')
       -- create the highlight groups in the highlight setup hook, so they are reset
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
@@ -499,7 +527,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<ESC><ESC>', ':nohl<CR>', { silent = true })
 
-vim.cmd.colorscheme 'neodark'
+vim.cmd.colorscheme 'dracula'
 
 -- Remove trailing whitespace when saving the file
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
