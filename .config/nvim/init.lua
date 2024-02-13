@@ -341,10 +341,14 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
     config = function()
+      local telescope = require('telescope')
       local actions = require('telescope.actions')
-      require('telescope').setup({
+      telescope.setup({
         defaults = {
           mappings = {
             i = {
@@ -371,7 +375,13 @@ require('lazy').setup({
             hidden = true,
           },
         },
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown({})
+          },
+        },
       })
+      telescope.load_extension('ui-select')
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<C-p>', builtin.find_files)
       vim.keymap.set('n', '<C-o>', builtin.live_grep)
@@ -462,7 +472,7 @@ require('lazy').setup({
         'RainbowOrchid',
         'RainbowLightSkyBlue',
       }
-      local hooks = require 'ibl.hooks'
+      local hooks = require('ibl.hooks')
       -- create the highlight groups in the highlight setup hook, so they are reset
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
