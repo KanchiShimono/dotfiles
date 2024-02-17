@@ -532,7 +532,12 @@ vim.cmd.colorscheme 'dracula'
 -- Remove trailing whitespace when saving the file
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = { '*' },
-  command = '%s/\\s\\+$//e'
+  callback = function()
+    local excluded_filetypes = { 'gitcommit' }
+    if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
+      vim.cmd('%s/\\s\\+$//e')
+    end
+  end
 })
 
 local function get_python_host_prog()
