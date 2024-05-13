@@ -4,16 +4,6 @@
 export PATH="$PATH:$DOTROOT/bin"
 # export GOPATH=$HOME/dev
 
-# pure prompt
-# ------------------------------------------------------------------------------
-npm install --global pure-prompt
-
-# npm packages
-# ------------------------------------------------------------------------------
-npm install --global tern
-npm install --global neovim
-npm install --global create-react-app
-
 # packages for python
 # ------------------------------------------------------------------------------
 # pip3 install \
@@ -45,7 +35,7 @@ npm install --global create-react-app
 
 # Haskell
 # ------------------------------------------------------------------------------
-stack setup
+# stack setup
 
 # go
 # ------------------------------------------------------------------------------
@@ -72,12 +62,12 @@ stack setup
 
 # julia
 # ------------------------------------------------------------------------------
-julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
-    PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
-    BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff \
-    PkgDev;
-julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
-    https://github.com/KanchiShimono/CubicEquation.jl \
-    https://github.com/KeitaNakamura/LinearEquations.jl \
-    https://github.com/KeitaNakamura/ElementTestSimulator.jl \
-    https://github.com/KeitaNakamura/PyPlotUtils.jl;
+# julia -e 'for x in ARGS; Pkg.add("$x"); end;' \
+#     PyPlot ProgressMeter DataFrames IJulia ParallelAccelerator HDF5 Lint \
+#     BenchmarkTools DocOpt Gadfly Plotly ProfileView Images ForwardDiff \
+#     PkgDev;
+# julia -e 'for x in ARGS; Pkg.clone("$x"); end;' \
+#     https://github.com/KanchiShimono/CubicEquation.jl \
+#     https://github.com/KeitaNakamura/LinearEquations.jl \
+#     https://github.com/KeitaNakamura/ElementTestSimulator.jl \
+#     https://github.com/KeitaNakamura/PyPlotUtils.jl;

@@ -27,7 +27,6 @@ brew install rye
 #---------------------------------------------------------------------------
 brew install cmake
 brew install tmux
-brew install fzf
 brew install sk
 brew install ctags
 brew install pandoc
