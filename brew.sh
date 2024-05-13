@@ -67,6 +67,7 @@ brew install wget
 #---------------------------------------------------------------------------
 brew install docker
 brew install mise
+brew install jdx/tap/usage
 
 # Data Science
 #---------------------------------------------------------------------------
