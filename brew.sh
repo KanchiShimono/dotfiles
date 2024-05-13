@@ -20,6 +20,8 @@ brew install llvm
 brew install boost
 brew install eigen
 brew install libomp
+# Python
+brew install rye
 
 # Shell Utilities
 #---------------------------------------------------------------------------
