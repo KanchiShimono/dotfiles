@@ -1,8 +1,7 @@
-autoload -Uz compinit
-compinit -u
+autoload -Uz compinit && compinit -u
+autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=1
-# compdef -d brew
 
 if type "kubectl" > /dev/null 2>&1; then
 	source <(kubectl completion zsh)
@@ -12,4 +11,7 @@ if type "k9s" > /dev/null 2>&1; then
 fi
 if type "kompose" > /dev/null 2>&1; then
 	source <(kompose completion zsh)
+fi
+if type "terraform" > /dev/null 2>&1; then
+	complete -o nospace -C terraform terraform
 fi
