@@ -8,6 +8,8 @@ export GOOS="darwin"
 export GOARCH="amd64"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.rye/shims:$PATH"
+export KUBE_EDITOR=/usr/local/bin/nvim
 export QT_HOMEBREW=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 # Avoid crashing macOS Mojave when use python multiprocessing

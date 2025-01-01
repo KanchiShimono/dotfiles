@@ -94,7 +94,7 @@
 
   "diffEditor.ignoreTrimWhitespace": false,
 
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Dracula Theme",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     // Respect for bracket-pair-colorizer colors
@@ -236,12 +236,15 @@
   },
 
   "python.languageServer": "Pylance",
+  "python.locator": "native",
   "python.autoUpdateLanguageServer": true,
   "python.autoComplete.addBrackets": true,
+  "python.analysis.autoImportCompletions": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.diagnosticMode": "workspace",
   "jupyter.interactiveWindow.creationMode": "perFile",
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "mypy-type-checker.importStrategy": "fromEnvironment",
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,
   "pyright.useLibraryCodeForTypes": true,

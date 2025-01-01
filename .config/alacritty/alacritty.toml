@@ -1,6 +1,7 @@
-import = ["~/.config/alacritty/themes/dracula.toml"]
+[general]
+import = ["themes/dracula.toml"]
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = [
   "-l",

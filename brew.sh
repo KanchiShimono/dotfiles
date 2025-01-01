@@ -20,12 +20,13 @@ brew install llvm
 brew install boost
 brew install eigen
 brew install libomp
+# Python
+brew install rye
 
 # Shell Utilities
 #---------------------------------------------------------------------------
 brew install cmake
 brew install tmux
-brew install fzf
 brew install sk
 brew install ctags
 brew install pandoc
@@ -67,6 +68,7 @@ brew install wget
 #---------------------------------------------------------------------------
 brew install docker
 brew install mise
+brew install jdx/tap/usage
 
 # Data Science
 #---------------------------------------------------------------------------

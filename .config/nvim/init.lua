@@ -229,6 +229,7 @@ require('lazy').setup({
           'gomod',
           'gosum',
           'gowork',
+          'javascript',
           'json',
           'jsonc',
           'lua',
@@ -236,6 +237,8 @@ require('lazy').setup({
           'query',
           'rust',
           'terraform',
+          'tsx',
+          'typescript',
           'vim',
           'vimdoc',
           'yaml',
@@ -502,7 +505,7 @@ vim.o.list = true
 vim.o.listchars = 'tab:-->,space:·,nbsp:%'
 vim.o.incsearch = true
 vim.o.whichwrap = 'b,s,h,l,<,>,[,]'
-vim.o.colorcolumn = 80
+vim.o.colorcolumn = '80'
 vim.o.laststatus = 2
 vim.o.synmaxcol = 350
 vim.o.wrap = false
@@ -532,7 +535,12 @@ vim.cmd.colorscheme 'dracula'
 -- Remove trailing whitespace when saving the file
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = { '*' },
-  command = '%s/\\s\\+$//e'
+  callback = function()
+    local excluded_filetypes = { 'gitcommit' }
+    if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
+      vim.cmd('%s/\\s\\+$//e')
+    end
+  end
 })
 
 local function get_python_host_prog()

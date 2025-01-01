@@ -18,7 +18,7 @@
 	trustExitCode = true
 [user]
 	name = Kanchi Shimono
-	email = dev.kanchi.shimono@gmail.com
+	email = 17161397+KanchiShimono@users.noreply.github.com
 [srcmgr]
 	root = ~/dev/src
 	root = ~/.local/share/nvim/lazy
