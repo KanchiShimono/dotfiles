@@ -12,6 +12,8 @@
 # export GOPATH="$HOME/dev"
 # export PATH="$PATH:$GOPATH/bin"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 if command -v mise 1>/dev/null 2>&1; then
     eval "$(mise activate zsh)"
     # Enable zsh completion for tools installed with mise
