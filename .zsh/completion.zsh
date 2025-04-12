@@ -3,6 +3,12 @@ autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=1
 
+if type "docker" > /dev/null 2>&1; then
+	source <(docker completion zsh)
+fi
+if type "nerdctl" > /dev/null 2>&1 && nerdctl help > /dev/null 2>&1; then
+	source <(nerdctl completion zsh)
+fi
 if type "kubectl" > /dev/null 2>&1; then
 	source <(kubectl completion zsh)
 fi
@@ -11,6 +17,9 @@ if type "k9s" > /dev/null 2>&1; then
 fi
 if type "kompose" > /dev/null 2>&1; then
 	source <(kompose completion zsh)
+fi
+if type "rdctl" > /dev/null 2>&1; then
+	source <(rdctl completion zsh)
 fi
 if type "terraform" > /dev/null 2>&1; then
 	complete -o nospace -C terraform terraform
