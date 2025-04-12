@@ -150,7 +150,7 @@ require('lazy').setup({
       lspconfig.pylsp.setup({
         capabilities = capabilities,
       })
-      lspconfig.ruff_lsp.setup({
+      lspconfig.ruff.setup({
         capabilities = capabilities,
       })
       lspconfig.terraformls.setup({
