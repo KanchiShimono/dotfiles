@@ -89,6 +89,8 @@
   "notebook.showCellStatusBar": "visible",
 
   "git.enabled": true,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
   "git.showCommitInput": true,
   "git.showProgress": true,
 
@@ -192,6 +194,8 @@
   ],
 
   "path-intellisense.showHiddenFiles": true,
+
+  "chat.agent.enabled": true,
 
   "vsintellicode.java.completionsEnabled": true,
   "vsintellicode.python.completionsEnabled": true,
