@@ -3,10 +3,32 @@
 
 continuation_prompt = "[▶](bright-green)"
 
+[profiles]
+claude-code = "$directory$git_branch$claude_model$claude_context$claude_cost"
+
 [character]
 success_symbol = "[❯❯❯](bold green)"
 error_symbol = "[❯❯❯](bold red)"
 vicmd_symbol = "[❮❮❮](bold green)"
+
+[claude_context]
+gauge_width = 10
+
+[[claude_context.display]]
+threshold = 0
+style = "bold cyan"
+
+[[claude_context.display]]
+threshold = 30
+style = "bold green"
+
+[[claude_context.display]]
+threshold = 60
+style = "bold yellow"
+
+[[claude_context.display]]
+threshold = 80
+style = "bold red"
 
 [directory]
 truncation_length = 0
