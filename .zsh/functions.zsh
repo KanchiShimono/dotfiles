@@ -46,14 +46,7 @@ nvf() {
 
 # search development directory and cd
 function cdd () {
-	# if type srcmgr >/dev/null 2>&1; then
-	# 	local selected_dir=$(srcmgr list | sk --no-multi -q "$LBUFFER")
-	# elif type ghq >/dev/null 2>&1; then
- #    	local selected_dir=$(ghq list --full-path | sk --no-multi -q "$LBUFFER")
-	# else
- #    	local selected_dir=$(src-list | sk --no-multi -q "$LBUFFER")
-	# fi
-	local selected_dir=$(srcmgr list | sk --no-multi -q "$LBUFFER")
+	local selected_dir=$(sm list | sk --no-multi -q "$LBUFFER")
     if [ -n "$selected_dir" ]; then
 		cd "$selected_dir"
     fi
