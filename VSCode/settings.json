@@ -18,7 +18,10 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.rulers": [
-    80, 88, 100, 120
+    80,
+    88,
+    100,
+    120
   ],
   "editor.find.globalFindClipboard": true,
   "editor.quickSuggestions": {
@@ -27,19 +30,23 @@
     "strings": false
   },
 
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
     }
   },
   "[jsx-tags]": {
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -54,7 +61,7 @@
   },
   "[json]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.tabSize": 2,
@@ -69,7 +76,7 @@
     "editor.defaultFormatter": "mrmlnc.vscode-remark",
     "editor.tabSize": 4,
     // Override because default setting for markdown is enable wordWrap
-    "editor.wordWrap": "off",
+    "editor.wordWrap": "off"
   },
   "[terraform]": {
     "editor.formatOnSave": true,
@@ -102,7 +109,7 @@
     // Respect for bracket-pair-colorizer colors
     "editorBracketHighlight.foreground1": "#ffd700", // Gold
     "editorBracketHighlight.foreground2": "#da70d6", // Orchid
-    "editorBracketHighlight.foreground3": "#87cefa", // LightSkyBlue
+    "editorBracketHighlight.foreground3": "#87cefa" // LightSkyBlue
   },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
@@ -115,6 +122,7 @@
   "workbench.fontAliasing": "default",
   "workbench.settings.editor": "json",
   "workbench.editor.languageDetection": true,
+  "workbench.experimental.modernUI": true,
 
   "problems.showCurrentInStatus": true,
 
@@ -129,19 +137,19 @@
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "vue-html": "html",
+    "vue-html": "html"
   },
   "emmet.syntaxProfiles": {
     "html": {
-      "attr_quotes": "single",
+      "attr_quotes": "single"
     },
     "jsx": {
-      "self_closing_tag": true,
-    },
+      "self_closing_tag": true
+    }
   },
 
   "extensions.ignoreRecommendations": false,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
 
   "terminal.integrated.commandsToSkipShell": [
     "language-julia.interrupt"
@@ -158,11 +166,13 @@
   "vim.whichwrap": "h,l,<,>,[,]",
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
-    "<C-d>": true,
+    "<C-d>": true
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["u"],
+      "before": [
+        "u"
+      ],
       "after": [],
       "commands": [
         {
@@ -172,7 +182,9 @@
       ]
     },
     {
-      "before": ["<C-r>"],
+      "before": [
+        "<C-r>"
+      ],
       "after": [],
       "commands": [
         {
@@ -182,7 +194,9 @@
       ]
     },
     {
-      "before": ["<Esc>"],
+      "before": [
+        "<Esc>"
+      ],
       "after": [],
       "commands": [
         {
@@ -235,11 +249,10 @@
   "remark.format": {
     "rules": {
       "listItemIndent": "1",
-      "incrementListMarker": false,
+      "incrementListMarker": false
     }
   },
-
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "python.locator": "native",
   "python.autoUpdateLanguageServer": true,
   "python.autoComplete.addBrackets": true,
@@ -270,7 +283,7 @@
 
   "go.buildOnSave": "off",
   "go.languageServerExperimentalFeatures": {
-    "format": true,
+    "format": true
   },
   "go.useLanguageServer": true,
   "gopls": {
@@ -287,10 +300,6 @@
   "rust-analyzer.updates.channel": "stable",
   "rust-analyzer.updates.askBeforeDownload": true,
 
-  "haskell.hlintOn": true,
-  "haskell.maxNumberOfProblems": 100,
-  "haskell.manageHLS": "PATH",
-
   "yaml.schemaStore.enable": true,
   "yaml.trace.server": "messages",
 
@@ -301,5 +310,9 @@
   "powermode.enabled": true,
   "powermode.presets": "fireworks",
   "powermode.combo.timeout": 60,
-  "powermode.shake.enabled": false
+  "powermode.shake.enabled": false,
+
+  "claudeCode.selectedModel": "default",
+  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.useTerminal": true
 }
